@@ -60,8 +60,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 .hero { padding: 80px 0 0; border-bottom: 1px solid var(--black); }
 .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 .hero__left { padding-bottom: 80px; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin-bottom: 24px; max-width: 560px; }
-.hero__sub { font-size: 1.05rem; color: var(--mid); line-height: 1.6; margin-bottom: 32px; max-width: 500px; }
+.hero h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 24px; max-width: 720px; }
+.hero h1 .nobreak { white-space: nowrap; }
+.hero__sub { font-size: 1.05rem; color: var(--mid); line-height: 1.6; margin-bottom: 24px; max-width: 500px; }
+.hero__caps { list-style: none; margin: 0 0 32px; padding: 0; max-width: 520px; }
+.hero__caps li { display: flex; gap: 18px; padding: 3px 0; font-size: 0.9rem; color: var(--black); line-height: 1.5; }
+.hero__caps li::before { content: '—'; flex-shrink: 0; font-weight: 700; color: var(--black); }
 .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
 .hero__right { background: var(--dark); border: 1px solid #333; padding: 24px; position: relative; margin-bottom: -1px; }
 .hero__ui { display: flex; flex-direction: column; gap: 12px; }
@@ -271,9 +275,17 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="container">
 <div class="hero__grid">
 <div class="hero__left">
-<p class="eyebrow">Production Bidding, Automated</p>
-<h1>Turn a creative brief into a defensible, market-accurate production bid in minutes.</h1>
-<p class="hero__sub">BidFrame reads the brief, drafts a complete AICP-format bid, applies verified market rates, flags risk and missing costs, and exports a client-ready estimate.</p>
+<p class="eyebrow">Bid Drafting, Automated</p>
+<h1>From creative brief to client-ready bid in minutes.</h1>
+<p class="hero__sub">BidFrame reads the brief and builds a defensible bid. Every rate sourced. Every risk audited. Every scenario comparable. Exports to AICP, Excel, or a branded deck.</p>
+<ul class="hero__caps">
+<li>Brief parsing (PDF, Word, deck, pasted text)</li>
+<li>Rate provenance on every line item</li>
+<li>In-depth risk audit before export</li>
+<li>Confidence scoring from ballpark to locked budget</li>
+<li>Scenario comparison with per-line deltas</li>
+<li>Multi-format export (AICP, Excel, branded deck)</li>
+</ul>
 <div class="hero__ctas">
 <a href="#demo" class="btn btn--primary">Book a Demo</a>
 <a href="#deep" class="btn btn--secondary">See Sample Bid</a>
@@ -284,10 +296,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="ui-panel">
 <div class="ui-panel__title">Brief Parsing</div>
 <div class="ui-panel__row"><span>Format detected</span><span>PDF / 12 pages</span></div>
-<div class="ui-panel__row"><span>Deliverables</span><span>3 x :30 spots</span></div>
-<div class="ui-panel__row"><span>Shoot days</span><span>2 studio + 1 location</span></div>
-<div class="ui-panel__row"><span>Union status</span><span>SAG-AFTRA</span></div>
+<div class="ui-panel__row"><span>Deliverables</span><span>3 &times; :30 spots</span></div>
+<div class="ui-panel__row"><span>Schedule</span><span>2 prep / 3 shoot / 1 wrap</span></div>
+<div class="ui-panel__row"><span>Locations</span><span>1 studio + 1 practical, NYC</span></div>
 <div class="ui-panel__row"><span>Usage</span><span>Broadcast + Digital / 1 yr</span></div>
+<div class="ui-panel__row"><span>Budget range</span><span>$350K &ndash; $500K</span></div>
 </div>
 <div class="ui-panel">
 <div class="ui-panel__title">Bid Builder &mdash; AICP Sections</div>
@@ -306,9 +319,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 </div>
 <div class="ui-panel ui-panel--risk">
 <div class="ui-panel__title">Risk Review</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> No medic line &mdash; union shoot requires set medic</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency below 8% threshold</div>
-<div class="ui-flag"><span class="ui-flag__icon"></span> OT exposure on Day 2 &mdash; 14hr call</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 6% &mdash; below 10% threshold</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music sync license without master use rights</div>
+<div class="ui-flag"><span class="ui-flag__icon"></span> 4 deliverables, no versioning budget</div>
 </div>
 <div class="ui-panel">
 <div class="ui-panel__title">Export Status</div>
@@ -317,6 +330,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <span class="ui-export-tag">Client HTML</span>
 <span class="ui-export-tag">CSV</span>
 <span class="ui-export-tag">XLSX</span>
+<span class="ui-export-tag" style="border-style:dashed;opacity:0.6;">Shareable Link · Soon</span>
 </div>
 </div>
 </div>
@@ -329,10 +343,10 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="metrics">
 <div class="container">
 <div class="metrics__grid">
-<div class="metrics__cell"><div class="metrics__val">30&ndash;100</div><div class="metrics__label">Drafted Line Items</div></div>
-<div class="metrics__cell"><div class="metrics__val">12</div><div class="metrics__label">Risk Checks</div></div>
-<div class="metrics__cell"><div class="metrics__val">15-Factor</div><div class="metrics__label">Confidence Score</div></div>
-<div class="metrics__cell"><div class="metrics__val">200+</div><div class="metrics__label">Known Production Roles</div></div>
+<div class="metrics__cell"><div class="metrics__val">Up to 70</div><div class="metrics__label">Drafted Line Items</div></div>
+<div class="metrics__cell"><div class="metrics__val">30+</div><div class="metrics__label">Risk Checks</div></div>
+<div class="metrics__cell"><div class="metrics__val">16-Factor</div><div class="metrics__label">Confidence Score</div></div>
+<div class="metrics__cell"><div class="metrics__val">400+</div><div class="metrics__label">Rate-Sourced Roles</div></div>
 <div class="metrics__cell"><div class="metrics__val">A&ndash;P</div><div class="metrics__label">AICP Sections</div></div>
 <div class="metrics__cell"><div class="metrics__val">13</div><div class="metrics__label">State Tax Incentives</div></div>
 </div>
@@ -346,22 +360,23 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="problem__grid">
 <div class="problem__col">
 <div class="problem__col-title">The Old Workflow</div>
-<div class="problem__item">Producer reads a PDF brief manually</div>
-<div class="problem__item">Starts from a blank Excel estimate</div>
-<div class="problem__item">Builds line items from memory</div>
-<div class="problem__item">Looks up union rates and fringe manually</div>
-<div class="problem__item">Misses medic, OT, contingency, or versioning</div>
-<div class="problem__item">Emails static PDFs with no real version history</div>
+<div class="problem__item">Read a 14-page PDF brief and dig for the scope</div>
+<div class="problem__item">Open Excel or legacy budgeting software and stare at a blank template</div>
+<div class="problem__item">Build line items from memory</div>
+<div class="problem__item">Guess if the director fee is market-rate</div>
+<div class="problem__item">Forget contingency, music gaps, or versioning costs</div>
+<div class="problem__item">Argue scope changes from memory</div>
+<div class="problem__item">Send a static PDF and hope nothing's missing</div>
 </div>
 <div class="problem__col problem__col--new">
 <div class="problem__col-title">With BidFrame</div>
-<div class="problem__item">Brief parsed into structured production data</div>
-<div class="problem__item">First-pass bid drafted automatically</div>
-<div class="problem__item">Verified rate calculations built in</div>
-<div class="problem__item">Risk gaps flagged before export</div>
-<div class="problem__item">Tax incentive eligibility surfaced automatically</div>
-<div class="problem__item">Scenario comparison and version history included</div>
-<div class="problem__item">Client-ready export delivered faster</div>
+<div class="problem__item">Brief parsed into structured production data in seconds</div>
+<div class="problem__item">First-pass bid drafted in minutes, not days</div>
+<div class="problem__item">Sourced rates auto-populated by market</div>
+<div class="problem__item">Every number tagged with its source</div>
+<div class="problem__item">In-depth risk audit catches the costly misses</div>
+<div class="problem__item">Every scope change tracked vs. approved baseline</div>
+<div class="problem__item">Export in AICP, your Excel template, or a branded deck</div>
 </div>
 </div>
 </div>
@@ -425,7 +440,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="feature">
 <div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><polygon points="8,1 10,6 15,6 11,9 12,14 8,11 4,14 5,9 1,6 6,6"/></svg></div>
 <div class="feature__title">Risk Engine</div>
-<div class="feature__copy">Flags missing medic, usage gaps, thin post budgets, no contingency, OT exposure, and structural issues before export.</div>
+<div class="feature__copy">Flags low or missing contingency, music licensing gaps, missing versioning costs, thin post budgets, OT exposure, and other structural issues before export.</div>
 </div>
 <div class="feature">
 <div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><polyline points="2,14 2,2 14,2"/><polyline points="4,10 7,6 10,8 14,3"/></svg></div>
@@ -440,12 +455,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="feature">
 <div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><polyline points="2,8 6,12 14,4"/><line x1="8" y1="2" x2="8" y2="6" stroke-dasharray="2,2"/></svg></div>
 <div class="feature__title">Scope Drift Tracking</div>
-<div class="feature__copy">Track changes from an approved baseline and support cleaner change-order conversations.</div>
+<div class="feature__copy">When the agency adds rounds, cuts, or shoot days mid-project, every change is tracked against the approved baseline. Generate a clean change order in one click &mdash; no more arguing from memory.</div>
 </div>
 <div class="feature" id="exports">
 <div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><rect x="3" y="1" width="10" height="14"/><line x1="6" y1="5" x2="10" y2="5"/><line x1="6" y1="8" x2="10" y2="8"/><line x1="6" y1="11" x2="9" y2="11"/></svg></div>
 <div class="feature__title">Export Suite</div>
-<div class="feature__copy">Deliver AICP HTML, client-facing HTML, CSV, and XLSX outputs.</div>
+<div class="feature__copy">Deliver AICP HTML, client-facing HTML, CSV, and XLSX outputs. Shareable BidFrame links coming soon.</div>
 </div>
 </div>
 </div>
@@ -490,24 +505,55 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="container">
 <div class="deep__grid">
 <div>
-<p class="eyebrow">Union Logic</p>
-<h3 class="deep__title">Union logic without manual contract math.</h3>
-<p class="deep__copy">Session fees, fitting fees, P&amp;H, fringe floors, usage terms, and market sensitivity presented as visible, reviewable logic instead of hidden spreadsheet formulas. Every rate carries its source. Every calculation is editable.</p>
+<p class="eyebrow">Brief Parsing</p>
+<h3 class="deep__title">Every field the AI extracts &mdash; automatically.</h3>
+<p class="deep__copy">When a creative brief hits your inbox, BidFrame parses it into structured production data in seconds. Format, scope, talent, deliverables, schedule, usage, budget, special requirements &mdash; all extracted from a single upload. Conservative by design: when a field isn't in the brief, it stays null. Producer-confirmed intake data always overrides what the AI extracts.</p>
 </div>
 <div class="deep__visual">
 <div class="ui-panel">
-<div class="ui-panel__title">Rate Provenance &mdash; SAG-AFTRA</div>
-<div class="ui-panel__row"><span>On-Camera Principal (Session)</span><span>$783.00</span></div>
-<div class="ui-panel__row"><span>Fitting Fee (50%)</span><span>$391.50</span></div>
-<div class="ui-panel__row"><span>P&amp;H (23.5%)</span><span>$276.01</span></div>
-<div class="ui-panel__row"><span>Fringe Floor Check</span><span>PASS</span></div>
+<div class="ui-panel__title">Brief Parsing</div>
+<div class="ui-panel__row"><span>Format detected</span><span>PDF / 12 pages</span></div>
+<div class="ui-panel__row"><span>Project type</span><span>Commercial</span></div>
+<div class="ui-panel__row"><span>Client / Brand</span><span>Nike / Nike Air Max</span></div>
+<div class="ui-panel__row"><span>Deliverables</span><span>3 &times; :30, 16:9 + 9:16</span></div>
+<div class="ui-panel__row"><span>Schedule</span><span>2 prep / 3 shoot / 1 wrap</span></div>
+<div class="ui-panel__row"><span>Locations</span><span>1 studio + 1 practical, NYC</span></div>
+<div class="ui-panel__row"><span>Talent</span><span>3 principals, 20 background</span></div>
+<div class="ui-panel__row"><span>Usage</span><span>Broadcast + Digital / 1 yr / US</span></div>
+<div class="ui-panel__row"><span>Budget range</span><span>$350K &ndash; $500K</span></div>
+<div class="ui-panel__row"><span>Special requirements</span><span>Stunts, food styling</span></div>
+<div class="ui-panel__row"><span>Key questions</span><span>4 flagged for producer</span></div>
+<p style="font-size:0.7rem;color:#888;margin-top:12px;line-height:1.5;">Also detects agency, VFX scope, post scope, production timeline, and more. Conservative extraction &mdash; null when uncertain, never guesses.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="deep">
+<div class="container">
+<div class="deep__grid">
+<div>
+<p class="eyebrow">Rate Provenance</p>
+<h3 class="deep__title">Every rate has a source. No more "trust me."</h3>
+<p class="deep__copy">When someone asks where a number came from, you have a specific answer. Every line item carries its provenance: parsed from the brief, pulled from a published union scale, matched to your company's rate card, or sourced from a verified market baseline. Hover any value to see exactly where it came from and when it was last verified.</p>
+</div>
+<div class="deep__visual">
+<div class="ui-panel">
+<div class="ui-panel__title">Rate Sources &mdash; Example Bid</div>
+<div class="ui-panel__row"><span>Director (DGA Commercial Min)</span><span>$1,841 &middot; UNION</span></div>
+<div class="ui-panel__row"><span>1st AD (DGA Commercial Min)</span><span>$1,280 &middot; UNION</span></div>
+<div class="ui-panel__row"><span>DP, NYC (Market Baseline)</span><span>$2,400 &middot; MARKET</span></div>
+<div class="ui-panel__row"><span>Editor (Your Rate Card v2)</span><span>$1,200 &middot; RATE CARD</span></div>
+<div class="ui-panel__row"><span>Craft services (per person/day)</span><span>$45 &middot; INFERRED</span></div>
 </div>
 <div class="ui-panel">
-<div class="ui-panel__title">Union Flags</div>
-<div class="ui-panel__row"><span>Contract</span><span>SAG-AFTRA Commercials</span></div>
-<div class="ui-panel__row"><span>Market</span><span>Network + Cable + Digital</span></div>
-<div class="ui-panel__row"><span>Cycle</span><span>13 weeks</span></div>
-<div class="ui-panel__row"><span>Residual model</span><span>Class A Fixed</span></div>
+<div class="ui-panel__title">Source Legend</div>
+<div class="ui-panel__row"><span>BRIEF</span><span>Extracted from client brief</span></div>
+<div class="ui-panel__row"><span>UNION</span><span>Published contract scale</span></div>
+<div class="ui-panel__row"><span>RATE CARD</span><span>Your organization's rates</span></div>
+<div class="ui-panel__row"><span>MARKET</span><span>Verified market baseline</span></div>
+<div class="ui-panel__row"><span>INFERRED</span><span>AI best-guess &middot; flag for review</span></div>
 </div>
 </div>
 </div>
@@ -520,14 +566,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div>
 <p class="eyebrow">Risk Review</p>
 <h3 class="deep__title">Know what is missing before the client sees it.</h3>
-<p class="deep__copy">Deterministic risk checks, confidence scoring, assumption visibility, and export gating as a structured review process. Improves bid quality and reduces avoidable misses across every estimate.</p>
+<p class="deep__copy">Every bid runs through 30+ checks before it leaves your hands. Contingency, music rights, crew completeness, travel, insurance, post budget &mdash; all audited against industry norms. If something's missing or off, you see it before the client does.</p>
 </div>
 <div class="deep__visual">
 <div class="ui-panel ui-panel--risk">
-<div class="ui-panel__title">Risk Checks &mdash; 9 of 12 Passing</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> No medic line &mdash; required for union shoot</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 5% &mdash; below 8% threshold</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Post budget thin &mdash; 3 deliverables, 1 editor day</div>
+<div class="ui-panel__title">Risk Audit &mdash; 3 Unresolved of 30+</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 5% &mdash; below 10% threshold</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music license incomplete &mdash; sync only, no master use</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Versioning budget thin &mdash; 4 deliverables, 1 editor day</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Usage terms present</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Travel and per diem covered</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Insurance line included</div>
