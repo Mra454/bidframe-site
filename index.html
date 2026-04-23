@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 .hero__sub { font-size: 1.05rem; color: var(--mid); line-height: 1.6; margin-bottom: 24px; max-width: 500px; }
 .hero__caps { list-style: none; margin: 0 0 32px; padding: 0; max-width: 520px; }
 .hero__caps li { display: flex; gap: 18px; padding: 3px 0; font-size: 0.9rem; color: var(--black); line-height: 1.5; }
-.hero__caps li::before { content: '—'; flex-shrink: 0; font-weight: 700; color: var(--black); }
+.hero__caps li::before { content: '-'; flex-shrink: 0; font-weight: 700; color: var(--black); }
 .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
 .hero__right { background: var(--dark); border: 1px solid #333; padding: 24px; position: relative; margin-bottom: -1px; }
 .hero__ui { display: flex; flex-direction: column; gap: 12px; }
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 .problem__col--new .problem__col-title { border-bottom-color: var(--black); }
 .problem__item { display: flex; gap: 10px; padding: 8px 0; font-size: 0.9rem; line-height: 1.5; color: var(--mid); }
 .problem__col--new .problem__item { color: var(--black); }
-.problem__item::before { content: '—'; flex-shrink: 0; font-weight: 700; }
+.problem__item::before { content: '-'; flex-shrink: 0; font-weight: 700; }
 .problem__col--new .problem__item::before { content: '+'; }
 
 /* HOW IT WORKS */
@@ -277,12 +277,13 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <h1>From creative brief to client-ready bid in minutes.</h1>
 <p class="hero__sub">BidFrame parses the brief and builds a defensible bid.</p>
 <ul class="hero__caps">
-<li>Parses briefs from PDF, Word, deck, or pasted text</li>
+<li>Parses briefs from PDF, Word, PowerPoint, or pasted text</li>
 <li>Tags every rate with its source</li>
-<li>Audits 30+ risks before you export</li>
-<li>Scores readiness L1 (ballpark) to L5 (locked budget)</li>
-<li>Compares scenarios line-by-line</li>
-<li>Exports to AICP, Excel, or a branded deck</li>
+<li>Audits risks by severity before you export: critical, recommended, info</li>
+<li>Flags budget gaps against the client's budget with cost-reduction options</li>
+<li>Flags tax incentive eligibility across 13 US states</li>
+<li>Compares scenarios line-by-line with per-section and per-item deltas</li>
+<li>Exports to AICP HTML, Client HTML, CSV, or Excel</li>
 </ul>
 <div class="hero__ctas">
 <a href="#demo" class="btn btn--primary">Book a Demo</a>
@@ -301,7 +302,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="ui-panel__row"><span>Budget range</span><span>$350K &ndash; $500K</span></div>
 </div>
 <div class="ui-panel">
-<div class="ui-panel__title">Bid Builder &mdash; AICP Sections</div>
+<div class="ui-panel__title">Bid Builder: AICP Sections</div>
 <div class="ui-panel__row"><span>A. Pre-production &amp; wrap</span><span>$48,200</span></div>
 <div class="ui-panel__row"><span>B. Shooting crew</span><span>$86,450</span></div>
 <div class="ui-panel__row"><span>C. Location &amp; travel</span><span>$31,700</span></div>
@@ -317,7 +318,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 </div>
 <div class="ui-panel ui-panel--risk">
 <div class="ui-panel__title">Risk Review</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 6% &mdash; below 10% threshold</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 6%, below 10% threshold</div>
 <div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music sync license without master use rights</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> 4 deliverables, no versioning budget</div>
 </div>
@@ -328,7 +329,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <span class="ui-export-tag">Client HTML</span>
 <span class="ui-export-tag">CSV</span>
 <span class="ui-export-tag">XLSX</span>
-<span class="ui-export-tag" style="border-style:dashed;opacity:0.6;">Shareable Link · Soon</span>
+<span class="ui-export-tag" style="border-style:dashed;opacity:0.6;">Branded Deck · Soon</span>
 </div>
 </div>
 </div>
@@ -341,14 +342,13 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="metrics">
 <div class="container">
 <div class="metrics__grid">
-<div class="metrics__cell"><div class="metrics__val">Up to 70</div><div class="metrics__label">Drafted Line Items</div></div>
+<div class="metrics__cell"><div class="metrics__val">Up to 120</div><div class="metrics__label">Drafted Line Items</div></div>
 <div class="metrics__cell"><div class="metrics__val">30+</div><div class="metrics__label">Risk Checks</div></div>
-<div class="metrics__cell"><div class="metrics__val">16-Factor</div><div class="metrics__label">Confidence Score</div></div>
-<div class="metrics__cell"><div class="metrics__val">400+</div><div class="metrics__label">Rate-Sourced Roles</div></div>
+<div class="metrics__cell"><div class="metrics__val">15-Factor</div><div class="metrics__label">Confidence Score</div></div>
+<div class="metrics__cell"><div class="metrics__val">130+</div><div class="metrics__label">Rate-Sourced Roles</div></div>
 <div class="metrics__cell"><div class="metrics__val">A&ndash;P</div><div class="metrics__label">AICP Sections</div></div>
 <div class="metrics__cell"><div class="metrics__val">13</div><div class="metrics__label">State Tax Incentives</div></div>
 </div>
-<p style="text-align:center;font-size:0.7rem;color:var(--mid);margin-top:20px;padding:0 24px;">Rates cited from SAG-AFTRA 2025 Commercials Contract, DGA Commercial Agreement 2025-2026, and IATSE-AICP CPA 2025-2028.</p>
 </div>
 </div>
 
@@ -395,7 +395,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="container">
 <p class="eyebrow">What gets caught</p>
 <h2 class="section-title">The misses that cost real money.</h2>
-<p class="section-sub" style="margin-top:16px">Every bid you send is the one you can't unsend. BidFrame flags the omissions that blow budgets &mdash; before the client sees them.</p>
+<p class="section-sub" style="margin-top:16px">Every bid you send is the one you can't unsend. BidFrame flags the omissions that blow budgets before the client sees them.</p>
 <div class="trust__grid" style="margin-top:48px">
 <div class="trust__block">
 <div class="trust__block-title">No contingency on long days</div>
@@ -570,7 +570,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="wins__item">Cash exposure modeled before you sign</div>
 <div class="wins__item">Bid creation, not payroll operations</div>
 <div class="wins__item">Pre-export risk checks, not post-shoot actuals</div>
-<div class="wins__item">BidFrame is the bid &mdash; payroll comes after</div>
+<div class="wins__item">BidFrame is the bid. Payroll comes after</div>
 <div class="wins__item">Contract-cited rates for audit defense</div>
 </div>
 </div>
@@ -600,7 +600,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="ui-panel__row"><span>Budget range</span><span>$350K &ndash; $500K</span></div>
 <div class="ui-panel__row"><span>Special requirements</span><span>Stunts, food styling</span></div>
 <div class="ui-panel__row"><span>Key questions</span><span>4 flagged for producer</span></div>
-<p style="font-size:0.7rem;color:#888;margin-top:12px;line-height:1.5;">Also detects agency, VFX scope, post scope, production timeline, and more. Conservative extraction &mdash; null when uncertain, never guesses.</p>
+<p style="font-size:0.7rem;color:#888;margin-top:12px;line-height:1.5;">Also detects agency, VFX scope, post scope, production timeline, and more. Conservative extraction: null when uncertain, never guesses.</p>
 </div>
 </div>
 </div>
@@ -617,7 +617,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 </div>
 <div class="deep__visual">
 <div class="ui-panel">
-<div class="ui-panel__title">Rate Sources &mdash; Example Bid</div>
+<div class="ui-panel__title">Rate Sources: Example Bid</div>
 <div class="ui-panel__row"><span>Director (DGA Commercial Min)</span><span>$1,841 &middot; UNION</span></div>
 <div class="ui-panel__row"><span>1st AD (DGA Commercial Min)</span><span>$1,280 &middot; UNION</span></div>
 <div class="ui-panel__row"><span>DP, NYC (Market Baseline)</span><span>$2,400 &middot; MARKET</span></div>
@@ -643,22 +643,22 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div>
 <p class="eyebrow">Risk Review</p>
 <h3 class="deep__title">Know what is missing before the client sees it.</h3>
-<p class="deep__copy">Every bid runs through 30+ checks before it leaves your hands. Contingency, music rights, crew completeness, travel, insurance, post budget &mdash; all audited against industry norms. If something's missing or off, you see it before the client does.</p>
+<p class="deep__copy">Every bid runs through 30+ checks before it leaves your hands. Contingency, music rights, crew completeness, travel, insurance, post budget, all audited against industry norms. If something's missing or off, you see it before the client does.</p>
 </div>
 <div class="deep__visual">
 <div class="ui-panel ui-panel--risk">
-<div class="ui-panel__title">Risk Audit &mdash; 3 Unresolved of 30+</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 5% &mdash; below 10% threshold</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music license incomplete &mdash; sync only, no master use</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Versioning budget thin &mdash; 4 deliverables, 1 editor day</div>
+<div class="ui-panel__title">Risk Audit: 3 Unresolved of 30+</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 5%: below 10% threshold</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music license incomplete: sync only, no master use</div>
+<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Versioning budget thin: 4 deliverables, 1 editor day</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Usage terms present</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Travel and per diem covered</div>
 <div class="ui-flag"><span class="ui-flag__icon"></span> Insurance line included</div>
-<div class="ui-flag"><span class="ui-flag__icon"></span> GA tax incentive &mdash; 20-30% credit eligible</div>
+<div class="ui-flag"><span class="ui-flag__icon"></span> GA tax incentive: 20-30% credit eligible</div>
 </div>
 <div class="ui-panel">
 <div class="ui-panel__title">Export Gate</div>
-<div class="ui-panel__row"><span>Status</span><span>BLOCKED &mdash; 3 unresolved flags</span></div>
+<div class="ui-panel__row"><span>Status</span><span>BLOCKED: 3 unresolved flags</span></div>
 <div class="ui-panel__row"><span>Confidence</span><span>68 / 100</span></div>
 </div>
 </div>
