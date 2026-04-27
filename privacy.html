@@ -34,7 +34,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 /* NAV */
 .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--black); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.nav__brand { font-size: 1rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav__brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav__logo { display: block; width: 20px; height: 20px; flex-shrink: 0; }
 .nav__links { display: flex; gap: 28px; align-items: center; }
 .nav__links a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.15s; }
 .nav__links a:hover { border-bottom-color: var(--black); }
@@ -109,7 +110,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <!-- NAVIGATION -->
 <nav class="nav">
 <div class="container nav__inner">
-<a href="index.html" class="nav__brand">BidFrame</a>
+<a href="index.html" class="nav__brand"><svg class="nav__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="6" y1="17" x2="18" y2="17"/></svg>BidFrame</a>
 <button class="nav__toggle" aria-label="Menu" onclick="document.querySelector('.nav__links').classList.toggle('open')">
 <span></span><span></span><span></span>
 </button>
