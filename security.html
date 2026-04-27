@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security | BidFrame</title>
+<meta name="description" content="How BidFrame secures customer data: infrastructure, encryption, access controls, multi-tenant isolation, incident response, and compliance roadmap.">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
+:root {
+  --black: #000000;
+  --dark: #111111;
+  --mid: #555555;
+  --light: #CFCFCF;
+  --vlight: #EFEFEF;
+  --white: #FFFFFF;
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --grid-max: 1200px;
+}
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--black); background: var(--white); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button, input { font-family: var(--font); border-radius: 0 !important; }
+.container { max-width: var(--grid-max); margin: 0 auto; padding: 0 24px; }
+.hr { border: none; border-top: 1px solid var(--black); margin: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; color: var(--mid); margin-bottom: 16px; }
+.btn { display: inline-block; padding: 14px 32px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid var(--black); cursor: pointer; transition: background 0.15s, color 0.15s; text-align: center; }
+.btn--primary { background: var(--black); color: var(--white); }
+.btn--primary:hover { background: var(--white); color: var(--black); }
+.btn--small { padding: 10px 24px; font-size: 0.75rem; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--black); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav__brand { font-size: 1rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav__links { display: flex; gap: 28px; align-items: center; }
+.nav__links a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.15s; }
+.nav__links a:hover { border-bottom-color: var(--black); }
+.nav__links a.is-current { border-bottom-color: var(--black); }
+.nav__links .btn { padding: 8px 20px; font-size: 0.7rem; }
+.nav__toggle { display: none; background: none; border: none; width: 28px; height: 20px; position: relative; cursor: pointer; }
+.nav__toggle span { display: block; width: 100%; height: 2px; background: var(--black); position: absolute; left: 0; transition: 0.2s; }
+.nav__toggle span:nth-child(1) { top: 0; }
+.nav__toggle span:nth-child(2) { top: 9px; }
+.nav__toggle span:nth-child(3) { top: 18px; }
+
+/* PAGE HEADER */
+.page-header { padding: 80px 0 40px; border-bottom: 1px solid var(--black); }
+.page-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; max-width: 720px; }
+.page-header__lede { font-size: 1.05rem; color: var(--mid); max-width: 640px; line-height: 1.6; }
+.page-header__meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-top: 16px; }
+
+/* CONTENT */
+.sec { padding: 64px 0 96px; }
+.sec__layout { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; }
+.sec__toc { position: sticky; top: 80px; border-left: 1px solid var(--black); padding-left: 16px; max-height: calc(100vh - 100px); overflow-y: auto; }
+.sec__toc-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--mid); margin-bottom: 12px; }
+.sec__toc ol { list-style: none; counter-reset: toc; }
+.sec__toc li { counter-increment: toc; padding: 4px 0; font-size: 0.8rem; }
+.sec__toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--mid); font-variant-numeric: tabular-nums; }
+.sec__toc a { color: var(--mid); transition: color 0.15s; }
+.sec__toc a:hover { color: var(--black); }
+.sec__body { max-width: 720px; }
+.sec__body h2 { font-size: 1.25rem; margin: 48px 0 16px; padding-top: 16px; border-top: 1px solid var(--black); text-transform: uppercase; letter-spacing: 0.04em; }
+.sec__body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.sec__body h3 { font-size: 0.95rem; margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+.sec__body p { font-size: 0.95rem; color: var(--black); line-height: 1.7; margin-bottom: 16px; }
+.sec__body p.muted { color: var(--mid); font-size: 0.85rem; }
+.sec__body ul { list-style: none; margin: 12px 0 20px; }
+.sec__body ul li { display: flex; gap: 12px; padding: 5px 0; font-size: 0.9rem; line-height: 1.6; }
+.sec__body ul li::before { content: '-'; flex-shrink: 0; font-weight: 700; }
+.sec__body strong { font-weight: 700; }
+.sec__body a.inline { border-bottom: 1px solid var(--black); }
+.sec__body a.inline:hover { background: var(--black); color: var(--white); }
+.sec__callout { border: 1px solid var(--black); padding: 24px; margin: 24px 0; background: var(--vlight); }
+.sec__callout-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 8px; }
+.sec__callout p { font-size: 0.85rem; margin-bottom: 0; }
+.sec__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 16px 0 24px; border: 1px solid var(--black); }
+.sec__table th, .sec__table td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--light); }
+.sec__table th { background: var(--vlight); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; font-weight: 700; }
+.sec__table tr:last-child td { border-bottom: none; }
+.sec__status { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border: 1px solid var(--black); margin-left: 8px; vertical-align: middle; }
+.sec__status--live { background: var(--black); color: var(--white); }
+.sec__status--planned { background: var(--white); color: var(--black); }
+
+/* FOOTER */
+.footer { border-top: 1px solid var(--black); padding: 40px 0; }
+.footer__grid { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+.footer__brand { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer__links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: 0.15s; }
+.footer__links a:hover { color: var(--black); border-bottom-color: var(--black); }
+.footer__copy { width: 100%; text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--light); font-size: 0.65rem; color: var(--light); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .sec__layout { grid-template-columns: 1fr; gap: 32px; }
+  .sec__toc { position: static; border-left: none; border-top: 1px solid var(--black); border-bottom: 1px solid var(--black); padding: 16px 0; max-height: none; }
+}
+@media (max-width: 640px) {
+  .nav__links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--black); flex-direction: column; padding: 24px; gap: 16px; z-index: 99; }
+  .nav__links.open { display: flex; }
+  .nav__toggle { display: block; }
+  .footer__grid { flex-direction: column; align-items: center; text-align: center; }
+  .footer__links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+<div class="container nav__inner">
+<a href="index.html" class="nav__brand">BidFrame</a>
+<button class="nav__toggle" aria-label="Menu" onclick="document.querySelector('.nav__links').classList.toggle('open')">
+<span></span><span></span><span></span>
+</button>
+<div class="nav__links">
+<a href="index.html#product">Product</a>
+<a href="index.html#how">How It Works</a>
+<a href="index.html#wins">Why It Wins</a>
+<a href="index.html#faq">FAQ</a>
+<a href="security.html" class="is-current">Security</a>
+<a href="privacy.html">Privacy</a>
+<a href="index.html#demo" class="btn btn--primary btn--small">Book Demo</a>
+</div>
+</div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+<div class="container">
+<p class="eyebrow">Trust</p>
+<h1>Security at BidFrame.</h1>
+<p class="page-header__lede">Production briefs are confidential. Rate cards are competitive. Bids are sensitive financial data. Here is how we protect them, in detail.</p>
+<p class="page-header__meta">Last updated: April 27, 2026</p>
+</div>
+</header>
+
+<!-- CONTENT -->
+<section class="sec">
+<div class="container">
+<div class="sec__layout">
+
+<aside class="sec__toc">
+<div class="sec__toc-title">Contents</div>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#infra">Infrastructure</a></li>
+<li><a href="#encryption">Encryption</a></li>
+<li><a href="#auth">Authentication</a></li>
+<li><a href="#access">Access controls</a></li>
+<li><a href="#tenancy">Multi-tenant isolation</a></li>
+<li><a href="#audit">Audit logging</a></li>
+<li><a href="#appsec">Application security</a></li>
+<li><a href="#vuln">Vulnerability management</a></li>
+<li><a href="#incident">Incident response</a></li>
+<li><a href="#backups">Backups &amp; recovery</a></li>
+<li><a href="#subprocessors">Subprocessor governance</a></li>
+<li><a href="#compliance">Compliance roadmap</a></li>
+<li><a href="#disclosure">Responsible disclosure</a></li>
+<li><a href="#contact">Contact</a></li>
+</ol>
+</aside>
+
+<article class="sec__body">
+
+<h2 id="overview">1. Overview</h2>
+<p>BidFrame stores production briefs, project data, rate cards, and bid scenarios on behalf of commercial production teams. We treat that data as confidential and design the platform to keep it that way.</p>
+<p>This page describes our current security posture honestly. Where a control is in place, we mark it <span class="sec__status sec__status--live">In place</span>. Where it is on the roadmap, we mark it <span class="sec__status sec__status--planned">Planned</span> with a target window. We will not claim controls we do not yet have.</p>
+
+<h2 id="infra">2. Infrastructure</h2>
+<p>BidFrame runs on managed cloud infrastructure operated by providers with mature security programs.</p>
+<table class="sec__table">
+<thead>
+<tr><th>Component</th><th>Provider</th><th>Region</th><th>Provider attestation</th></tr>
+</thead>
+<tbody>
+<tr><td>Application hosting</td><td>Vercel</td><td>United States (global edge)</td><td>SOC 2 Type II, ISO 27001</td></tr>
+<tr><td>Database, auth, storage</td><td>Supabase (on AWS)</td><td>United States</td><td>SOC 2 Type II, HIPAA-eligible (provider)</td></tr>
+<tr><td>Brief parsing &amp; bid drafting</td><td>Anthropic API</td><td>United States (AWS, Google Cloud)</td><td>SOC 2 Type II</td></tr>
+<tr><td>Source control &amp; CI</td><td>GitHub</td><td>United States</td><td>SOC 2 Type II, ISO 27001</td></tr>
+</tbody>
+</table>
+<p class="muted">BidFrame inherits operational and physical security controls from these underlying providers. The application layer (everything BidFrame builds and operates on top of these providers) is governed by the controls described below.</p>
+
+<h2 id="encryption">3. Encryption <span class="sec__status sec__status--live">In place</span></h2>
+<h3>In transit</h3>
+<ul>
+<li>All connections to BidFrame use TLS 1.2 or higher, terminated by our hosting provider (Vercel)</li>
+<li>HTTPS is enforced by the platform; HTTP requests redirect to HTTPS automatically</li>
+<li>API calls to subprocessors (Supabase, Anthropic) occur over TLS</li>
+</ul>
+<p class="muted"><strong>HSTS preload header</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> The Strict-Transport-Security header is being added to our application headers configuration.</p>
+<h3>At rest</h3>
+<ul>
+<li>Customer Content stored in Supabase Postgres and Supabase Storage is encrypted at rest using AES-256</li>
+<li>Backups are encrypted at rest</li>
+<li>Encryption keys are managed by the underlying providers (AWS KMS via Supabase)</li>
+</ul>
+<p class="muted">Customer-managed keys (BYOK) are not currently offered. Available on enterprise plans on the roadmap.</p>
+
+<h2 id="auth">4. Authentication <span class="sec__status sec__status--live">In place</span></h2>
+<ul>
+<li>User authentication is provided by Supabase Auth</li>
+<li>Passwords are hashed using industry-standard algorithms (bcrypt). BidFrame does not store, log, or transmit plaintext passwords.</li>
+<li>Sessions use Supabase Auth defaults: signed JWTs, rotating refresh tokens, and idle timeouts</li>
+<li>Multi-factor authentication is enabled on the dashboard accounts (Vercel, Supabase, GitHub, Anthropic) used by Frame Path personnel to administer the Services</li>
+</ul>
+<p><strong>End-user MFA in the app</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> TOTP enrollment for end users via Supabase Auth is on the roadmap and will be available before the first enterprise pilot.</p>
+<p><strong>SAML/SSO</strong> <span class="sec__status sec__status--planned">Planned: Enterprise tier, 2026</span> Single sign-on via SAML 2.0 and OIDC will be available on enterprise plans.</p>
+
+<h2 id="access">5. Access controls <span class="sec__status sec__status--live">In place</span></h2>
+<h3>Customer-side</h3>
+<ul>
+<li>Role-based access controls within each organization (owner, admin, editor, viewer)</li>
+<li>Row-level security policies enforce that users can only access data for their own organization</li>
+<li>Sharing settings on projects and scenarios are explicit and revocable</li>
+</ul>
+<h3>Frame Path personnel</h3>
+<ul>
+<li>Production access is restricted to a small number of authorized personnel under written confidentiality obligations</li>
+<li>Access is granted on a least-privilege, need-to-know basis and reviewed regularly</li>
+<li>Multi-factor authentication is enabled on the infrastructure dashboards used for production administration</li>
+<li>Access to Customer Content is logged. Routine engineering work uses synthetic or anonymized data. Access to live Customer Content occurs only for incident response, support requests authorized by the customer, or as required by law.</li>
+</ul>
+
+<h2 id="tenancy">6. Multi-tenant isolation <span class="sec__status sec__status--live">In place</span></h2>
+<p>BidFrame is a multi-tenant SaaS application. Tenant isolation is enforced at the database layer using PostgreSQL <strong>row-level security (RLS)</strong> policies. Every query for tenant-scoped data is evaluated against an organization context derived from the authenticated session. A misconfigured query that omits the organization filter is rejected by the database, not just by the application.</p>
+<ul>
+<li>Each row is tagged with an <code>org_id</code></li>
+<li>RLS policies are defined on every table containing Customer Content</li>
+<li>File storage uses organization-scoped paths so each tenant&#39;s objects live in isolated keyspaces</li>
+</ul>
+<p><strong>RLS integration tests in CI</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> Database-backed integration tests that simulate cross-organization access attempts are on the roadmap. Today, RLS is enforced at the database layer and exercised through application code paths.</p>
+<p><strong>Signed URL access for storage</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> Short-lived signed URL generation for attachment downloads is on the roadmap.</p>
+
+<h2 id="audit">7. Audit logging <span class="sec__status sec__status--live">In place</span></h2>
+<ul>
+<li>Database-level triggers and application-level logs record sensitive actions: project creation, scenario edits, version restores, exports, member invitations, role changes, and authentication events</li>
+<li>Logs include actor, action, target, and timestamp</li>
+<li>Server logs include request IDs for incident triage; cross-correlation between server logs and audit logs is on the roadmap</li>
+<li>Logs are retained for 24 months</li>
+<li>Audit log access for customers (org admins can view their organization&#39;s audit log in-app) is being rolled out across surfaces. Where not yet self-serve, customers can request a copy via support.</li>
+</ul>
+
+<h2 id="appsec">8. Application security <span class="sec__status sec__status--live">In place</span></h2>
+<ul>
+<li>Code is reviewed before merging to main</li>
+<li>Input validation at API boundaries: Zod schemas in our domain layer, with route-level validation on each handler</li>
+<li>Output encoding and React escaping by default to mitigate XSS</li>
+<li>Parameterized queries through Supabase clients to prevent SQL injection</li>
+<li>Rate limiting on authentication and high-cost endpoints (current implementation is in-process; persistent, cross-instance rate limiting on the roadmap)</li>
+<li>Secrets are stored in managed secret stores. Secrets do not appear in source control or logs.</li>
+</ul>
+<p><strong>Application security headers</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> A Content Security Policy and standard security headers (Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Referrer-Policy) are being added to our application headers configuration.</p>
+
+<h2 id="vuln">9. Vulnerability management</h2>
+<ul>
+<li>Critical vulnerabilities are patched within <strong>7 days</strong> of confirmation; high-severity within <strong>30 days</strong></li>
+<li>We monitor security advisories from our framework, library, and subprocessor maintainers</li>
+</ul>
+<p><strong>Automated dependency scanning</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> Dependabot and CI-integrated dependency scanning are being added to our build pipeline.</p>
+<p><strong>Third-party penetration testing</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> An independent penetration test is scheduled for completion before our first enterprise pilot. Summary letters available under NDA to qualified prospects.</p>
+
+<h2 id="incident">10. Incident response</h2>
+<p>Our incident response approach covers detection, triage, containment, eradication, recovery, and post-incident review. The internal runbook is being formalized; the operational commitments below apply today and will be reflected in the runbook as it is finalized.</p>
+<p><strong>Commitments:</strong></p>
+<ul>
+<li><strong>Customer notification within 72 hours</strong> of confirmation that an incident has materially affected customer data, regardless of jurisdictional minimums</li>
+<li>Notice includes what we know, what we have done, and recommendations for the customer</li>
+<li>Post-incident review with affected customers, including a written summary and remediation timeline</li>
+<li>On-call rotation for production issues. Security incidents are escalated immediately.</li>
+</ul>
+
+<h2 id="backups">11. Backups &amp; recovery <span class="sec__status sec__status--live">In place</span></h2>
+<ul>
+<li>Daily automated database backups via the Supabase managed service</li>
+<li>Backups are encrypted at rest, separated from primary data</li>
+<li>Backup retention: up to 90 days from the last appearance of the data in production</li>
+</ul>
+<p><strong>Recovery testing</strong> <span class="sec__status sec__status--planned">Planned: 2026</span> Periodic recovery testing will be implemented and documented before our first enterprise pilot.</p>
+<div class="sec__callout">
+<div class="sec__callout-title">Recovery objectives (current targets)</div>
+<p><strong>RPO:</strong> 24 hours (point-in-time recovery available for shorter windows on enterprise plans). <strong>RTO:</strong> 4 hours for restoration of core services after a confirmed major incident. Targets will be tightened as we move to enterprise contracts.</p>
+</div>
+
+<h2 id="subprocessors">12. Subprocessor governance <span class="sec__status sec__status--live">In place</span></h2>
+<ul>
+<li>Subprocessors are listed in our <a class="inline" href="privacy.html#processors">Privacy Policy</a> and reviewed against their security attestations before onboarding</li>
+<li>30 days&#39; advance notice to customers before adding a new subprocessor that processes Customer Content or Personal Information</li>
+<li>Enterprise customers may object to a new subprocessor and terminate the affected service for cause without penalty if we cannot accommodate</li>
+<li>Subprocessor relationships are governed by data processing terms incorporating Standard Contractual Clauses where applicable</li>
+</ul>
+
+<h2 id="compliance">13. Compliance roadmap</h2>
+<p>BidFrame is a pre-revenue platform on the path to enterprise readiness. We will not claim certifications we do not have. The current state:</p>
+<table class="sec__table">
+<thead>
+<tr><th>Item</th><th>Status</th><th>Target</th></tr>
+</thead>
+<tbody>
+<tr><td>Built on SOC 2 Type II infrastructure (Vercel, Supabase, Anthropic)</td><td>In place</td><td>Now</td></tr>
+<tr><td>Data Processing Agreement with SCCs</td><td>In place (on request)</td><td>Now</td></tr>
+<tr><td>Application security headers (CSP, HSTS, X-Frame-Options, etc.)</td><td>Planned</td><td>2026</td></tr>
+<tr><td>Automated dependency scanning in CI</td><td>Planned</td><td>2026</td></tr>
+<tr><td>End-user MFA in the app</td><td>Planned</td><td>2026</td></tr>
+<tr><td>RLS integration tests in CI</td><td>Planned</td><td>2026</td></tr>
+<tr><td>Independent third-party penetration test</td><td>Planned</td><td>Before first enterprise pilot, 2026</td></tr>
+<tr><td>Formal incident response runbook</td><td>Planned</td><td>Before first enterprise pilot, 2026</td></tr>
+<tr><td>SOC 2 Type II audit (BidFrame)</td><td>Planned</td><td>2027</td></tr>
+<tr><td>HIPAA BAA</td><td>Out of scope (no PHI processing)</td><td>Not planned</td></tr>
+<tr><td>ISO 27001</td><td>Under evaluation</td><td>Subject to enterprise demand</td></tr>
+</tbody>
+</table>
+
+<h2 id="disclosure">14. Responsible disclosure</h2>
+<p>If you believe you have found a security vulnerability in BidFrame, we appreciate your report. Please email <a class="inline" href="mailto:security@bidframe.co">security@bidframe.co</a> with:</p>
+<ul>
+<li>A description of the issue and where you found it</li>
+<li>Steps to reproduce</li>
+<li>Any proof-of-concept code or screenshots</li>
+<li>Your contact information for follow-up</li>
+</ul>
+<p>Our commitments to good-faith reporters:</p>
+<ul>
+<li>We will acknowledge receipt within <strong>3 business days</strong></li>
+<li>We will provide an initial assessment within <strong>10 business days</strong></li>
+<li>We will not pursue legal action against researchers who follow this policy and act in good faith</li>
+<li>We will credit reporters in our security notes if they wish</li>
+</ul>
+<p>Please do not access data that does not belong to you, modify or destroy data, or degrade service availability. Stop testing and contact us if you encounter customer data inadvertently.</p>
+
+<h2 id="contact">15. Contact</h2>
+<p>Security questions, vendor security questionnaires, audit requests:</p>
+<p><strong>Frame Path (BidFrame)</strong><br>
+Security: <a class="inline" href="mailto:security@bidframe.co">security@bidframe.co</a><br>
+Privacy: <a class="inline" href="mailto:privacy@bidframe.co">privacy@bidframe.co</a></p>
+
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer__grid">
+<div class="footer__brand">BidFrame</div>
+<div class="footer__links">
+<a href="index.html#product">Product</a>
+<a href="index.html#how">How It Works</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#demo">Contact</a>
+<a href="security.html">Security</a>
+<a href="privacy.html">Privacy</a>
+<a href="#">Terms</a>
+<a href="index.html#demo">Book Demo</a>
+</div>
+<div class="footer__copy">&copy; 2026 Frame Path. All rights reserved.</div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

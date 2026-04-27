@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | BidFrame</title>
+<meta name="description" content="How BidFrame collects, uses, stores, and shares information when you use the app and website.">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
+:root {
+  --black: #000000;
+  --dark: #111111;
+  --mid: #555555;
+  --light: #CFCFCF;
+  --vlight: #EFEFEF;
+  --white: #FFFFFF;
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --grid-max: 1200px;
+}
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--black); background: var(--white); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button, input { font-family: var(--font); border-radius: 0 !important; }
+.container { max-width: var(--grid-max); margin: 0 auto; padding: 0 24px; }
+.hr { border: none; border-top: 1px solid var(--black); margin: 0; }
+.hr--light { border-color: var(--light); }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; color: var(--mid); margin-bottom: 16px; }
+.btn { display: inline-block; padding: 14px 32px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid var(--black); cursor: pointer; transition: background 0.15s, color 0.15s; text-align: center; }
+.btn--primary { background: var(--black); color: var(--white); }
+.btn--primary:hover { background: var(--white); color: var(--black); }
+.btn--small { padding: 10px 24px; font-size: 0.75rem; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--black); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav__brand { font-size: 1rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav__links { display: flex; gap: 28px; align-items: center; }
+.nav__links a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.15s; }
+.nav__links a:hover { border-bottom-color: var(--black); }
+.nav__links a.is-current { border-bottom-color: var(--black); }
+.nav__links .btn { padding: 8px 20px; font-size: 0.7rem; }
+.nav__toggle { display: none; background: none; border: none; width: 28px; height: 20px; position: relative; cursor: pointer; }
+.nav__toggle span { display: block; width: 100%; height: 2px; background: var(--black); position: absolute; left: 0; transition: 0.2s; }
+.nav__toggle span:nth-child(1) { top: 0; }
+.nav__toggle span:nth-child(2) { top: 9px; }
+.nav__toggle span:nth-child(3) { top: 18px; }
+
+/* PAGE HEADER */
+.page-header { padding: 80px 0 40px; border-bottom: 1px solid var(--black); }
+.page-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; max-width: 720px; }
+.page-header__meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); }
+
+/* PRIVACY CONTENT */
+.privacy { padding: 64px 0 96px; }
+.privacy__layout { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; }
+.privacy__toc { position: sticky; top: 80px; border-left: 1px solid var(--black); padding-left: 16px; max-height: calc(100vh - 100px); overflow-y: auto; }
+.privacy__toc-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--mid); margin-bottom: 12px; }
+.privacy__toc ol { list-style: none; counter-reset: toc; }
+.privacy__toc li { counter-increment: toc; padding: 4px 0; font-size: 0.8rem; }
+.privacy__toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--mid); font-variant-numeric: tabular-nums; }
+.privacy__toc a { color: var(--mid); transition: color 0.15s; }
+.privacy__toc a:hover { color: var(--black); }
+.privacy__body { max-width: 720px; }
+.privacy__body h2 { font-size: 1.25rem; margin: 48px 0 16px; padding-top: 16px; border-top: 1px solid var(--black); text-transform: uppercase; letter-spacing: 0.04em; }
+.privacy__body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.privacy__body h3 { font-size: 0.95rem; margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+.privacy__body p { font-size: 0.95rem; color: var(--black); line-height: 1.7; margin-bottom: 16px; }
+.privacy__body p.muted { color: var(--mid); font-size: 0.85rem; }
+.privacy__body ul { list-style: none; margin: 12px 0 20px; }
+.privacy__body ul li { display: flex; gap: 12px; padding: 5px 0; font-size: 0.9rem; line-height: 1.6; }
+.privacy__body ul li::before { content: '-'; flex-shrink: 0; font-weight: 700; }
+.privacy__body strong { font-weight: 700; }
+.privacy__body a.inline { border-bottom: 1px solid var(--black); }
+.privacy__body a.inline:hover { background: var(--black); color: var(--white); }
+.privacy__callout { border: 1px solid var(--black); padding: 24px; margin: 24px 0; background: var(--vlight); }
+.privacy__callout-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 8px; }
+.privacy__callout p { font-size: 0.85rem; margin-bottom: 0; }
+.privacy__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 16px 0 24px; border: 1px solid var(--black); }
+.privacy__table th, .privacy__table td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--light); }
+.privacy__table th { background: var(--vlight); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; font-weight: 700; }
+.privacy__table tr:last-child td { border-bottom: none; }
+
+/* FOOTER */
+.footer { border-top: 1px solid var(--black); padding: 40px 0; }
+.footer__grid { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+.footer__brand { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer__links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: 0.15s; }
+.footer__links a:hover { color: var(--black); border-bottom-color: var(--black); }
+.footer__copy { width: 100%; text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--light); font-size: 0.65rem; color: var(--light); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .privacy__layout { grid-template-columns: 1fr; gap: 32px; }
+  .privacy__toc { position: static; border-left: none; border-top: 1px solid var(--black); border-bottom: 1px solid var(--black); padding: 16px 0; max-height: none; }
+}
+@media (max-width: 640px) {
+  .nav__links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--black); flex-direction: column; padding: 24px; gap: 16px; z-index: 99; }
+  .nav__links.open { display: flex; }
+  .nav__toggle { display: block; }
+  .footer__grid { flex-direction: column; align-items: center; text-align: center; }
+  .footer__links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+<div class="container nav__inner">
+<a href="index.html" class="nav__brand">BidFrame</a>
+<button class="nav__toggle" aria-label="Menu" onclick="document.querySelector('.nav__links').classList.toggle('open')">
+<span></span><span></span><span></span>
+</button>
+<div class="nav__links">
+<a href="index.html#product">Product</a>
+<a href="index.html#how">How It Works</a>
+<a href="index.html#wins">Why It Wins</a>
+<a href="index.html#faq">FAQ</a>
+<a href="security.html">Security</a>
+<a href="privacy.html" class="is-current">Privacy</a>
+<a href="index.html#demo" class="btn btn--primary btn--small">Book Demo</a>
+</div>
+</div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+<div class="container">
+<p class="eyebrow">Legal</p>
+<h1>Privacy Policy</h1>
+<p class="page-header__meta">Effective: April 27, 2026 &middot; Last updated: April 27, 2026 &middot; Version 2.0</p>
+</div>
+</header>
+
+<!-- PRIVACY CONTENT -->
+<section class="privacy">
+<div class="container">
+<div class="privacy__layout">
+
+<aside class="privacy__toc">
+<div class="privacy__toc-title">Contents</div>
+<ol>
+<li><a href="#who">Who we are</a></li>
+<li><a href="#scope">Scope &amp; definitions</a></li>
+<li><a href="#content">Customer Content</a></li>
+<li><a href="#info">Information we collect</a></li>
+<li><a href="#use">How we use information</a></li>
+<li><a href="#processing">Automated processing</a></li>
+<li><a href="#processors">Subprocessors</a></li>
+<li><a href="#sharing">Sharing &amp; legal process</a></li>
+<li><a href="#retention">Retention</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#rights">Your rights</a></li>
+<li><a href="#state">State-specific disclosures</a></li>
+<li><a href="#international">International users</a></li>
+<li><a href="#dpa">Data Processing Agreement</a></li>
+<li><a href="#continuity">Vendor continuity</a></li>
+<li><a href="#children">Children</a></li>
+<li><a href="#changes">Changes</a></li>
+<li><a href="#contact">Contact</a></li>
+</ol>
+</aside>
+
+<article class="privacy__body">
+
+<h2 id="who">1. Who we are</h2>
+<p>BidFrame is a production bidding application operated by <strong>Frame Path</strong> ("BidFrame," "we," "us," or "our"). This Privacy Policy explains how we collect, use, store, share, and protect information when you use the BidFrame web application, our website, and related services (together, the "Services").</p>
+<p>By using the Services, you agree to the practices described here. If you do not agree, do not use the Services.</p>
+
+<h2 id="scope">2. Scope &amp; definitions</h2>
+<p>This policy distinguishes between two categories of information, because they are protected differently:</p>
+<ul>
+<li><strong>Personal Information.</strong> Information that identifies or relates to an individual (for example: name, work email, IP address). Handled under applicable privacy laws.</li>
+<li><strong>Customer Content.</strong> The briefs, project data, bid data, rate cards, and other materials you upload, paste, or generate inside BidFrame on behalf of your organization. This is your or your client&#39;s confidential business information. It is not generally personal information, and we treat it as confidential under <a class="inline" href="#content">Section 3</a>.</li>
+</ul>
+
+<h2 id="content">3. Customer Content: confidentiality &amp; ownership</h2>
+<p>Customer Content belongs to you and your organization. We act only as a processor and custodian.</p>
+<ul>
+<li><strong>Confidentiality.</strong> We treat Customer Content as confidential. Frame Path personnel may not access Customer Content except as strictly necessary to operate the Services, prevent abuse, or comply with law. All such access is logged and limited to authorized staff under written confidentiality obligations.</li>
+<li><strong>No use for our purposes.</strong> We do not read your Customer Content for marketing, sales prospecting, training of any model, or to publish industry benchmarks. We do not analyze it across customers without prior written consent.</li>
+<li><strong>NDA-bound material.</strong> If your Customer Content is subject to a third-party NDA (for example, a brief from a brand or agency), our handling is consistent with treating that content as confidential. We are happy to execute additional confidentiality terms on request.</li>
+<li><strong>Ownership.</strong> You retain all right, title, and interest in your Customer Content. The license you grant us is limited to operating the Services for your benefit.</li>
+</ul>
+
+<h2 id="info">4. Information we collect</h2>
+
+<h3>Account &amp; organization (Personal Information)</h3>
+<ul>
+<li>Name, work email address, and authentication credentials</li>
+<li>Organization name, role, and team membership</li>
+<li>Account preferences and settings</li>
+</ul>
+
+<h3>Customer Content</h3>
+<p>Materials you upload, paste, or generate, including:</p>
+<ul>
+<li>Briefs (PDFs, Word documents, decks, or pasted text)</li>
+<li>Project data: deliverables, talent, locations, schedule, usage, assumptions</li>
+<li>Bid data: line items, rates, scenarios, versions, change orders, exports</li>
+<li>Rate cards uploaded by your organization</li>
+<li>Activity records (edits, exports, restores) used for audit and version history</li>
+</ul>
+
+<h3>Usage &amp; device data</h3>
+<ul>
+<li>Server logs: IP address, browser type, pages visited, timestamps, request IDs, error traces</li>
+<li>Device data: operating system, browser version, screen size</li>
+<li>Cookies and similar technologies for authentication and session management</li>
+<li>First-party product telemetry (page views and feature usage within the app)</li>
+</ul>
+<p class="muted">We do not currently use third-party advertising or cross-site behavioral tracking technologies on the Services. If this changes, we will update this policy and provide notice.</p>
+
+<h3>Communications</h3>
+<p>If you contact us for support, sales, or feedback, we keep a record of the conversation and any information you choose to share.</p>
+
+<h2 id="use">5. How we use information</h2>
+<p>We use information to:</p>
+<ul>
+<li>Provide, maintain, secure, and improve the Services</li>
+<li>Authenticate users and manage account access</li>
+<li>Parse briefs, draft first-pass bids, and run risk and confidence checks</li>
+<li>Maintain version history and audit trails</li>
+<li>Generate exports (AICP HTML, client HTML, CSV, XLSX)</li>
+<li>Communicate with you about the Services, updates, and security</li>
+<li>Detect, investigate, and prevent abuse, fraud, and security incidents</li>
+<li>Comply with legal obligations and enforce our agreements</li>
+</ul>
+<p>We do not sell your Personal Information. We do not share Personal Information for cross-context behavioral advertising. We do not use Customer Content to train any third-party model.</p>
+
+<h2 id="processing">6. Automated processing</h2>
+<p>BidFrame parses briefs into structured production data and drafts first-pass bids. Producers review and edit every machine-drafted value before export. Automated output is treated as a suggestion, not authority.</p>
+
+<h3>How Customer Content reaches our processing provider</h3>
+<p>To draft a bid, the contents of briefs you upload (and limited project context such as scope and deliverables) are transmitted to our processing provider, <strong>Anthropic</strong>, through its API. The structured output is returned to BidFrame and stored in your workspace inside Supabase.</p>
+
+<div class="privacy__callout">
+<div class="privacy__callout-title">What this means in practice</div>
+<p>Your brief content travels: <strong>your browser &rarr; BidFrame (Supabase) &rarr; Anthropic API &rarr; BidFrame</strong>. It is encrypted in transit at every hop. It is encrypted at rest in Supabase. Anthropic processes it only to return a response.</p>
+</div>
+
+<h3>Anthropic specifics</h3>
+<ul>
+<li><strong>No training on your data.</strong> Under Anthropic&#39;s commercial API terms, customer API inputs and outputs are not used to train Anthropic&#39;s models.</li>
+<li><strong>Anthropic data retention.</strong> By default, Anthropic may retain API inputs and outputs for up to 30 days for trust-and-safety review (for example, abuse monitoring). After that retention window, content is deleted. We work toward zero-retention processing where contractually available.</li>
+<li><strong>Trust-and-safety review.</strong> Anthropic may apply automated classifiers to detect abuse. In rare cases of flagged content, a small number of authorized Anthropic personnel may review the flagged content under their own confidentiality controls.</li>
+<li><strong>Geographic processing.</strong> Anthropic processes Customer Content primarily in the United States, on infrastructure provided by Amazon Web Services and Google Cloud as Anthropic&#39;s sub-processors.</li>
+</ul>
+
+<h2 id="processors">7. Subprocessors</h2>
+<p>We rely on the following providers to deliver the Services. Each is bound by contractual confidentiality and data-protection obligations.</p>
+<table class="privacy__table">
+<thead>
+<tr><th>Provider</th><th>Purpose</th><th>Data processed</th><th>Region</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Supabase</strong></td><td>Application database, authentication, file storage, audit logs</td><td>Personal Information &amp; Customer Content</td><td>United States (AWS)</td></tr>
+<tr><td><strong>Vercel</strong></td><td>Web application hosting and edge delivery</td><td>Server logs, request metadata</td><td>United States (global edge)</td></tr>
+<tr><td><strong>Anthropic</strong></td><td>Brief parsing and bid drafting via API</td><td>Customer Content (briefs &amp; project context) and limited metadata</td><td>United States (AWS, Google Cloud)</td></tr>
+<tr><td><strong>Email &amp; support tooling</strong></td><td>Transactional email and customer support</td><td>Name, email, message contents</td><td>United States</td></tr>
+</tbody>
+</table>
+
+<h3>Subprocessor change notice</h3>
+<p>For any new subprocessor that will process Customer Content or Personal Information, we provide at least <strong>30 days&#39; advance notice</strong> by email and on this page. Customers on enterprise plans may object to a new subprocessor in writing during the notice period; if we cannot accommodate the objection, the customer may terminate the affected service for cause without penalty.</p>
+<p class="muted">To receive subprocessor change notifications, contact <a class="inline" href="mailto:privacy@bidframe.co">privacy@bidframe.co</a>.</p>
+
+<h2 id="sharing">8. Sharing &amp; legal process</h2>
+<p>We share information only as described below:</p>
+<ul>
+<li><strong>Within your organization.</strong> Customer Content is visible to other authorized members of your workspace, per your role and sharing settings.</li>
+<li><strong>With subprocessors.</strong> As listed in <a class="inline" href="#processors">Section 7</a>, only to operate the Services.</li>
+<li><strong>For legal reasons.</strong> See commitments below.</li>
+<li><strong>Business transfers.</strong> In connection with a merger, acquisition, or sale of assets, with notice to affected customers and an opportunity to export Customer Content before transition.</li>
+</ul>
+
+<h3>Government and legal demands</h3>
+<p>If we receive a subpoena, court order, or other legal demand for your data, we will:</p>
+<ul>
+<li>Review the demand for legal sufficiency and scope</li>
+<li>Push back on overbroad, unlawful, or improperly served demands</li>
+<li>Where the demand seeks Customer Content, attempt to redirect the requester to the customer first whenever feasible</li>
+<li>Notify the customer before producing data, except where prohibited by law (for example, a non-disclosure order). Where a notice prohibition expires, we provide notice as soon as legally permitted.</li>
+</ul>
+
+<h2 id="retention">9. Retention</h2>
+<p>We retain information only as long as needed for the purposes described in this policy and applicable law. Specific retention periods:</p>
+<table class="privacy__table">
+<thead>
+<tr><th>Data category</th><th>Retention period</th></tr>
+</thead>
+<tbody>
+<tr><td>Account &amp; organization data</td><td>While your account is active. Deleted within <strong>30 days</strong> of a verified deletion request or account closure.</td></tr>
+<tr><td>Customer Content (briefs, projects, bids, exports)</td><td>While your account is active. Deleted within <strong>30 days</strong> of customer-initiated deletion.</td></tr>
+<tr><td>Encrypted backups</td><td>Up to <strong>90 days</strong> from the last appearance of the data in production. Deleted content ages out of backups within this window.</td></tr>
+<tr><td>Server &amp; application logs</td><td><strong>90 days</strong></td></tr>
+<tr><td>Audit logs (security &amp; account events)</td><td><strong>24 months</strong></td></tr>
+<tr><td>Support communications</td><td><strong>24 months</strong> after last contact</td></tr>
+<tr><td>Billing &amp; tax records</td><td>As required by applicable law (typically <strong>7 years</strong>)</td></tr>
+</tbody>
+</table>
+
+<h2 id="security">10. Security</h2>
+<p>We use technical and organizational measures designed to protect your information, including encryption in transit (TLS&nbsp;1.2 or higher) and at rest (AES-256), role-based access controls, row-level security in our database to enforce per-organization data isolation, multi-factor authentication on the infrastructure dashboards used to administer the Services, and audit logging of sensitive actions.</p>
+<p>Full details, including infrastructure, access controls, multi-tenant isolation, incident response, and our compliance roadmap, are on the <a class="inline" href="security.html">Security</a> page.</p>
+<div class="privacy__callout">
+<div class="privacy__callout-title">Breach notification</div>
+<p>If we determine that a security incident has materially affected your data, we will notify you within <strong>72 hours</strong> of confirmation, regardless of jurisdictional minimums. Notice will include what we know, what we are doing about it, and what (if anything) we recommend you do.</p>
+</div>
+
+<h2 id="rights">11. Your rights</h2>
+<p>Depending on where you live, you may have rights regarding your Personal Information, including:</p>
+<ul>
+<li>Access to information we hold about you</li>
+<li>Correction of inaccurate information</li>
+<li>Deletion of your account and associated Personal Information</li>
+<li>Export of your Customer Content in a portable format (CSV, XLSX, HTML)</li>
+<li>Objection to or restriction of certain processing</li>
+<li>Withdrawal of consent where processing is based on consent</li>
+<li>Lodging a complaint with a supervisory authority</li>
+</ul>
+<p>To exercise these rights, email <a class="inline" href="mailto:privacy@bidframe.co">privacy@bidframe.co</a> from the email address on your BidFrame account. If the request comes from a different address, we may ask you to confirm the request from your account email or via a logged-in support flow before responding. We respond to verified requests within <strong>30 days</strong>.</p>
+
+<h2 id="state">12. State-specific disclosures (US)</h2>
+<p>If you are a resident of California, Virginia, Colorado, Connecticut, Utah, or another state with comprehensive privacy legislation, the following applies in addition to <a class="inline" href="#rights">Section 11</a>.</p>
+<h3>Categories of Personal Information collected (last 12 months)</h3>
+<ul>
+<li>Identifiers (name, email, IP address, account ID)</li>
+<li>Customer records (account, organization, role)</li>
+<li>Internet or network activity (server logs, product telemetry)</li>
+<li>Professional or employment-related information (employer, job title)</li>
+</ul>
+<h3>Categories disclosed to subprocessors</h3>
+<p>The categories above are disclosed only to the subprocessors listed in <a class="inline" href="#processors">Section 7</a> for the purposes stated.</p>
+<h3>Sale &amp; sharing</h3>
+<p>We do <strong>not</strong> sell Personal Information. We do <strong>not</strong> share Personal Information for cross-context behavioral advertising. We have not done so in the preceding 12 months.</p>
+<h3>Sensitive Personal Information</h3>
+<p>We do not knowingly collect Sensitive Personal Information as defined under California or Virginia law and do not use it to infer characteristics about you.</p>
+<h3>Right to appeal</h3>
+<p>If we deny your rights request, you may appeal by replying to our denial. We will respond within 60 days. If you disagree with the appeal outcome, you may contact your state attorney general.</p>
+
+<h2 id="international">13. International users</h2>
+<p>BidFrame is operated from the United States and processes data in the United States. If you access the Services from outside the U.S., your information will be transferred to and processed in the U.S. For transfers from the European Economic Area, the United Kingdom, or Switzerland, we rely on the EU Standard Contractual Clauses (and the UK Addendum, where applicable) as the lawful transfer mechanism. These clauses are incorporated into our Data Processing Agreement (see <a class="inline" href="#dpa">Section 14</a>).</p>
+
+<h2 id="dpa">14. Data Processing Agreement</h2>
+<p>For customers acting as a data controller under GDPR, UK GDPR, or comparable law, BidFrame offers a <strong>Data Processing Agreement</strong> incorporating the European Commission&#39;s Standard Contractual Clauses, the UK International Data Transfer Addendum, and a current subprocessor list. Request a DPA at <a class="inline" href="mailto:privacy@bidframe.co">privacy@bidframe.co</a>. We countersign DPAs as part of standard onboarding for organizations that require one.</p>
+
+<h2 id="continuity">15. Vendor continuity</h2>
+<p>If BidFrame is acquired, ceases operations, or enters insolvency proceedings:</p>
+<ul>
+<li>We will provide customers with at least <strong>60 days&#39; notice</strong> before any planned shutdown or material change in operations, where legally and practically feasible.</li>
+<li>Customers will be able to export Customer Content during the notice period using the standard export functions (CSV, XLSX, HTML) and, on request, via a database extract.</li>
+<li>In the event of insolvency, we will work with any trustee or successor to honor the export window before any data transfer.</li>
+</ul>
+
+<h2 id="children">16. Children</h2>
+<p>The Services are intended for business users and are not directed to children under 16. We do not knowingly collect Personal Information from children. If you believe a child has provided us information, contact us and we will delete it.</p>
+
+<h2 id="changes">17. Changes</h2>
+<p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" and "Version" markers at the top. For material changes, we will provide additional notice (for example, by email or an in-app notice) at least <strong>30 days before</strong> the changes take effect, where practicable.</p>
+
+<h2 id="contact">18. Contact</h2>
+<p>Questions, requests, complaints, or DPA requests:</p>
+<p><strong>Frame Path (BidFrame)</strong><br>
+General privacy: <a class="inline" href="mailto:privacy@bidframe.co">privacy@bidframe.co</a><br>
+Security disclosures: <a class="inline" href="mailto:security@bidframe.co">security@bidframe.co</a></p>
+
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer__grid">
+<div class="footer__brand">BidFrame</div>
+<div class="footer__links">
+<a href="index.html#product">Product</a>
+<a href="index.html#how">How It Works</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#demo">Contact</a>
+<a href="security.html">Security</a>
+<a href="privacy.html">Privacy</a>
+<a href="#">Terms</a>
+<a href="index.html#demo">Book Demo</a>
+</div>
+<div class="footer__copy">&copy; 2026 Frame Path. All rights reserved.</div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
