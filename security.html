@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <p class="eyebrow">Trust</p>
 <h1>Security at BidFrame.</h1>
 <p class="page-header__lede">Production briefs are confidential. Rate cards are competitive. Bids are sensitive financial data. Here is how we protect them.</p>
-<p class="page-header__meta">Last updated: April 27, 2026</p>
+<p class="page-header__meta">Last updated: April 29, 2026</p>
 </div>
 </header>
 
@@ -266,6 +266,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <ul>
 <li>Code is reviewed before merging to main</li>
 <li>Input validation at API boundaries: Zod schemas in our domain layer, with route-level validation on each handler</li>
+<li>Automated PII detection and redaction: email addresses, phone numbers, and identification numbers are stripped from parsed brief output before database storage</li>
 <li>Output encoding and React escaping by default to mitigate XSS</li>
 <li>Parameterized queries through Supabase clients to prevent SQL injection</li>
 <li>Rate limiting on authentication and high-cost endpoints (current implementation is in-process; persistent, cross-instance rate limiting on the roadmap)</li>
