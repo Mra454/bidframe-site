@@ -111,7 +111,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 
 /* COMPARE */
 .compare { padding: 80px 0; border-top: 1px solid var(--black); }
-.compare__title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 32px; }
+.compare__title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px; }
+.compare__intro { font-size: 0.95rem; color: var(--mid); line-height: 1.6; margin-bottom: 32px; max-width: 760px; }
 .compare__table-wrap { overflow-x: auto; border: 1px solid var(--black); }
 .compare__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 720px; }
 .compare__table th, .compare__table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--light); }
@@ -291,6 +292,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <section class="compare">
 <div class="container">
 <h2 class="compare__title">Compare plans</h2>
+<p class="compare__intro">Every plan includes brief-to-bid drafting, full AICP export, all 39 risk and completeness checks, scenario versioning, and premium-exposure planning. The table below shows where the tiers differ.</p>
 <div class="compare__table-wrap">
 <table class="compare__table">
 <thead>
@@ -304,15 +306,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <tbody>
 <tr class="compare__row-head"><td colspan="4">Capacity</td></tr>
 <tr><th>Active producer seats</th><td>3</td><td>10</td><td>25</td></tr>
-<tr><th>Bid volume</th><td>Team-wide</td><td>Unlimited</td><td>Unlimited</td></tr>
 <tr><th>Additional seats</th><td>Upgrade tier</td><td>Upgrade tier</td><td>Negotiated</td></tr>
-
-<tr class="compare__row-head"><td colspan="4">Bidding</td></tr>
-<tr><th>Brief-to-bid draft</th><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
-<tr><th>39 risk and completeness checks</th><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
-<tr><th>AICP export</th><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
-<tr><th>Scenario versioning and comparison</th><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
-<tr><th>Premium-exposure planning</th><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
 
 <tr class="compare__row-head"><td colspan="4">Operations</td></tr>
 <tr><th>Scope-drift and change-order tracking</th><td><span class="compare__dash">-</span></td><td><span class="compare__check">+</span></td><td><span class="compare__check">+</span></td></tr>
