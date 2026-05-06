@@ -301,8 +301,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <li>Tags every rate with its source</li>
 <li>Automated risk review runs on every draft and grades flags by severity: critical, recommended, info</li>
 <li>Flags budget gaps against the client's budget with cost-reduction options</li>
-<li>Flags tax incentive eligibility across 13 US states</li>
-<li>Compares scenarios line-by-line with per-section and per-item deltas</li>
 <li>Exports to AICP HTML, AICP XLSX, Client HTML, CSV, Excel, or a 1-page client bid letter</li>
 </ul>
 <div class="hero__ctas">
@@ -325,22 +323,40 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="ui-panel__title">Bid Builder: AICP Sections</div>
 <div class="ui-panel__row"><span>A. Pre-production &amp; wrap</span><span>$48,200</span></div>
 <div class="ui-panel__row"><span>B. Shooting crew</span><span>$86,450</span></div>
-<div class="ui-panel__row"><span>C. Location &amp; travel</span><span>$31,700</span></div>
-<div class="ui-panel__row"><span>D. Props, wardrobe, animals</span><span>$12,300</span></div>
-<div class="ui-panel__row"><span>E. Studio &amp; stage</span><span>$22,000</span></div>
-<div class="ui-panel__row"><span>F. Equipment</span><span>$18,600</span></div>
-<div class="ui-panel__row"><span>G. Post-production</span><span>$41,500</span></div>
+<div class="ui-panel__row"><span>D. Location expenses</span><span>$31,700</span></div>
+<div class="ui-panel__row"><span>E. Props, wardrobe, animals</span><span>$12,300</span></div>
+<div class="ui-panel__row"><span>I. Equipment rental</span><span>$18,600</span></div>
+<div class="ui-panel__row"><span>L. Director's fees</span><span>$22,000</span></div>
+<div class="ui-panel__row"><span>M. Talent</span><span>$42,800</span></div>
+<div class="ui-panel__row"><span>T. Finishing</span><span>$41,500</span></div>
+<div class="ui-panel__row"><span>X. VFX &amp; animation</span><span>$14,800</span></div>
+<div style="border-top:1px solid #333;padding-top:6px;margin-top:6px;font-size:0.6rem;color:#888;letter-spacing:0.04em;text-align:right;">9 of 23 sections in use &middot; spans A&ndash;X</div>
 </div>
 <div class="ui-panel--score">
 <div class="ui-score"><div class="ui-score__val">82</div><div class="ui-score__label">Confidence</div></div>
 <div class="ui-score"><div class="ui-score__val">3</div><div class="ui-score__label">Risk Flags</div></div>
 <div class="ui-score"><div class="ui-score__val">67</div><div class="ui-score__label">Line Items</div></div>
 </div>
-<div class="ui-panel ui-panel--risk">
-<div class="ui-panel__title">Risk Review</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Contingency at 6%, below 10% threshold</div>
-<div class="ui-flag"><span class="ui-flag__icon ui-flag__icon--warn"></span> Music sync license without master use rights</div>
-<div class="ui-flag"><span class="ui-flag__icon"></span> 4 deliverables, no versioning budget</div>
+<div class="ui-panel" style="padding:14px 18px;">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:6px;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
+<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Risk Review</div>
+<div style="font-size:0.55rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">2 recommended &middot; 1 info</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#ccc;border-bottom:1px solid #1f1f1f;">
+<span style="width:8px;height:8px;background:#888;flex-shrink:0;margin-top:5px;"></span>
+<span style="flex:1;">Contingency at 6%, below 10% threshold</span>
+<span style="font-size:0.5rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">REC</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#ccc;border-bottom:1px solid #1f1f1f;">
+<span style="width:8px;height:8px;background:#888;flex-shrink:0;margin-top:5px;"></span>
+<span style="flex:1;">Music sync license without master use rights</span>
+<span style="font-size:0.5rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">REC</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#aaa;">
+<span style="width:8px;height:8px;border:1px solid #555;flex-shrink:0;margin-top:5px;"></span>
+<span style="flex:1;">4 deliverables, no versioning budget</span>
+<span style="font-size:0.5rem;color:#888;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">INFO</span>
+</div>
 </div>
 <div class="ui-panel">
 <div class="ui-panel__title">Export Status</div>
@@ -363,11 +379,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="metrics">
 <div class="container">
 <div class="metrics__grid">
-<div class="metrics__cell"><div class="metrics__val">Up to 120</div><div class="metrics__label">Drafted Line Items</div></div>
 <div class="metrics__cell"><div class="metrics__val">40+</div><div class="metrics__label">Risk Checks</div></div>
 <div class="metrics__cell"><div class="metrics__val">15-Factor</div><div class="metrics__label">Confidence Score</div></div>
 <div class="metrics__cell"><div class="metrics__val">130+</div><div class="metrics__label">Rate-Sourced Roles</div></div>
 <div class="metrics__cell"><div class="metrics__val">A&ndash;X</div><div class="metrics__label">AICP Sections</div></div>
+<div class="metrics__cell"><div class="metrics__val">Up to 120</div><div class="metrics__label">Drafted Line Items</div></div>
 <div class="metrics__cell"><div class="metrics__val">13</div><div class="metrics__label">State Tax Incentives</div></div>
 </div>
 </div>
@@ -395,17 +411,39 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="problem__item">Export in AICP, CSV, Excel, or client-ready HTML</div>
 </div>
 </div>
+<p style="text-align:center;margin-top:48px;font-size:1rem;color:var(--mid);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.6">Every producer has drafted a bid on a Sunday night. BidFrame is built to give that time back. The producer still reviews every number. Still owns every assumption. Just faster.</p>
 </div>
 </section>
 
 <hr class="hr">
 
-<!-- TIME MATH -->
-<section class="section section--dark">
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
 <div class="container">
-<p class="eyebrow" style="color:#888">The Economics</p>
-<h2 class="section-title" style="color:var(--white);max-width:820px">Designed to compress days of bidding into hours.</h2>
-<p class="section-sub" style="color:var(--light);max-width:620px;margin-top:20px">Every producer has drafted a bid on a Sunday night. BidFrame is built to give that time back. Instead of typing line items from scratch, looking up rates, and sanity-checking fringes, you review a structured first draft. The producer still reviews every number. Still owns every assumption. Just faster.</p>
+<p class="eyebrow">Process</p>
+<h2 class="section-title">How it works</h2>
+<div class="steps__grid">
+<div class="step">
+<div class="step__num">01</div>
+<div class="step__title">Upload the Brief</div>
+<div class="step__copy">Parse any brief format into structured production data. PDF, Word, deck, or pasted text.</div>
+</div>
+<div class="step">
+<div class="step__num">02</div>
+<div class="step__title">Verify the Scope</div>
+<div class="step__copy">Review what BidFrame extracted. Deliverables, talent, locations, timeline, usage, assumptions. All editable before the bid drafts.</div>
+</div>
+<div class="step">
+<div class="step__num">03</div>
+<div class="step__title">Generate the Bid</div>
+<div class="step__copy">A complete first-pass bid drafts in minutes. Every rate sourced. Every line item editable.</div>
+</div>
+<div class="step">
+<div class="step__num">04</div>
+<div class="step__title">Review &amp; Export</div>
+<div class="step__copy">Check the confidence score, work through the risk audit, and export in whatever format your client expects.</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -446,60 +484,66 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 </div>
 </section>
 
-<hr class="hr">
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
+<!-- DEEP DIVE: RISK REVIEW -->
+<section class="deep">
 <div class="container">
-<p class="eyebrow">Process</p>
-<h2 class="section-title">How it works</h2>
-<div class="steps__grid">
-<div class="step">
-<div class="step__num">01</div>
-<div class="step__title">Upload the Brief</div>
-<div class="step__copy">Parse any brief format into structured production data. PDF, Word, deck, or pasted text.</div>
+<div class="deep__grid deep__grid--reverse">
+<div>
+<p class="eyebrow">Risk Review</p>
+<h3 class="deep__title">Know what is missing before the client sees it.</h3>
+<p class="deep__copy">Every bid runs through 40+ checks before it leaves your hands. Contingency, music rights, crew completeness, travel, insurance, post budget, all audited against industry norms. Unresolved critical flags hold the export until the producer resolves or overrides them.</p>
 </div>
-<div class="step">
-<div class="step__num">02</div>
-<div class="step__title">Verify the Scope</div>
-<div class="step__copy">Review what BidFrame extracted. Deliverables, talent, locations, timeline, usage, assumptions. All editable before the bid drafts.</div>
-</div>
-<div class="step">
-<div class="step__num">03</div>
-<div class="step__title">Generate the Bid</div>
-<div class="step__copy">A complete first-pass bid drafts in minutes. Every rate sourced. Every line item editable.</div>
-</div>
-<div class="step">
-<div class="step__num">04</div>
-<div class="step__title">Review &amp; Export</div>
-<div class="step__copy">Check the confidence score, work through the risk audit, and export in whatever format your client expects.</div>
+<div class="deep__visual">
+<div class="ui-panel" style="padding:18px 22px;">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+<div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Risk Audit: 3 Unresolved of 40+</div>
+<div style="display:flex;gap:6px;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">
+<span style="color:var(--white);">1 critical</span>
+<span style="color:#444;">/</span>
+<span>2 recommended</span>
+<span style="color:#444;">/</span>
+<span>4 passed</span>
 </div>
 </div>
+<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
+<span style="width:10px;height:10px;background:var(--white);flex-shrink:0;margin-top:4px;"></span>
+<span style="flex:1;font-size:0.72rem;color:#ddd;line-height:1.5;">Contingency at 5%: below 10% threshold</span>
+<span style="font-size:0.55rem;color:var(--white);font-weight:700;letter-spacing:0.08em;flex-shrink:0;">CRITICAL</span>
 </div>
-</section>
-
-<hr class="hr">
-
-<!-- FEATURES -->
-<section class="section" id="features">
-<div class="container">
-<p class="eyebrow">Capabilities</p>
-<h2 class="section-title">Core features</h2>
-<div class="features__grid">
-<div class="feature">
-<div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><rect x="1" y="3" width="14" height="10"/><line x1="1" y1="7" x2="15" y2="7"/><line x1="1" y1="10" x2="15" y2="10"/><line x1="6" y1="3" x2="6" y2="13"/><line x1="11" y1="3" x2="11" y2="13"/></svg></div>
-<div class="feature__title">Structured Bid Builder</div>
-<div class="feature__copy">Organizes estimates by AICP sections A&ndash;X with real-time totals and markup control. Adapts to your company's preferred format on export.</div>
+<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
+<span style="width:10px;height:10px;background:#888;flex-shrink:0;margin-top:4px;"></span>
+<span style="flex:1;font-size:0.72rem;color:#ccc;line-height:1.5;">Music license incomplete: sync only, no master use</span>
+<span style="font-size:0.55rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">RECOMMENDED</span>
 </div>
-<div class="feature">
-<div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><polyline points="2,14 2,2 14,2"/><polyline points="4,10 7,6 10,8 14,3"/></svg></div>
-<div class="feature__title">Confidence Scoring</div>
-<div class="feature__copy">Shows how complete the bid is, from rough ballpark to locked budget.</div>
+<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
+<span style="width:10px;height:10px;background:#888;flex-shrink:0;margin-top:4px;"></span>
+<span style="flex:1;font-size:0.72rem;color:#ccc;line-height:1.5;">Versioning budget thin: 4 deliverables, 1 editor day <span style="display:inline-block;border:1px solid #555;color:#999;font-size:0.5rem;padding:1px 6px;letter-spacing:0.08em;text-transform:uppercase;margin-left:4px;vertical-align:1px;">Inferred</span></span>
+<span style="font-size:0.55rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">RECOMMENDED</span>
 </div>
-<div class="feature">
-<div class="feature__icon"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.5"><polyline points="2,8 6,12 14,4"/><line x1="8" y1="2" x2="8" y2="6" stroke-dasharray="2,2"/></svg></div>
-<div class="feature__title">Scope Drift Tracking</div>
-<div class="feature__copy">When the agency adds rounds, cuts, or shoot days mid-project, every change is tracked against the approved baseline. No more arguing from memory.</div>
+<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
+<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
+<span style="flex:1;">Usage terms present</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
+<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
+<span style="flex:1;">Travel and per diem covered</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
+<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
+<span style="flex:1;">Insurance line included</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
+<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
+<span style="flex:1;">GA tax incentive: 20-30% credit eligible</span>
+</div>
+</div>
+<div class="ui-panel">
+<div class="ui-panel__title">Export Gate</div>
+<div class="ui-panel__row"><span>Status</span><span>BLOCKED</span></div>
+<div class="ui-panel__row"><span>Reason</span><span>1 critical flag unresolved</span></div>
+<div class="ui-panel__row"><span>Confidence</span><span>68 / 100 &middot; 13 of 15 factors</span></div>
+<div class="ui-panel__row"><span>Action</span><span>Resolve or producer override</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -514,10 +558,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="trust__block">
 <div class="trust__block-title">Editable Assumptions</div>
 <div class="trust__block-copy">Every generated field is visible and editable. The producer owns every number.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Source-Backed Line Items</div>
-<div class="trust__block-copy">Every rate shows its source. Know whether a number came from parsed brief data, union tables, or manual entry.</div>
 </div>
 <div class="trust__block">
 <div class="trust__block-title">Live Totals</div>
@@ -535,6 +575,10 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <div class="trust__block-title">Audit Trail</div>
 <div class="trust__block-copy">Track who changed what, when, and why. Full edit history for internal review and client accountability.</div>
 </div>
+<div class="trust__block">
+<div class="trust__block-title">Scope Drift Tracking</div>
+<div class="trust__block-copy">When the agency adds rounds, cuts, or shoot days mid-project, every change is tracked against the approved baseline. No more arguing from memory.</div>
+</div>
 </div>
 </div>
 </section>
@@ -549,13 +593,100 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <p class="deep__copy">When someone asks where a number came from, you have a specific answer. Every line item shows where its rate came from: parsed from the brief, pulled from a published union scale, matched to your company's rate card, or sourced from a verified market baseline. Hover any value to see exactly where it came from and when it was last verified.</p>
 </div>
 <div class="deep__visual">
-<div class="ui-panel">
-<div class="ui-panel__title">Rate Sources: Example Bid</div>
-<div class="ui-panel__row"><span>Director (DGA Commercial Min)</span><span>$1,841 &middot; UNION</span></div>
-<div class="ui-panel__row"><span>1st AD (DGA Commercial Min)</span><span>$1,280 &middot; UNION</span></div>
-<div class="ui-panel__row"><span>DP, NYC (Market Baseline)</span><span>$2,400 &middot; MARKET</span></div>
-<div class="ui-panel__row"><span>Editor (Your Rate Card v2)</span><span>$1,200 &middot; RATE CARD</span></div>
-<div class="ui-panel__row"><span>Craft services (per person/day)</span><span>$45 &middot; INFERRED</span></div>
+<div class="ui-panel" style="padding:18px 22px;">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:10px;">
+<div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Rate Sources: Example Bid</div>
+<div style="font-size:0.6rem;color:#888;letter-spacing:0.04em;">As of 2026-05-06</div>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">Director, daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,850</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">DGA 2025-2026</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">1st AD, daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,280</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">DGA 2025-2026</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">DP NYC (Local 600 NEC), daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,900</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">IATSE-AICP 2025-28</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">1st AC NYC (Local 600 NEC), daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,060</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">IATSE-AICP 2025-28</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">Principal talent, session</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$855</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">SAG-AFTRA 2025</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">SAG P&amp;H, % of session</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">23.5%</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">SAG-AFTRA 2025</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">Editor, daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,200</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">Rate Card v2</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">Per diem M&amp;IE, NYC</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$95</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">GSA FY2026</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;gap:14px;">
+<span style="color:#aaa;flex:1;min-width:0;">Craft service NYC, daily</span>
+<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$500</span>
+<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">Internal estimate</span>
+</div>
+<div style="border-top:1px solid #333;padding-top:8px;margin-top:8px;font-size:0.6rem;color:#888;line-height:1.7;letter-spacing:0.02em;">
+<div>9 line items shown &middot; 6 source documents cited</div>
+<div style="color:#666;">Hover any rate to see the dated contract clause or PDF page.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DEEP DIVE: BID LETTER -->
+<section class="deep">
+<div class="container">
+<div class="deep__grid deep__grid--reverse">
+<div>
+<p class="eyebrow">Bid Letter</p>
+<h3 class="deep__title">A 1-page bid letter, not a 30-page spreadsheet.</h3>
+<p class="deep__copy">When the agency wants the AICP bid form they get the AICP bid form. When the client decision-maker wants context they get a 1-page cover letter with letterhead, a budget summary, the assumptions behind the bid, an explicit "Not included" list, payment terms, and cancellation language. Template scaffold for structure, generated prose for the cover paragraph and the "Not included" bullets. The producer reviews and edits before it ships.</p>
+</div>
+<div class="deep__visual">
+<div class="ui-panel" style="padding:20px 22px;">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:10px;margin-bottom:14px;">
+<div style="font-weight:700;color:var(--white);font-size:0.8rem;letter-spacing:0.08em;">YOUR PRODUCTION CO.</div>
+<div style="color:#888;font-size:0.65rem;">May 6, 2026</div>
+</div>
+<div style="font-size:0.7rem;color:#aaa;line-height:1.7;margin-bottom:10px;">
+<div><span style="color:#666;">To:</span> Client decision-maker</div>
+<div><span style="color:#666;">Brand:</span> Nike</div>
+</div>
+<div style="font-size:0.75rem;font-weight:600;color:var(--white);margin-bottom:12px;">Re: Nike Air Max launch spot</div>
+<div style="font-size:0.7rem;color:#aaa;line-height:1.55;margin-bottom:16px;">Thank you for considering Your Production Co. for Nike Air Max launch spot. Please find our preliminary bid summary below for your review.</div>
+<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;border-bottom:1px solid #222;padding-bottom:4px;margin-bottom:6px;">Budget Summary</div>
+<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Shooting crew</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$86,450</span></div>
+<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Pre-production &amp; wrap</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$48,200</span></div>
+<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Post-production</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$41,500</span></div>
+<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Location &amp; travel</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$31,700</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0 0;border-top:1px solid #555;margin-top:6px;font-size:0.75rem;font-weight:700;color:var(--white);letter-spacing:0.04em;"><span>GRAND TOTAL</span><span style="font-variant-numeric:tabular-nums;">$487,500</span></div>
+<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;border-bottom:1px solid #222;padding-bottom:4px;margin:16px 0 6px;">Not Included</div>
+<div style="font-size:0.7rem;color:#aaa;line-height:1.6;">
+<div>&middot; Raw footage and source files</div>
+<div>&middot; Talent usage beyond broadcast + digital, 1 yr US</div>
+<div>&middot; Revisions beyond agreed rounds</div>
+</div>
+<div style="margin-top:14px;padding-top:10px;border-top:1px solid #222;color:#888;font-size:0.6rem;line-height:1.6;">Net 30 &middot; 50% deposit on execution &middot; Valid through June 5, 2026</div>
 </div>
 </div>
 </div>
@@ -568,7 +699,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height:
 <h2 class="section-title" style="color:var(--white)">Stop rebuilding bids from scratch.</h2>
 <p class="section-sub" style="color:var(--light)">Built for production teams that need faster bid turnaround, fewer pricing misses, and cleaner client delivery.</p>
 <div class="cta__buttons">
-<a href="#demo" class="btn btn--primary" style="background:var(--white);color:var(--black);border-color:var(--white);">Book a Demo</a>
+<a href="#demo" class="btn btn--primary" style="background:var(--white);color:var(--black);border-color:var(--white);">Start 14-day trial</a>
+<a href="#demo" class="btn btn--secondary" style="background:transparent;color:var(--white);border-color:var(--white);">Book a Demo</a>
 </div>
 </div>
 </section>
