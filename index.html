@@ -1,781 +1,893 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://app.bidframe.co">
-<title>BidFrame | Brief to bid in hours, not days.</title>
-<meta name="description" content="Brief to bid in hours, not days. BidFrame drafts defensible, market-accurate production bids for commercial teams.">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="BidFrame">
-<meta property="og:url" content="https://bidframe.co/">
-<meta property="og:title" content="BidFrame">
-<meta property="og:description" content="Brief to bid in hours, not days.">
-<meta property="og:image" content="https://bidframe.co/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BidFrame: brief to bid in hours, not days.">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BidFrame">
-<meta name="twitter:description" content="Brief to bid in hours, not days.">
-<meta name="twitter:image" content="https://bidframe.co/og-image.png">
-<!-- Icons -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
-:root {
-  --black: #000000;
-  --dark: #111111;
-  --mid: #555555;
-  --light: #CFCFCF;
-  --vlight: #EFEFEF;
-  --white: #FFFFFF;
-  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --grid-max: 1200px;
-  --col: calc((100% - 11 * 24px) / 12);
-}
-html { font-size: 16px; scroll-behavior: smooth; }
-body { font-family: var(--font); color: var(--black); background: var(--white); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-button, input { font-family: var(--font); border-radius: 0 !important; }
-img { display: block; max-width: 100%; }
-.container { max-width: var(--grid-max); margin: 0 auto; padding: 0 24px; }
-.hr { border: none; border-top: 1px solid var(--black); margin: 0; }
-.hr--light { border-color: var(--light); }
-h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-.eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; color: var(--mid); margin-bottom: 16px; }
-.btn { display: inline-block; padding: 14px 32px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid var(--black); cursor: pointer; transition: background 0.15s, color 0.15s; text-align: center; }
-.btn--primary { background: var(--black); color: var(--white); }
-.btn--primary:hover { background: var(--white); color: var(--black); }
-.btn--secondary { background: var(--white); color: var(--black); }
-.btn--secondary:hover { background: var(--black); color: var(--white); }
-.btn--small { padding: 10px 24px; font-size: 0.75rem; }
-.section { padding: 80px 0; }
-.section--dark { background: var(--dark); color: var(--white); }
-.section--dark .hr { border-color: #333; }
-.section--vlight { background: var(--vlight); }
-.section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 16px; max-width: 720px; }
-.section-sub { font-size: 1rem; color: var(--mid); max-width: 600px; line-height: 1.6; }
-.section--dark .section-sub { color: var(--light); }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BidFrame | From brief to a bid you can defend</title>
+  <meta name="description" content="BidFrame turns commercial production briefs into producer-reviewed bids with visible rate sources, structured review, and AICP-oriented exports.">
+  <link rel="canonical" href="https://bidframe.co/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BidFrame">
+  <meta property="og:url" content="https://bidframe.co/">
+  <meta property="og:title" content="BidFrame | From brief to a bid you can defend">
+  <meta property="og:description" content="Producer-reviewed commercial production bids with visible rate sources, structured review, and AICP-oriented exports.">
+  <meta property="og:image" content="https://bidframe.co/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BidFrame commercial production bidding software">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BidFrame | From brief to a bid you can defend">
+  <meta name="twitter:description" content="Producer-reviewed commercial production bids with visible rate sources and structured review.">
+  <meta name="twitter:image" content="https://bidframe.co/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <style>
+    :root {
+      --ink: #11110f;
+      --paper: #f6f3ec;
+      --white: #fffef9;
+      --muted: #68665f;
+      --line: #c9c4b8;
+      --soft: #ece8de;
+      --amber: #e49b2f;
+      --amber-soft: #fff1d8;
+      --red: #b24a3b;
+      --red-soft: #f7e4df;
+      --blue: #4e6f88;
+      --blue-soft: #e5edf2;
+      --green: #496b55;
+      --green-soft: #e2ece4;
+      --max: 1240px;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
 
-/* NAV */
-.nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--black); }
-.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.nav__brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
-.nav__logo { display: block; width: 20px; height: 20px; flex-shrink: 0; }
-.nav__links { display: flex; gap: 28px; align-items: center; }
-.nav__links a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.15s; }
-.nav__links a:hover { border-bottom-color: var(--black); }
-.nav__links .btn { padding: 8px 20px; font-size: 0.7rem; }
-.nav__links a.btn { border-bottom: 2px solid var(--black); }
-.nav__links a.btn:hover { border-bottom-color: var(--black); }
-.nav__links .btn + .btn { margin-left: -16px; }
-.nav__toggle { display: none; background: none; border: none; width: 28px; height: 20px; position: relative; cursor: pointer; }
-.nav__toggle span { display: block; width: 100%; height: 2px; background: var(--black); position: absolute; left: 0; transition: 0.2s; }
-.nav__toggle span:nth-child(1) { top: 0; }
-.nav__toggle span:nth-child(2) { top: 9px; }
-.nav__toggle span:nth-child(3) { top: 18px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
 
-/* HERO */
-.hero { padding: 80px 0 0; border-bottom: 1px solid var(--black); }
-.hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.hero__left { padding-bottom: 80px; }
-.hero h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 24px; max-width: 720px; }
-.hero h1 .nobreak { white-space: nowrap; }
-.hero__sub { font-size: 1.05rem; color: var(--mid); line-height: 1.6; margin-bottom: 24px; max-width: 500px; }
-.hero__caps { list-style: none; margin: 0 0 32px; padding: 0; max-width: 520px; }
-.hero__caps li { display: flex; gap: 18px; padding: 3px 0; font-size: 0.9rem; color: var(--black); line-height: 1.5; }
-.hero__caps li::before { content: '-'; flex-shrink: 0; font-weight: 700; color: var(--black); }
-.hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-.hero__right { background: var(--dark); border: 1px solid #333; padding: 24px; position: relative; margin-bottom: -1px; }
-.hero__ui { display: flex; flex-direction: column; gap: 12px; }
-.ui-panel { border: 1px solid #333; padding: 16px; }
-.ui-panel__title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin-bottom: 10px; font-weight: 700; }
-.ui-panel__row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.75rem; color: #aaa; border-bottom: 1px solid #222; }
-.ui-panel__row:last-child { border-bottom: none; }
-.ui-panel__row span:last-child { color: var(--white); font-weight: 600; font-variant-numeric: tabular-nums; }
-.ui-panel--score { display: flex; gap: 16px; }
-.ui-score { flex: 1; text-align: center; border: 1px solid #333; padding: 12px 8px; }
-.ui-score__val { font-size: 1.5rem; font-weight: 800; color: var(--white); }
-.ui-score__label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-top: 4px; }
-.ui-panel--risk .ui-flag { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 0.75rem; color: #ccc; border-bottom: 1px solid #222; }
-.ui-panel--risk .ui-flag:last-child { border-bottom: none; }
-.ui-flag__icon { width: 10px; height: 10px; border: 1px solid #888; display: inline-block; }
-.ui-flag__icon--warn { background: #888; }
-.ui-panel--export { display: flex; gap: 8px; flex-wrap: wrap; }
-.ui-export-tag { border: 1px solid #444; padding: 4px 10px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: #aaa; }
+    .announcement {
+      padding: 8px 24px;
+      color: #f9f7f0;
+      background: var(--ink);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .announcement span { color: #d7d2c6; }
 
-/* METRIC STRIP */
-.metrics { border-bottom: 1px solid var(--black); }
-.metrics__grid { display: grid; grid-template-columns: repeat(6, 1fr); }
-.metrics__cell { padding: 24px 16px; text-align: center; border-right: 1px solid var(--black); }
-.metrics__cell:last-child { border-right: none; }
-.metrics__val { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; }
-.metrics__label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-top: 4px; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--ink);
+      background: rgba(246, 243, 236, .94);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 850; letter-spacing: .12em; font-size: 14px; }
+    .brand-mark { width: 26px; height: 26px; }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .nav-links a:not(.button):hover { text-decoration: underline; text-underline-offset: 5px; }
+    .mobile-menu { display: none; position: relative; }
+    .mobile-menu summary {
+      min-height: 39px;
+      padding: 0 12px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
+      list-style: none;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .mobile-menu-panel {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      width: 210px;
+      padding: 8px;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .mobile-menu-panel a { display: block; padding: 11px 10px; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 750; text-transform: uppercase; }
+    .mobile-menu-panel a:last-child { border-bottom: 0; }
 
-/* PROBLEM */
-.problem__grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 48px; }
-.problem__col { padding: 32px; }
-.problem__col:first-child { border-right: 1px solid var(--black); }
-.problem__col-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--light); }
-.problem__col--new .problem__col-title { border-bottom-color: var(--black); }
-.problem__item { display: flex; gap: 10px; padding: 8px 0; font-size: 0.9rem; line-height: 1.5; color: var(--mid); }
-.problem__col--new .problem__item { color: var(--black); }
-.problem__item::before { content: '-'; flex-shrink: 0; font-weight: 700; }
-.problem__col--new .problem__item::before { content: '+'; }
+    .button {
+      min-height: 44px;
+      padding: 0 19px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--ink);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    }
+    .button:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+    .button-dark { color: var(--paper); background: var(--ink); }
+    .button-light { color: var(--ink); background: var(--white); }
 
-/* HOW IT WORKS */
-.steps__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; }
-.step { border: 1px solid var(--black); border-right: none; padding: 32px 24px; }
-.step:last-child { border-right: 1px solid var(--black); }
-.step__num { font-size: 4rem; font-weight: 900; -webkit-text-stroke: 2px var(--black); color: transparent; line-height: 1; margin-bottom: 16px; }
-.step__title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
-.step__copy { font-size: 0.85rem; color: var(--mid); line-height: 1.5; }
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { letter-spacing: -.045em; line-height: .98; }
+    h1 { max-width: 650px; margin-bottom: 24px; font-size: clamp(48px, 5.2vw, 76px); }
+    h2 { margin-bottom: 22px; font-size: clamp(34px, 3.45vw, 50px); }
+    h3 { font-size: 25px; }
+    .lede { max-width: 680px; color: #3d3c37; font-size: clamp(18px, 2vw, 24px); line-height: 1.42; letter-spacing: -.015em; }
 
-/* FEATURES */
-.features__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; }
-.feature { border: 1px solid var(--light); border-right: none; border-bottom: 1px solid var(--light); padding: 32px 24px; }
-.feature:nth-child(3n) { border-right: 1px solid var(--light); }
-.feature__icon { width: 32px; height: 32px; border: 1px solid var(--black); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
-.feature__icon svg { width: 16px; height: 16px; }
-.feature__title { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.03em; }
-.feature__copy { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
+    .hero { padding: 72px 0 0; border-bottom: 1px solid var(--ink); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.07fr .93fr; gap: 56px; align-items: start; }
+    .hero-copy { padding-bottom: 70px; }
+    .hero-copy strong { font-weight: 800; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .hero-note { margin-top: 18px; color: var(--muted); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; }
 
-/* WHY IT WINS */
-.wins__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border: 1px solid #333; }
-.wins__col { padding: 32px 24px; border-right: 1px solid #333; }
-.wins__col:last-child { border-right: none; }
-.wins__col-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; color: var(--white); }
-.wins__item { padding: 6px 0; font-size: 0.8rem; color: var(--light); display: flex; gap: 8px; align-items: baseline; }
-.wins__item::before { content: '+'; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .app-window {
+      position: relative;
+      align-self: end;
+      min-height: 625px;
+      margin-top: 10px;
+      padding: 16px;
+      color: #f8f5ed;
+      background: #161613;
+      border: 1px solid var(--ink);
+      box-shadow: 14px 14px 0 #ded8cb;
+    }
+    .window-bar { display: flex; justify-content: space-between; align-items: center; padding: 4px 2px 14px; color: #aaa79e; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    .window-dots { display: flex; gap: 5px; }
+    .window-dots i { width: 7px; height: 7px; display: block; border: 1px solid #77746c; border-radius: 50%; }
+    .window-head { padding: 20px; background: #f8f6ef; color: var(--ink); border: 1px solid #3a3934; }
+    .window-head-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .window-kicker { color: var(--muted); font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .window-title { margin: 8px 0 0; font-size: 25px; letter-spacing: -.04em; }
+    .total { text-align: right; }
+    .total strong { display: block; font-size: 27px; letter-spacing: -.04em; }
+    .total span { color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
+    .rail-tabs { display: grid; grid-template-columns: repeat(4, 1fr); margin: 12px 0; border: 1px solid #3d3c36; }
+    .rail-tab { padding: 10px 7px; border-right: 1px solid #3d3c36; color: #a8a59d; font-family: var(--mono); font-size: 8px; letter-spacing: .06em; text-align: center; text-transform: uppercase; }
+    .rail-tab:last-child { border-right: 0; }
+    .rail-tab.active { background: #f8f6ef; color: var(--ink); }
+    .task-list { display: grid; gap: 8px; }
+    .task {
+      display: grid;
+      grid-template-columns: 7px 1fr auto;
+      align-items: stretch;
+      min-height: 92px;
+      color: var(--ink);
+      background: #f8f6ef;
+      border: 1px solid #3d3c36;
+    }
+    .task-stripe { background: var(--amber); }
+    .task.red .task-stripe { background: var(--red); }
+    .task.blue .task-stripe { background: var(--blue); }
+    .task-copy { padding: 14px 14px 12px; }
+    .task-kind { color: var(--muted); font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .task-copy strong { display: block; margin: 6px 0 4px; font-size: 13px; line-height: 1.2; }
+    .task-copy p { margin: 0; color: #65635c; font-size: 10px; line-height: 1.35; }
+    .task-action { min-width: 98px; padding: 13px 11px; display: grid; place-content: center; border-left: 1px solid #bdb8ad; text-align: center; }
+    .task-action button { min-width: 70px; padding: 8px 9px; color: #f8f6ef; background: var(--ink); border: 0; font-size: 8px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .task-action span { margin-top: 6px; color: var(--muted); font-family: var(--mono); font-size: 7px; text-transform: uppercase; }
+    .app-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 12px; padding: 13px 15px; border: 1px solid #3d3c36; color: #b8b4aa; font-family: var(--mono); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
+    .app-footer b { color: #f7f4ec; }
 
-/* DEEP DIVES */
-.deep { padding: 80px 0; border-bottom: 1px solid var(--black); }
-.deep__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.deep__grid--reverse { direction: rtl; }
-.deep__grid--reverse > * { direction: ltr; }
-.deep__title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 16px; }
-.deep__copy { font-size: 0.95rem; color: var(--mid); line-height: 1.7; max-width: 480px; }
-.deep__visual { background: var(--dark); border: 1px solid #333; padding: 24px; min-height: 320px; }
-.deep__visual .ui-panel { margin-bottom: 8px; }
-.deep__visual .ui-panel:last-child { margin-bottom: 0; }
+    .proof-strip { border-bottom: 1px solid var(--ink); background: var(--white); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .proof-item { padding: 24px 20px; border-right: 1px solid var(--ink); }
+    .proof-item:first-child { border-left: 1px solid var(--ink); }
+    .proof-item b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+    .proof-item span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
 
-/* DIFF TABLE */
-.diff-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
-.diff-table th, .diff-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #333; }
-.diff-table th { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.65rem; color: #888; border-bottom: 1px solid #555; }
-.diff-table td { color: #ccc; }
-.diff-table .diff-add { border-left: 3px solid #888; }
-.diff-table .diff-remove { border-left: 3px solid #444; text-decoration: line-through; color: #666; }
-.diff-table .diff-change { border-left: 3px solid #aaa; }
-.diff-table .diff-total { font-weight: 700; color: var(--white); border-top: 2px solid #555; }
+    .problem-beat { padding: 82px 0; color: var(--paper); background: var(--ink); border-bottom: 1px solid var(--ink); }
+    .problem-grid { display: grid; grid-template-columns: 1.05fr .75fr; gap: 82px; align-items: end; }
+    .problem-beat .eyebrow { color: #aaa79e; }
+    .problem-beat h2 { max-width: 760px; margin-bottom: 0; }
+    .problem-copy { padding-bottom: 4px; color: #c7c2b7; font-size: 17px; }
+    .problem-copy p:last-child { margin-bottom: 0; }
+    .problem-copy strong { color: var(--white); }
 
-/* USE CASES */
-.usecases__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; margin-top: 48px; border: 1px solid var(--black); }
-.usecase { padding: 24px 16px; text-align: center; border-right: 1px solid var(--black); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; min-height: 80px; }
-.usecase:last-child { border-right: none; }
+    section.content { padding: 100px 0; border-bottom: 1px solid var(--ink); }
+    .section-intro { max-width: 820px; margin-bottom: 64px; }
+    .section-intro p:not(.eyebrow) { max-width: 650px; color: var(--muted); font-size: 18px; }
 
-/* TRUST */
-.trust__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; }
-.trust__block { border: 1px solid var(--black); border-right: none; border-bottom: none; padding: 32px 24px; }
-.trust__block:nth-child(3n) { border-right: 1px solid var(--black); }
-.trust__block:nth-child(n+4) { border-bottom: 1px solid var(--black); }
-.trust__grid .trust__block:nth-child(-n+3) { border-top: 1px solid var(--black); }
-.trust__grid .trust__block:nth-last-child(-n+3) { border-bottom: 1px solid var(--black); }
-.trust__block-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
-.trust__block-copy { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
-.trust__cite { display: block; margin-top: 10px; font-size: 0.65rem; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ink); background: var(--white); }
+    .step { min-height: 280px; padding: 24px; border-right: 1px solid var(--ink); display: flex; flex-direction: column; }
+    .step:last-child { border-right: 0; }
+    .step-num { font-family: var(--mono); font-size: 56px; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--ink); }
+    .step h3 { margin: auto 0 14px; font-size: 21px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
 
-/* CTA */
-.cta-section { text-align: center; }
-.cta-section .section-title { margin: 0 auto 16px; }
-.cta-section .section-sub { margin: 0 auto 32px; }
-.cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-.cta__form { display: flex; gap: 0; justify-content: center; max-width: 420px; margin: 0 auto; }
-.cta__input { flex: 1; padding: 14px 16px; border: 2px solid var(--black); border-right: none; font-size: 0.85rem; background: var(--white); }
-.cta__input::placeholder { color: var(--light); }
-.cta__submit { padding: 14px 24px; background: var(--black); color: var(--white); border: 2px solid var(--black); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; transition: 0.15s; }
-.cta__submit:hover { background: var(--white); color: var(--black); }
+    .misses-section { background: var(--white); }
+    .misses-head {
+      display: grid;
+      grid-template-columns: 1.05fr .75fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    .misses-head h2 { max-width: 760px; margin-bottom: 0; }
+    .misses-head-copy { padding-bottom: 7px; }
+    .misses-head-copy p { margin: 0; color: var(--muted); font-size: 18px; }
+    .misses-head-copy strong { color: var(--ink); }
+    .misses-list { border-top: 1px solid var(--ink); }
+    .miss-row {
+      display: grid;
+      grid-template-columns: 70px 1fr 156px;
+      gap: 24px;
+      align-items: center;
+      min-height: 166px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .miss-num {
+      align-self: start;
+      color: transparent;
+      font-family: var(--mono);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+      -webkit-text-stroke: 1px var(--ink);
+    }
+    .miss-copy h3 { max-width: 760px; margin: 0 0 9px; font-size: clamp(25px, 3vw, 38px); }
+    .miss-copy p { max-width: 760px; margin: 0; color: var(--muted); font-size: 14px; }
+    .rail-label {
+      justify-self: end;
+      min-width: 138px;
+      padding: 10px 12px;
+      border: 1px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .rail-label.action { color: var(--red); background: var(--red-soft); border-color: var(--red); }
+    .rail-label.budget { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
+    .rail-label.suggested { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
+    .rail-label.watch { color: var(--blue); background: var(--blue-soft); border-color: var(--blue); }
+    .review-section { color: #f6f3ea; background: var(--ink); }
+    .review-section .eyebrow, .review-section .section-intro p:not(.eyebrow) { color: #aaa79e; }
+    .review-grid { display: grid; grid-template-columns: .84fr 1.16fr; gap: 54px; align-items: center; }
+    .review-copy h2 { font-size: clamp(38px, 3.75vw, 54px); }
+    .review-copy > p { color: #c8c3b8; font-size: 18px; }
+    .rail-key { margin-top: 36px; border-top: 1px solid #45443f; }
+    .rail-key-row { display: grid; grid-template-columns: 9px 120px 1fr; gap: 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid #45443f; }
+    .rail-key-row i { width: 9px; height: 28px; background: var(--amber); }
+    .rail-key-row.red i { background: var(--red); }
+    .rail-key-row.blue i { background: var(--blue); }
+    .rail-key-row.green i { background: var(--green); }
+    .rail-key-row b { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    .rail-key-row span { color: #aaa79e; font-size: 13px; }
+    .review-board { padding: 18px; background: #252520; border: 1px solid #55534d; box-shadow: 16px 16px 0 #080807; }
+    .review-board-head { padding: 18px; display: flex; justify-content: space-between; align-items: end; border: 1px solid #55534d; background: #f6f3ea; color: var(--ink); }
+    .review-board-head h3 { margin: 0; }
+    .review-board-head span { color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
+    .review-board .task-list { margin-top: 10px; }
 
-/* FAQ */
-.faq__list { margin-top: 48px; max-width: 800px; }
-.faq__item { border: 1px solid var(--black); border-bottom: none; }
-.faq__item:last-child { border-bottom: 1px solid var(--black); }
-.faq__q { padding: 20px 24px; font-size: 0.9rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.15s; user-select: none; }
-.faq__q:hover { background: var(--black); color: var(--white); }
-.faq__q::after { content: '+'; font-size: 1.2rem; font-weight: 300; flex-shrink: 0; margin-left: 16px; }
-.faq__item.open .faq__q::after { content: '\2013'; }
-.faq__a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.faq__a-inner { padding: 0 24px 20px; font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+    .source-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
+    .source-copy { position: sticky; top: 108px; }
+    .source-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
+    .source-note { margin-top: 30px; padding: 18px; border: 1px solid var(--ink); background: var(--amber-soft); font-size: 13px; }
+    .source-note strong { display: block; margin-bottom: 5px; }
+    .rate-table { border: 1px solid var(--ink); background: var(--white); }
+    .rate-head, .rate-row { display: grid; grid-template-columns: 1.25fr .65fr 1fr; gap: 12px; align-items: center; }
+    .rate-head { padding: 14px 18px; color: #c8c3b8; background: var(--ink); font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+    .rate-row { min-height: 76px; padding: 15px 18px; border-bottom: 1px solid var(--line); }
+    .rate-row:last-child { border-bottom: 0; }
+    .rate-role strong { display: block; font-size: 14px; }
+    .rate-role span { color: var(--muted); font-size: 11px; }
+    .rate-value { font-family: var(--mono); font-weight: 700; }
+    .badge { display: inline-flex; width: fit-content; padding: 5px 7px; border: 1px solid; font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .badge.card { color: var(--green); background: var(--green-soft); }
+    .badge.scale { color: var(--blue); background: var(--blue-soft); }
+    .badge.baseline { color: #8b641f; background: var(--amber-soft); }
+    .badge.quote { color: var(--red); background: var(--red-soft); }
+    .rate-source small { display: block; margin-top: 5px; color: var(--muted); line-height: 1.25; }
 
-/* FOOTER */
-.footer { border-top: 1px solid var(--black); padding: 40px 0; }
-.footer__grid { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
-.footer__brand { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-.footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
-.footer__links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: 0.15s; }
-.footer__links a:hover { color: var(--black); border-bottom-color: var(--black); }
-.footer__copy { width: 100%; text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--light); font-size: 0.65rem; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; }
+    .control-section { background: var(--white); }
+    .control-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 76px; align-items: center; }
+    .control-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
+    .control-list { margin-top: 30px; border-top: 1px solid var(--ink); }
+    .control-row { display: grid; grid-template-columns: 110px 1fr; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .control-row b { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .control-row span { color: var(--muted); font-size: 14px; }
+    .compare-card { border: 1px solid var(--ink); background: var(--paper); box-shadow: 12px 12px 0 var(--soft); }
+    .compare-card header { display: flex; justify-content: space-between; padding: 16px 18px; color: var(--paper); background: var(--ink); }
+    .compare-card header b { font-size: 13px; }
+    .compare-card header span { color: #aaa79e; font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
+    .compare-total { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; padding: 28px 20px; border-bottom: 1px solid var(--ink); text-align: center; }
+    .compare-total small { display: block; color: var(--muted); font-family: var(--mono); text-transform: uppercase; }
+    .compare-total strong { display: block; margin-top: 5px; font-size: 27px; }
+    .compare-arrow { font-size: 24px; }
+    .delta-row { display: grid; grid-template-columns: 1fr auto; padding: 15px 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .delta-row:last-child { border-bottom: 0; }
+    .delta-row span:last-child { font-family: var(--mono); font-weight: 700; }
 
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .hero__grid { grid-template-columns: 1fr; }
-  .hero__right { margin-top: 0; }
-  .steps__grid { grid-template-columns: repeat(2, 1fr); }
-  .step { border-right: 1px solid var(--black); }
-  .step:nth-child(2n+1) { border-right: none; }
-  .step:nth-child(2n) { border-right: 1px solid var(--black); }
-  .step:nth-child(odd) { border-right: none; }
-  .steps__grid .step:nth-child(1), .steps__grid .step:nth-child(2) { border-right: 1px solid var(--black); }
-  .steps__grid .step:nth-child(odd) { border-right: none; }
-  .features__grid { grid-template-columns: repeat(2, 1fr); }
-  .feature:nth-child(2n) { border-right: 1px solid var(--light); }
-  .feature:nth-child(4n) { border-right: 1px solid var(--light); }
-  .wins__grid { grid-template-columns: 1fr; }
-  .wins__col { border-right: none; border-bottom: 1px solid #333; }
-  .wins__col:last-child { border-bottom: none; }
-  .deep__grid, .deep__grid--reverse { grid-template-columns: 1fr; direction: ltr; }
-  .usecases__grid { grid-template-columns: repeat(3, 1fr); }
-  .usecase:nth-child(3n) { border-right: none; }
-  .usecase:nth-child(n+4) { border-top: none; }
-  .trust__grid { grid-template-columns: repeat(2, 1fr); }
-  .trust__block:nth-child(2n) { border-right: 1px solid var(--black); }
-  .metrics__grid { grid-template-columns: repeat(3, 1fr); }
-  .metrics__cell:nth-child(3) { border-right: none; }
-  .metrics__cell:nth-child(n+4) { border-top: 1px solid var(--black); }
-  .problem__grid { grid-template-columns: 1fr; }
-  .problem__col:first-child { border-right: none; border-bottom: 1px solid var(--black); }
-}
-@media (max-width: 640px) {
-  .nav__links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--black); flex-direction: column; padding: 24px; gap: 16px; z-index: 99; }
-  .nav__links.open { display: flex; }
-  .nav__toggle { display: block; }
-  .steps__grid { grid-template-columns: 1fr; }
-  .step { border-right: 1px solid var(--black) !important; }
-  .features__grid { grid-template-columns: 1fr; }
-  .feature { border-right: 1px solid var(--light) !important; }
-  .usecases__grid { grid-template-columns: 1fr; }
-  .usecase { border-right: none; border-bottom: 1px solid var(--black); }
-  .usecase:last-child { border-bottom: none; }
-  .metrics__grid { grid-template-columns: 1fr; }
-  .metrics__cell { border-right: none; border-bottom: 1px solid var(--black); }
-  .metrics__cell:last-child { border-bottom: none; }
-  .trust__grid { grid-template-columns: 1fr; }
-  .trust__block { border-right: 1px solid var(--black) !important; }
-  .footer__grid { flex-direction: column; align-items: center; text-align: center; }
-  .footer__links { justify-content: center; }
-  .cta__form { flex-direction: column; }
-  .cta__input { border-right: 2px solid var(--black); border-bottom: none; }
-}
-</style>
+    .exports-section { background: var(--paper); }
+    .exports-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 74px; align-items: center; }
+    .export-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
+    .formats { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    .formats span { padding: 9px 11px; border: 1px solid var(--ink); background: var(--white); font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+    .document-stack { position: relative; min-height: 530px; }
+    .doc { position: absolute; width: 72%; min-height: 430px; padding: 26px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 rgba(17,17,15,.12); }
+    .doc:nth-child(1) { left: 3%; top: 72px; transform: rotate(-5deg); background: repeating-linear-gradient(to bottom, var(--white) 0, var(--white) 24px, #e9e5db 25px); }
+    .doc:nth-child(2) { right: 3%; top: 35px; transform: rotate(4deg); background: repeating-linear-gradient(to bottom, var(--white) 0, var(--white) 24px, #e9e5db 25px); }
+    .doc:nth-child(3) { left: 14%; top: 0; transform: rotate(0); }
+    .doc-head { display: flex; justify-content: space-between; padding-bottom: 13px; border-bottom: 2px solid var(--ink); font-size: 11px; font-weight: 800; }
+    .doc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 8px; }
+    .doc-line { display: grid; grid-template-columns: 1fr auto; padding: 9px 0; border-bottom: 1px solid var(--soft); font-size: 10px; }
+    .doc-total { display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--ink); font-size: 14px; font-weight: 800; }
+    .doc-tag { margin-top: 20px; padding: 9px; background: var(--ink); color: var(--white); font-family: var(--mono); font-size: 8px; text-align: center; text-transform: uppercase; }
+
+    .boundary { padding: 74px 0; color: var(--white); background: var(--ink); border-bottom: 1px solid #44433e; }
+    .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .boundary h2 { max-width: 560px; font-size: clamp(36px, 3.75vw, 54px); }
+    .boundary p { color: #b9b5aa; font-size: 17px; }
+    .boundary-list { border-top: 1px solid #4d4b45; }
+    .boundary-list div { padding: 16px 0; border-bottom: 1px solid #4d4b45; color: #d5d1c7; font-size: 14px; }
+    .boundary-list b { display: inline-block; min-width: 116px; color: #fffdf5; font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+
+    .access { padding: 116px 0; background: var(--amber); border-bottom: 1px solid var(--ink); }
+    .access-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 72px; align-items: end; }
+    .access h2 { max-width: 760px; margin-bottom: 18px; }
+    .access > .container > div > p:not(.eyebrow) { max-width: 650px; margin-bottom: 0; font-size: 18px; }
+    .access-card { padding: 25px; border: 1px solid var(--ink); background: var(--paper); box-shadow: 10px 10px 0 var(--ink); }
+    .access-card label { display: block; margin-bottom: 7px; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .access-card input, .access-card select { width: 100%; height: 45px; margin-bottom: 12px; padding: 0 12px; border: 1px solid var(--ink); border-radius: 0; background: var(--white); }
+    .access-card input:focus, .access-card select:focus { outline: 3px solid var(--amber); outline-offset: 2px; }
+    .access-card .button { width: 100%; border: 0; }
+    .access-card .button:disabled { cursor: wait; opacity: .68; }
+    .access-card .form-note, .access-card .form-status { margin: 10px 0 0; color: var(--muted); font-family: var(--mono); font-size: 9px; line-height: 1.5; text-align: center; }
+    .access-card .form-status { min-height: 14px; font-weight: 700; }
+    .access-card .form-status[data-state="success"] { color: #27623b; }
+    .access-card .form-status[data-state="error"] { color: #a32d20; }
+    .form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+    .faq { background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 82px; align-items: start; }
+    .faq-intro { position: sticky; top: 108px; }
+    .faq-intro p:not(.eyebrow) { color: var(--muted); font-size: 16px; }
+    .faq-list { border-top: 1px solid var(--ink); }
+    .faq-list details { border-bottom: 1px solid var(--ink); }
+    .faq-list summary {
+      padding: 23px 44px 23px 0;
+      position: relative;
+      cursor: pointer;
+      list-style: none;
+      font-size: 18px;
+      font-weight: 760;
+      letter-spacing: -.02em;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; position: absolute; right: 4px; top: 19px; font-family: var(--mono); font-size: 22px; font-weight: 400; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { max-width: 720px; margin: -4px 44px 23px 0; color: var(--muted); font-size: 14px; }
+
+    footer { padding: 42px 0; background: var(--paper); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .footer-note { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
+
+    @media (max-width: 980px) {
+      .nav-links a:not(.button) { display: none; }
+      .mobile-menu { display: block; }
+      .hero-grid, .problem-grid, .misses-head, .review-grid, .source-layout, .control-grid, .exports-grid, .boundary-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid > *, .problem-grid > *, .misses-head > *, .review-grid > *, .source-layout > *, .control-grid > *, .exports-grid > *, .boundary-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
+      .problem-grid { gap: 28px; }
+      .hero-copy { padding-bottom: 20px; }
+      .app-window { min-height: auto; margin-bottom: -1px; }
+      .proof-grid, .steps { grid-template-columns: repeat(2, 1fr); }
+      .proof-item:nth-child(3) { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); }
+      .proof-item:nth-child(4) { border-top: 1px solid var(--ink); }
+      .step:nth-child(2) { border-right: 0; }
+      .step:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
+      .source-copy { position: static; }
+      .faq-intro { position: static; }
+      .document-stack { margin-top: 20px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .announcement { padding-inline: 12px; font-size: 9px; }
+      .nav-inner { min-height: 58px; }
+      .brand { font-size: 12px; }
+      .brand-mark { width: 22px; height: 22px; }
+      .nav-links { display: none; }
+      .button { min-height: 39px; padding: 0 12px; font-size: 10px; }
+      .hero { padding-top: 58px; }
+      h1 { font-size: clamp(42px, 13.5vw, 58px); }
+      h2 { font-size: 36px; }
+      .lede { font-size: 18px; }
+      .app-window { padding: 10px; box-shadow: 7px 7px 0 #ded8cb; }
+      .window-head { padding: 14px; }
+      .window-title { font-size: 20px; }
+      .total strong { font-size: 21px; }
+      .rail-tabs { grid-template-columns: repeat(2, 1fr); }
+      .rail-tab:nth-child(2) { border-right: 0; }
+      .rail-tab:nth-child(-n+2) { border-bottom: 1px solid #3d3c36; }
+      .task { grid-template-columns: 6px 1fr; }
+      .task-action { grid-column: 2; border: 0; border-top: 1px solid #bdb8ad; display: flex; gap: 10px; align-items: center; justify-content: flex-start; }
+      .proof-grid, .steps { grid-template-columns: 1fr; }
+      .proof-item { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); }
+      .proof-item:first-child { border-top: 0; }
+      .step { border-right: 0; border-bottom: 1px solid var(--ink); min-height: 230px; }
+      .step:last-child { border-bottom: 0; }
+      .step h3 { margin: 20px 0 10px; }
+      section.content { padding: 82px 0; }
+      .section-intro { margin-bottom: 42px; }
+      .misses-head { gap: 24px; margin-bottom: 40px; }
+      .misses-head-copy { padding-bottom: 0; }
+      .miss-row { grid-template-columns: 44px 1fr; gap: 14px; min-height: 0; padding: 25px 0; }
+      .miss-num { font-size: 27px; }
+      .miss-copy h3 { font-size: 25px; }
+      .rail-label { grid-column: 2; justify-self: start; min-width: 0; margin-top: 4px; }
+      .rail-key-row { grid-template-columns: 9px 90px 1fr; }
+      .review-grid, .boundary-grid { gap: 36px; }
+      .review-board { padding: 10px; box-shadow: 8px 8px 0 #080807; }
+      .rate-head, .rate-row { grid-template-columns: 1fr .62fr; }
+      .rate-head span:last-child, .rate-source { grid-column: 1 / -1; }
+      .rate-head span:last-child { display: none; }
+      .rate-row { gap: 8px; }
+      .control-row { grid-template-columns: 1fr; gap: 5px; }
+      .document-stack { min-height: 470px; }
+      .doc { width: 88%; min-height: 390px; padding: 20px; }
+      .doc:nth-child(3) { left: 6%; }
+      .access { padding: 82px 0; }
+      .footer-grid { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+  <div class="announcement">Private pilot now open <span>for commercial production teams</span></div>
 
-<!-- NAVIGATION -->
-<nav class="nav">
-<div class="container nav__inner">
-<a href="#" class="nav__brand"><svg class="nav__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="6" y1="17" x2="18" y2="17"/></svg>BidFrame</a>
-<button class="nav__toggle" aria-label="Menu" onclick="document.querySelector('.nav__links').classList.toggle('open')">
-<span></span><span></span><span></span>
-</button>
-<div class="nav__links">
-<a href="#product">Product</a>
-<a href="#how">How It Works</a>
-<a href="#catches">What It Catches</a>
-<a href="pricing.html">Pricing</a>
-<a href="#faq">FAQ</a>
-<a href="https://app.bidframe.co/login" class="btn btn--secondary btn--small">Log in</a>
-<a href="https://app.bidframe.co/signup" class="btn btn--primary btn--small">Sign up</a>
-</div>
-</div>
-</nav>
+  <nav aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="BidFrame home">
+        <svg class="brand-mark" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="2" y="2" width="24" height="24"/>
+          <path d="M7 8h14M2 14h24M7 20h14"/>
+        </svg>
+        BIDFRAME
+      </a>
+      <div class="nav-links">
+        <a href="#workflow">Workflow</a>
+        <a href="#review">Review Rail</a>
+        <a href="#rates">Rate Sources</a>
+        <a href="#sample-bid">Sample Bid</a>
+        <a href="/pricing.html">Pricing</a>
+        <a class="button" href="https://app.bidframe.co/login">Log in</a>
+        <a class="button button-dark" href="#access">Request access</a>
+      </div>
+      <details class="mobile-menu">
+        <summary>Menu</summary>
+        <div class="mobile-menu-panel">
+          <a href="#workflow">Workflow</a>
+          <a href="#misses">What it catches</a>
+          <a href="#review">Review Rail</a>
+          <a href="#rates">Rate sources</a>
+          <a href="#sample-bid">Sample bid</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#access">Request access</a>
+          <a href="https://app.bidframe.co/login">Log in</a>
+        </div>
+      </details>
+    </div>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="product">
-<div class="container">
-<div class="hero__grid">
-<div class="hero__left">
-<p class="eyebrow">Pre-Award Production Intelligence</p>
-<h1>From creative brief to client-ready bid in hours, not days.</h1>
-<p class="hero__sub">BidFrame parses the brief and builds a bid you can defend.</p>
-<ul class="hero__caps">
-<li>Parses briefs from PDF, Word, PowerPoint, or pasted text</li>
-<li>Tags every rate with its source</li>
-<li>Automated risk review runs on every draft and grades flags by severity: critical, recommended, info</li>
-<li>Flags budget gaps against the client's budget with cost-reduction options</li>
-<li>Exports to AICP HTML, AICP XLSX, Client HTML, CSV, Excel, or a 1-page client bid letter</li>
-</ul>
-<div class="hero__ctas">
-<a href="#demo" class="btn btn--primary">Book a Demo</a>
-<a href="#deep" class="btn btn--secondary">See Sample Bid</a>
-</div>
-</div>
-<div class="hero__right">
-<div class="hero__ui">
-<div class="ui-panel">
-<div class="ui-panel__title">Brief Parsing</div>
-<div class="ui-panel__row"><span>Format detected</span><span>PDF / 12 pages</span></div>
-<div class="ui-panel__row"><span>Deliverables</span><span>3 &times; :30 spots</span></div>
-<div class="ui-panel__row"><span>Schedule</span><span>2 prep / 3 shoot / 1 wrap</span></div>
-<div class="ui-panel__row"><span>Locations</span><span>1 studio + 1 practical, NYC</span></div>
-<div class="ui-panel__row"><span>Usage</span><span>Broadcast + Digital / 1 yr</span></div>
-<div class="ui-panel__row"><span>Budget range</span><span>$350K &ndash; $500K</span></div>
-</div>
-<div class="ui-panel">
-<div class="ui-panel__title">Bid Builder: AICP Sections</div>
-<div class="ui-panel__row"><span>A. Pre-production &amp; wrap</span><span>$48,200</span></div>
-<div class="ui-panel__row"><span>B. Shooting crew</span><span>$86,450</span></div>
-<div class="ui-panel__row"><span>D. Location expenses</span><span>$31,700</span></div>
-<div class="ui-panel__row"><span>E. Props, wardrobe, animals</span><span>$12,300</span></div>
-<div class="ui-panel__row"><span>I. Equipment rental</span><span>$18,600</span></div>
-<div class="ui-panel__row"><span>L. Director's fees</span><span>$22,000</span></div>
-<div class="ui-panel__row"><span>M. Talent</span><span>$42,800</span></div>
-<div class="ui-panel__row"><span>T. Finishing</span><span>$41,500</span></div>
-<div class="ui-panel__row"><span>X. VFX &amp; animation</span><span>$14,800</span></div>
-<div style="border-top:1px solid #333;padding-top:6px;margin-top:6px;font-size:0.6rem;color:#888;letter-spacing:0.04em;text-align:right;">9 of 23 sections in use &middot; spans A&ndash;X</div>
-</div>
-<div class="ui-panel--score">
-<div class="ui-score"><div class="ui-score__val">82</div><div class="ui-score__label">Confidence</div></div>
-<div class="ui-score"><div class="ui-score__val">3</div><div class="ui-score__label">Risk Flags</div></div>
-<div class="ui-score"><div class="ui-score__val">67</div><div class="ui-score__label">Line Items</div></div>
-</div>
-<div class="ui-panel" style="padding:14px 18px;">
-<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:6px;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
-<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Risk Review</div>
-<div style="font-size:0.55rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">2 recommended &middot; 1 info</div>
-</div>
-<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#ccc;border-bottom:1px solid #1f1f1f;">
-<span style="width:8px;height:8px;background:#888;flex-shrink:0;margin-top:5px;"></span>
-<span style="flex:1;">Contingency at 6%, below 10% threshold</span>
-<span style="font-size:0.5rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">REC</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#ccc;border-bottom:1px solid #1f1f1f;">
-<span style="width:8px;height:8px;background:#888;flex-shrink:0;margin-top:5px;"></span>
-<span style="flex:1;">Music sync license without master use rights</span>
-<span style="font-size:0.5rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">REC</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:0.7rem;color:#aaa;">
-<span style="width:8px;height:8px;border:1px solid #555;flex-shrink:0;margin-top:5px;"></span>
-<span style="flex:1;">4 deliverables, no versioning budget</span>
-<span style="font-size:0.5rem;color:#888;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">INFO</span>
-</div>
-</div>
-<div class="ui-panel">
-<div class="ui-panel__title">Export Status</div>
-<div class="ui-panel--export">
-<span class="ui-export-tag">AICP HTML</span>
-<span class="ui-export-tag">Client HTML</span>
-<span class="ui-export-tag">CSV</span>
-<span class="ui-export-tag">XLSX</span>
-<span class="ui-export-tag">AICP XLSX</span>
-<span class="ui-export-tag">Bid Letter</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Pre-award production bidding</p>
+          <h1>From brief to a bid you can defend.</h1>
+          <p class="lede">BidFrame drafts a reviewable first pass, shows the source or estimate status behind each rate, and surfaces budget, scope, rights, and completeness issues before export. <strong>You approve every number.</strong></p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#access">Request private pilot</a>
+            <a class="button button-light" href="#sample-bid">See a sample bid</a>
+          </div>
+          <p class="hero-note">For line producers · executive producers · production managers</p>
+        </div>
 
-<!-- METRIC STRIP -->
-<div class="metrics">
-<div class="container">
-<div class="metrics__grid">
-<div class="metrics__cell"><div class="metrics__val">40+</div><div class="metrics__label">Risk Checks</div></div>
-<div class="metrics__cell"><div class="metrics__val">15-Factor</div><div class="metrics__label">Confidence Score</div></div>
-<div class="metrics__cell"><div class="metrics__val">130+</div><div class="metrics__label">Rate-Sourced Roles</div></div>
-<div class="metrics__cell"><div class="metrics__val">A&ndash;X</div><div class="metrics__label">AICP Sections</div></div>
-<div class="metrics__cell"><div class="metrics__val">Up to 120</div><div class="metrics__label">Drafted Line Items</div></div>
-<div class="metrics__cell"><div class="metrics__val">13</div><div class="metrics__label">State Tax Incentives</div></div>
-</div>
-</div>
-</div>
+        <div class="app-window" aria-label="Example BidFrame review screen">
+          <div class="window-bar">
+            <span>Bid review / Summer launch</span>
+            <div class="window-dots"><i></i><i></i><i></i></div>
+          </div>
+          <div class="window-head">
+            <div class="window-head-top">
+              <div>
+                <div class="window-kicker">Client-ready review</div>
+                <h3 class="window-title">Apex Auto / Hero + cutdowns</h3>
+              </div>
+              <div class="total"><strong>$418,620</strong><span>Current bid total</span></div>
+            </div>
+          </div>
+          <div class="rail-tabs">
+            <div class="rail-tab">Budget</div>
+            <div class="rail-tab active">Needs action · 3</div>
+            <div class="rail-tab">Watch · 4</div>
+            <div class="rail-tab">Reference · 8</div>
+          </div>
+          <div class="task-list">
+            <article class="task red">
+              <div class="task-stripe"></div>
+              <div class="task-copy">
+                <span class="task-kind">Needs action · Talent</span>
+                <strong>Usage buyout has no verified rate source</strong>
+                <p>Confirm the negotiated amount before this bid goes out.</p>
+              </div>
+              <div class="task-action"><button>Confirm</button><span>Producer decision</span></div>
+            </article>
+            <article class="task">
+              <div class="task-stripe"></div>
+              <div class="task-copy">
+                <span class="task-kind">Suggested fix · Post</span>
+                <strong>Versioning work is not included</strong>
+                <p>Three aspect ratios and two cutdowns imply additional conform and QC.</p>
+              </div>
+              <div class="task-action"><button>Apply</button><span>Undo available</span></div>
+            </article>
+            <article class="task blue">
+              <div class="task-stripe"></div>
+              <div class="task-copy">
+                <span class="task-kind">Watch · Schedule</span>
+                <strong>Long-day exposure needs producer review</strong>
+                <p>Premium exposure is modeled separately from the bid total.</p>
+              </div>
+              <div class="task-action"><button>Review</button><span>Planning aid</span></div>
+            </article>
+          </div>
+          <div class="app-footer"><span><b>Source labels on</b> · Company card + baselines</span><span>AICP export ready</span></div>
+        </div>
+      </div>
+    </section>
 
-<!-- PROBLEM -->
-<section class="section" id="problem">
-<div class="container">
-<h2 class="section-title">Production bidding is still trapped in spreadsheets, PDFs, and gut feel.</h2>
-<div class="problem__grid">
-<div class="problem__col">
-<div class="problem__col-title">The Old Workflow</div>
-<div class="problem__item">Open Excel or legacy budgeting software and stare at a blank template</div>
-<div class="problem__item">Guess if rates are market-accurate</div>
-<div class="problem__item">Forget contingency, music gaps, or versioning costs</div>
-<div class="problem__item">Argue scope changes from memory</div>
-<div class="problem__item">Send a static PDF and hope nothing's missing</div>
-</div>
-<div class="problem__col problem__col--new">
-<div class="problem__col-title">With BidFrame</div>
-<div class="problem__item">First-pass bid drafted in minutes</div>
-<div class="problem__item">Every rate tagged with its source</div>
-<div class="problem__item">Risk audit catches the expensive misses</div>
-<div class="problem__item">Every scope change tracked vs. approved baseline</div>
-<div class="problem__item">Export in AICP, CSV, Excel, or client-ready HTML</div>
-</div>
-</div>
-<p style="text-align:center;margin-top:48px;font-size:1rem;color:var(--mid);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.6">Every producer has drafted a bid on a Sunday night. BidFrame is built to give that time back. The producer still reviews every number. Still owns every assumption. Just faster.</p>
-</div>
-</section>
+    <div class="proof-strip">
+      <div class="container proof-grid">
+        <div class="proof-item"><b>Producer-reviewed</b><span>Draft first. Approve before apply.</span></div>
+        <div class="proof-item"><b>Source-labeled rates</b><span>Company cards, scales, baselines, estimates.</span></div>
+        <div class="proof-item"><b>Same total, every format</b><span>The bid and its exports use the same math.</span></div>
+        <div class="proof-item"><b>AICP-oriented</b><span>Structured for the workflow you already use.</span></div>
+      </div>
+    </div>
 
-<hr class="hr">
+    <section class="problem-beat">
+      <div class="container problem-grid">
+        <div>
+          <p class="eyebrow">Why BidFrame</p>
+          <h2>Production bidding is still trapped in spreadsheets, PDFs, and gut feel.</h2>
+        </div>
+        <div class="problem-copy">
+          <p>Every producer has built a bid late at night from a blank template, an old job, and a pile of assumptions.</p>
+          <p><strong>BidFrame gets the first pass on the page so you can spend your time checking the decisions that matter.</strong></p>
+        </div>
+      </div>
+    </section>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-<div class="container">
-<p class="eyebrow">Process</p>
-<h2 class="section-title">How it works</h2>
-<div class="steps__grid">
-<div class="step">
-<div class="step__num">01</div>
-<div class="step__title">Upload the Brief</div>
-<div class="step__copy">Parse any brief format into structured production data. PDF, Word, deck, or pasted text.</div>
-</div>
-<div class="step">
-<div class="step__num">02</div>
-<div class="step__title">Verify the Scope</div>
-<div class="step__copy">Review what BidFrame extracted. Deliverables, talent, locations, timeline, usage, assumptions. All editable before the bid drafts.</div>
-</div>
-<div class="step">
-<div class="step__num">03</div>
-<div class="step__title">Generate the Bid</div>
-<div class="step__copy">A complete first-pass bid drafts in minutes. Every rate sourced. Every line item editable.</div>
-</div>
-<div class="step">
-<div class="step__num">04</div>
-<div class="step__title">Review &amp; Export</div>
-<div class="step__copy">Check the confidence score, work through the risk audit, and export in whatever format your client expects.</div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content" id="workflow">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">The workflow</p>
+          <h2>Start with the brief. Finish with your bid.</h2>
+          <p>BidFrame handles the first-pass structure and repetitive setup. You check the scope, rates, and assumptions before anything is applied.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">01</div><h3>Upload the brief</h3><p>Use PDF, Word, PowerPoint, text, Markdown, or paste the brief directly.</p></article>
+          <article class="step"><div class="step-num">02</div><h3>Verify the scope</h3><p>Review extracted deliverables, locations, usage, schedule, budget signals, and open questions.</p></article>
+          <article class="step"><div class="step-num">03</div><h3>Review the first pass</h3><p>Select the lines you want and adjust quantities and rates. After Apply, every line remains editable in the bid builder.</p></article>
+          <article class="step"><div class="step-num">04</div><h3>Resolve and export</h3><p>Work through budget and risk tasks, save a version, then deliver the format the job requires.</p></article>
+        </div>
+      </div>
+    </section>
 
-<hr class="hr">
+    <section class="content misses-section" id="misses">
+      <div class="container">
+        <div class="misses-head">
+          <div>
+            <p class="eyebrow">What the review surfaces</p>
+            <h2>The misses that cost real money.</h2>
+          </div>
+          <div class="misses-head-copy">
+            <p>A bid can look complete and still leave the production company exposed. BidFrame puts the assumptions most likely to affect <strong>scope, margin, and cash flow</strong> in front of you before the bid goes out.</p>
+          </div>
+        </div>
 
-<!-- WHAT IT CATCHES -->
-<section class="section" id="catches">
-<div class="container">
-<p class="eyebrow">What it catches</p>
-<h2 class="section-title">The misses that cost real money.</h2>
-<p class="section-sub" style="margin-top:16px">Every bid you send is the one you can't unsend. BidFrame flags the omissions that blow budgets before the client sees them, and models the financial exposure most tools leave you to discover at wrap.</p>
-<div class="trust__grid" style="margin-top:48px">
-<div class="trust__block">
-<div class="trust__block-title">No contingency on long days</div>
-<div class="trust__block-copy">14-hour shoot day, 30-person crew, no OT buffer budgeted. $10K-$50K over on a single day. The risk audit flags it before export.<span class="trust__cite">[IATSE-AICP CPA 2025]</span></div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Missing P&amp;H on talent</div>
-<div class="trust__block-copy">SAG session fees alone don't cover compensation. P&amp;H at 23.5% applies to every dollar. On $150K of talent, that's $35K missing. BidFrame catches it before the bid ships.<span class="trust__cite">[SAG-AFTRA 2025 Commercials Contract]</span></div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Versioning underbudgeted</div>
-<div class="trust__block-copy">10+ deliverables in multiple aspect ratios without reformat editor days. Post margin commonly bleeds $30K-$60K per bid. The deliverables matrix forces the math at bid time.<span class="trust__cite">[Industry observation]</span></div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Music licensing gaps</div>
-<div class="trust__block-copy">Sync license without master use rights means the final deliverable is unusable. Stock music $2-5K, known artist $10K-$250K+. Flagged at the music line, before delivery.<span class="trust__cite">[Music Supervision Industry Norms]</span></div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Cash flow exposure</div>
-<div class="trust__block-copy">Production companies front payroll, vendors, and deposits weeks before the agency's net-60 check clears. BidFrame models peak cash exposure at bid time. A $2M bid with net-60 and no advance can require $400K-$700K of working capital. Know before you sign.<span class="trust__cite">[BidFrame Cash Flow Model]</span></div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Tax credit left on the table</div>
-<div class="trust__block-copy">Shooting in Georgia, New Mexico, Louisiana, or 10 other incentive states. BidFrame flags eligibility with specific credit percentages and payout timelines so the savings don't slip through.<span class="trust__cite">[State Film Commissions]</span></div>
-</div>
-</div>
-</div>
-</section>
+        <div class="misses-list">
+          <article class="miss-row">
+            <div class="miss-num">01</div>
+            <div class="miss-copy">
+              <h3>Rights that are not fully scoped.</h3>
+              <p>Talent term, territory, platforms, music sync and master use, and renewal exposure stay open until you answer them or add a producer note.</p>
+            </div>
+            <div class="rail-label action">Needs action</div>
+          </article>
+          <article class="miss-row">
+            <div class="miss-num">02</div>
+            <div class="miss-copy">
+              <h3>Union math the schedule hides.</h3>
+              <p>SAG-AFTRA P&amp;H can add 23.5% to covered talent compensation. On $150,000 of covered compensation, that is $35,250 that must be accounted for. Rates below a sourced floor and long days without premium coverage are flagged for review.</p>
+            </div>
+            <div class="rail-label watch">Watch</div>
+          </article>
+          <article class="miss-row">
+            <div class="miss-num">03</div>
+            <div class="miss-copy">
+              <h3>Deliverables that outgrow the post budget.</h3>
+              <p>Three aspect ratios and two cutdowns imply conform, QC, and versioning days. When the post section is thin, BidFrame can propose the missing lines for you to apply or dismiss.</p>
+            </div>
+            <div class="rail-label suggested">Suggested fix</div>
+          </article>
+          <article class="miss-row">
+            <div class="miss-num">04</div>
+            <div class="miss-copy">
+              <h3>Cash committed before the client pays.</h3>
+              <p>Deposits, payroll, vendors, and milestone timing are shown as a separate planning projection, without changing the bid total.</p>
+            </div>
+            <div class="rail-label watch">Watch</div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- DEEP DIVE: RISK REVIEW -->
-<section class="deep">
-<div class="container">
-<div class="deep__grid deep__grid--reverse">
-<div>
-<p class="eyebrow">Risk Review</p>
-<h3 class="deep__title">Know what is missing before the client sees it.</h3>
-<p class="deep__copy">Every bid runs through 40+ checks before it leaves your hands. Contingency, music rights, crew completeness, travel, insurance, post budget, all audited against industry norms. Unresolved critical flags hold the export until the producer resolves or overrides them.</p>
-</div>
-<div class="deep__visual">
-<div class="ui-panel" style="padding:18px 22px;">
-<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
-<div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Risk Audit: 3 Unresolved of 40+</div>
-<div style="display:flex;gap:6px;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.06em;color:#888;">
-<span style="color:var(--white);">1 critical</span>
-<span style="color:#444;">/</span>
-<span>2 recommended</span>
-<span style="color:#444;">/</span>
-<span>4 passed</span>
-</div>
-</div>
-<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
-<span style="width:10px;height:10px;background:var(--white);flex-shrink:0;margin-top:4px;"></span>
-<span style="flex:1;font-size:0.72rem;color:#ddd;line-height:1.5;">Contingency at 5%: below 10% threshold</span>
-<span style="font-size:0.55rem;color:var(--white);font-weight:700;letter-spacing:0.08em;flex-shrink:0;">CRITICAL</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
-<span style="width:10px;height:10px;background:#888;flex-shrink:0;margin-top:4px;"></span>
-<span style="flex:1;font-size:0.72rem;color:#ccc;line-height:1.5;">Music license incomplete: sync only, no master use</span>
-<span style="font-size:0.55rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">RECOMMENDED</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:12px;padding:7px 0;border-bottom:1px solid #1f1f1f;">
-<span style="width:10px;height:10px;background:#888;flex-shrink:0;margin-top:4px;"></span>
-<span style="flex:1;font-size:0.72rem;color:#ccc;line-height:1.5;">Versioning budget thin: 4 deliverables, 1 editor day <span style="display:inline-block;border:1px solid #555;color:#999;font-size:0.5rem;padding:1px 6px;letter-spacing:0.08em;text-transform:uppercase;margin-left:4px;vertical-align:1px;">Inferred</span></span>
-<span style="font-size:0.55rem;color:#aaa;font-weight:700;letter-spacing:0.08em;flex-shrink:0;">RECOMMENDED</span>
-</div>
-<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
-<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
-<span style="flex:1;">Usage terms present</span>
-</div>
-<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
-<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
-<span style="flex:1;">Travel and per diem covered</span>
-</div>
-<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
-<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
-<span style="flex:1;">Insurance line included</span>
-</div>
-<div style="display:flex;align-items:center;gap:12px;padding:5px 0;font-size:0.7rem;color:#888;">
-<span style="width:10px;height:10px;border:1px solid #444;flex-shrink:0;"></span>
-<span style="flex:1;">GA tax incentive: 20-30% credit eligible</span>
-</div>
-</div>
-<div class="ui-panel">
-<div class="ui-panel__title">Export Gate</div>
-<div class="ui-panel__row"><span>Status</span><span>BLOCKED</span></div>
-<div class="ui-panel__row"><span>Reason</span><span>1 critical flag unresolved</span></div>
-<div class="ui-panel__row"><span>Confidence</span><span>68 / 100 &middot; 13 of 15 factors</span></div>
-<div class="ui-panel__row"><span>Action</span><span>Resolve or producer override</span></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content review-section" id="review">
+      <div class="container review-grid">
+        <div class="review-copy">
+          <p class="eyebrow">Review Rail</p>
+          <h2>Every open decision, in one list.</h2>
+          <p>The Review Rail collects budget gaps, missing scope, rights questions, and planning signals in one place. Suggested fixes stay visible and reversible. Structural blockers hold the export until they are fixed; high-risk issues require an explicit producer decision.</p>
+          <div class="rail-key">
+            <div class="rail-key-row red"><i></i><b>Needs action</b><span>Resolve, confirm, or mark not needed before delivery.</span></div>
+            <div class="rail-key-row"><i></i><b>Budget</b><span>Understand the gap and the strongest cost drivers.</span></div>
+            <div class="rail-key-row blue"><i></i><b>Watch</b><span>Planning exposure worth keeping in view.</span></div>
+            <div class="rail-key-row green"><i></i><b>Reference</b><span>Source and scope context, available when needed.</span></div>
+          </div>
+        </div>
+        <div class="review-board">
+          <div class="review-board-head"><div><span>BidFrame review</span><h3>Three decisions before export</h3></div><span>Handled state saved</span></div>
+          <div class="task-list">
+            <article class="task red"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Needs action · Rights</span><strong>Music scope names sync rights but not master use</strong><p>Confirm the license path or resolve it with a producer note.</p></div><div class="task-action"><button>Resolve</button><span>Saved to rail</span></div></article>
+            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Suggested fix · Crew</span><strong>Union fringe floor raised the organization default</strong><p>The adjustment is visible instead of silently changing the bid.</p></div><div class="task-action"><button>Review</button><span>Source shown</span></div></article>
+            <article class="task blue"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Watch · Cash flow</span><strong>Peak exposure occurs before the second milestone</strong><p>Planning projection only; it does not change the bid total.</p></div><div class="task-action"><button>Open</button><span>Financials</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- TRUST / PROOF -->
-<section class="section">
-<div class="container">
-<p class="eyebrow">Transparency</p>
-<h2 class="section-title">You own every number</h2>
-<div class="trust__grid">
-<div class="trust__block">
-<div class="trust__block-title">Editable Assumptions</div>
-<div class="trust__block-copy">Every generated field is visible and editable. The producer owns every number.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Live Totals</div>
-<div class="trust__block-copy">Section subtotals, markups, contingency, and grand totals update as you edit. No broken formula chains.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Scenario Restore</div>
-<div class="trust__block-copy">Roll back to any saved version. Compare any two scenarios. Restore an approved baseline at any time.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Export Gates</div>
-<div class="trust__block-copy">Unresolved risk flags and low confidence scores surface before export. Ship when the bid is ready.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Audit Trail</div>
-<div class="trust__block-copy">Track who changed what, when, and why. Full edit history for internal review and client accountability.</div>
-</div>
-<div class="trust__block">
-<div class="trust__block-title">Scope Drift Tracking</div>
-<div class="trust__block-copy">When the agency adds rounds, cuts, or shoot days mid-project, every change is tracked against the approved baseline. No more arguing from memory.</div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content" id="rates">
+      <div class="container source-layout">
+        <div class="source-copy">
+          <p class="eyebrow">Rate sources</p>
+          <h2>Your rates first. Gaps filled visibly.</h2>
+          <p>When a company rate card has a role match, it wins. BidFrame baselines can fill uncovered roles. Negotiated costs and estimates remain labeled for producer review.</p>
+          <div class="source-note"><strong>Every number carries context.</strong> BidFrame shows whether a rate came from your card, a published scale, a BidFrame baseline, the brief, or an estimate that still needs a quote.</div>
+        </div>
+        <div class="rate-table" aria-label="Example rate source table">
+          <div class="rate-head"><span>Role</span><span>Rate</span><span>Source status</span></div>
+          <div class="rate-row"><div class="rate-role"><strong>Executive Producer</strong><span>Prep / daily</span></div><div class="rate-value">$1,650</div><div class="rate-source"><span class="badge card">Company card</span><small>Northstar Rate Card · active snapshot</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>1st Assistant Director</strong><span>Shoot / daily</span></div><div class="rate-value">$1,280</div><div class="rate-source"><span class="badge scale">Published scale</span><small>DGA Commercials · effective date shown</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Production Designer</strong><span>Prep / daily</span></div><div class="rate-value">$1,200</div><div class="rate-source"><span class="badge baseline">BF baseline</span><small>BidFrame rate · provenance note shown</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Principal Usage Buyout</strong><span>Negotiated / flat</span></div><div class="rate-value">Pending</div><div class="rate-source"><span class="badge quote">Needs quote</span><small>No verified amount silently inserted</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Per diem · New York</strong><span>M&amp;IE / daily</span></div><div class="rate-value">$92</div><div class="rate-source"><span class="badge scale">Government</span><small>GSA FY2026 · locality and date shown</small></div></div>
+        </div>
+      </div>
+    </section>
 
-<!-- DEEP DIVE: RATE PROVENANCE -->
-<section class="deep" id="deep">
-<div class="container">
-<div class="deep__grid">
-<div>
-<p class="eyebrow">Rate Provenance</p>
-<h3 class="deep__title">Every rate has a source. No more "trust me."</h3>
-<p class="deep__copy">When someone asks where a number came from, you have a specific answer. Every line item shows where its rate came from: parsed from the brief, pulled from a published union scale, matched to your company's rate card, or sourced from a verified market baseline. Hover any value to see exactly where it came from and when it was last verified.</p>
-</div>
-<div class="deep__visual">
-<div class="ui-panel" style="padding:18px 22px;">
-<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:10px;">
-<div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;">Rate Sources: Example Bid</div>
-<div style="font-size:0.6rem;color:#888;letter-spacing:0.04em;">As of 2026-05-06</div>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">Director, daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,850</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">DGA 2025-2026</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">1st AD, daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,280</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">DGA 2025-2026</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">DP NYC (Local 600 NEC), daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,900</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">IATSE-AICP 2025-28</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">1st AC NYC (Local 600 NEC), daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,060</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">IATSE-AICP 2025-28</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">Principal talent, session</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$855</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">SAG-AFTRA 2025</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">SAG P&amp;H, % of session</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">23.5%</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">SAG-AFTRA 2025</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">Editor, daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$1,200</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">Rate Card v2</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;border-bottom:1px solid #1f1f1f;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">Per diem M&amp;IE, NYC</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$95</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">GSA FY2026</span>
-</div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;font-size:0.7rem;gap:14px;">
-<span style="color:#aaa;flex:1;min-width:0;">Craft service NYC, daily</span>
-<span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">$500</span>
-<span style="color:#888;font-size:0.6rem;letter-spacing:0.04em;text-transform:uppercase;flex-shrink:0;width:140px;text-align:right;">Internal estimate</span>
-</div>
-<div style="border-top:1px solid #333;padding-top:8px;margin-top:8px;font-size:0.6rem;color:#888;line-height:1.7;letter-spacing:0.02em;">
-<div>9 line items shown &middot; 6 source documents cited</div>
-<div style="color:#666;">Hover any rate to see the dated contract clause or PDF page.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content control-section">
+      <div class="container control-grid">
+        <div class="control-copy">
+          <p class="eyebrow">Producer control</p>
+          <h2>The bid stays yours to change. Every change stays traceable.</h2>
+          <p>Edit the assumptions and line items, save a version, compare scenarios, and keep a delivered baseline intact.</p>
+          <div class="control-list">
+            <div class="control-row"><b>Edit</b><span>Description, basis, quantity, rate, tax, visibility, section, and notes.</span></div>
+            <div class="control-row"><b>Version</b><span>Save named versions and restore without destroying the history.</span></div>
+            <div class="control-row"><b>Compare</b><span>See total, section, line-item, and premium-exposure deltas.</span></div>
+            <div class="control-row"><b>Lock</b><span>Keep delivered scenarios intact before later revisions begin.</span></div>
+          </div>
+        </div>
+        <div class="compare-card">
+          <header><b>Scenario comparison</b><span>Director approach A / B</span></header>
+          <div class="compare-total"><div><small>Scenario A</small><strong>$418,620</strong></div><div class="compare-arrow">→</div><div><small>Scenario B</small><strong>$386,240</strong></div></div>
+          <div class="delta-row"><span>Shooting crew</span><span>−$8,900</span></div>
+          <div class="delta-row"><span>Locations and travel</span><span>−$14,200</span></div>
+          <div class="delta-row"><span>Post and finishing</span><span>+$4,600</span></div>
+          <div class="delta-row"><span>Markup, fee, contingency</span><span>−$13,880</span></div>
+        </div>
+      </div>
+    </section>
 
-<!-- DEEP DIVE: BID LETTER -->
-<section class="deep">
-<div class="container">
-<div class="deep__grid deep__grid--reverse">
-<div>
-<p class="eyebrow">Bid Letter</p>
-<h3 class="deep__title">A 1-page bid letter, not a 30-page spreadsheet.</h3>
-<p class="deep__copy">When the agency wants the AICP bid form they get the AICP bid form. When the client decision-maker wants context they get a 1-page cover letter with letterhead, a budget summary, the assumptions behind the bid, an explicit "Not included" list, payment terms, and cancellation language. Template scaffold for structure, generated prose for the cover paragraph and the "Not included" bullets. The producer reviews and edits before it ships.</p>
-</div>
-<div class="deep__visual">
-<div class="ui-panel" style="padding:20px 22px;">
-<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #333;padding-bottom:10px;margin-bottom:14px;">
-<div style="font-weight:700;color:var(--white);font-size:0.8rem;letter-spacing:0.08em;">YOUR PRODUCTION CO.</div>
-<div style="color:#888;font-size:0.65rem;">May 6, 2026</div>
-</div>
-<div style="font-size:0.7rem;color:#aaa;line-height:1.7;margin-bottom:10px;">
-<div><span style="color:#666;">To:</span> Client decision-maker</div>
-<div><span style="color:#666;">Brand:</span> Nike</div>
-</div>
-<div style="font-size:0.75rem;font-weight:600;color:var(--white);margin-bottom:12px;">Re: Nike Air Max launch spot</div>
-<div style="font-size:0.7rem;color:#aaa;line-height:1.55;margin-bottom:16px;">Thank you for considering Your Production Co. for Nike Air Max launch spot. Please find our preliminary bid summary below for your review.</div>
-<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;border-bottom:1px solid #222;padding-bottom:4px;margin-bottom:6px;">Budget Summary</div>
-<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Shooting crew</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$145,000</span></div>
-<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Pre-production &amp; wrap</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$85,000</span></div>
-<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Post-production</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$75,000</span></div>
-<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Location &amp; travel</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$55,000</span></div>
-<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.7rem;color:#aaa;"><span>Markup, fee, contingency</span><span style="color:var(--white);font-weight:600;font-variant-numeric:tabular-nums;">$127,500</span></div>
-<div style="display:flex;justify-content:space-between;padding:8px 0 0;border-top:1px solid #555;margin-top:6px;font-size:0.75rem;font-weight:700;color:var(--white);letter-spacing:0.04em;"><span>GRAND TOTAL</span><span style="font-variant-numeric:tabular-nums;">$487,500</span></div>
-<div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light);font-weight:700;border-bottom:1px solid #222;padding-bottom:4px;margin:16px 0 6px;">Not Included</div>
-<div style="font-size:0.7rem;color:#aaa;line-height:1.6;">
-<div>&middot; Raw footage and source files</div>
-<div>&middot; Talent usage beyond broadcast + digital, 1 yr US</div>
-<div>&middot; Revisions beyond agreed rounds</div>
-</div>
-<div style="margin-top:14px;padding-top:10px;border-top:1px solid #222;color:#888;font-size:0.6rem;line-height:1.6;">Net 30 &middot; 50% deposit on execution &middot; Valid through June 5, 2026</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content exports-section" id="sample-bid">
+      <div class="container exports-grid">
+        <div class="export-copy">
+          <p class="eyebrow">Delivery</p>
+          <h2>Send the detail the job calls for.</h2>
+          <p>Keep internal working detail internal. Deliver a client-facing bid, an AICP-oriented workbook, or a concise bid letter from the reviewed scenario. Client bids, AICP bid forms, and bid letters can also download as ready-to-send PDFs.</p>
+          <div class="formats"><span>Client HTML</span><span>Client PDF</span><span>AICP HTML</span><span>AICP PDF</span><span>AICP XLSX</span><span>Internal XLSX</span><span>Internal CSV</span><span>Bid letter HTML</span><span>Bid letter PDF</span></div>
+        </div>
+        <div class="document-stack" aria-label="Example BidFrame export documents">
+          <div class="doc"></div>
+          <div class="doc"></div>
+          <div class="doc">
+            <div class="doc-head"><span>NORTHSTAR PRODUCTIONS</span><span>JUL 12, 2026</span></div>
+            <div class="doc-meta"><span>PROJECT<br>SUMMER LAUNCH</span><span>PREP / SHOOT<br>4 / 2 DAYS</span></div>
+            <div class="doc-line"><span>Pre-production and wrap</span><b>$63,400</b></div>
+            <div class="doc-line"><span>Shooting crew</span><b>$118,650</b></div>
+            <div class="doc-line"><span>Locations and travel</span><b>$54,800</b></div>
+            <div class="doc-line"><span>Post and finishing</span><b>$81,200</b></div>
+            <div class="doc-line"><span>Markup, fee, contingency</span><b>$100,570</b></div>
+            <div class="doc-total"><span>GRAND TOTAL</span><span>$418,620</span></div>
+            <div class="doc-tag">Producer-reviewed scenario · client-facing export</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- CTA -->
-<section class="section section--dark cta-section" id="demo">
-<div class="container">
-<h2 class="section-title" style="color:var(--white)">Stop rebuilding bids from scratch.</h2>
-<p class="section-sub" style="color:var(--light)">Built for production teams that need faster bid turnaround, fewer pricing misses, and cleaner client delivery.</p>
-<div class="cta__buttons">
-<a href="#demo" class="btn btn--primary" style="background:var(--white);color:var(--black);border-color:var(--white);">Start 14-day trial</a>
-<a href="#demo" class="btn btn--secondary" style="background:transparent;color:var(--white);border-color:var(--white);">Book a Demo</a>
-</div>
-</div>
-</section>
+    <section class="boundary">
+      <div class="container boundary-grid">
+        <div><p class="eyebrow">Clear boundaries</p><h2>BidFrame drafts. You decide.</h2><p>BidFrame gets the bid to a state you can check. It does not route client approvals or run production after award.</p></div>
+        <div class="boundary-list">
+          <div><b>BidFrame</b> Structures the first pass, calculates totals, organizes the review, and creates exports.</div>
+          <div><b>The producer</b> Confirms rates, negotiates costs, and approves the bid.</div>
+          <div><b>After award</b> Keep using your production management, actuals, and invoicing tools.</div>
+        </div>
+      </div>
+    </section>
 
-<!-- FAQ -->
-<section class="section" id="faq">
-<div class="container">
-<p class="eyebrow">FAQ</p>
-<h2 class="section-title">Frequently asked questions</h2>
-<div class="faq__list">
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Is BidFrame replacing the producer?</div>
-<div class="faq__a"><div class="faq__a-inner">No. It accelerates the producer by drafting, calculating, and surfacing risk while keeping every assumption editable. The producer reviews and approves every number before it leaves the platform.</div></div>
-</div>
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Can I edit every line item?</div>
-<div class="faq__a"><div class="faq__a-inner">Yes. Every parsed field and generated line item is editable before export. Override rates, quantities, descriptions, and section assignments at any time.</div></div>
-</div>
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Is it only for commercials?</div>
-<div class="faq__a"><div class="faq__a-inner">Commercials are the primary use case, but BidFrame also supports digital and social campaigns, branded content, music videos, documentaries, short films, and corporate video production.</div></div>
-</div>
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Does it support union and non-union work?</div>
-<div class="faq__a"><div class="faq__a-inner">Yes. BidFrame handles non-union, union, and mixed productions. Union shoots get built-in SAG-AFTRA, DGA, and IATSE rate logic automatically.</div></div>
-</div>
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Can it export client-ready bids?</div>
-<div class="faq__a"><div class="faq__a-inner">Yes. Export in AICP-format HTML, AICP multi-sheet XLSX, client-facing HTML, CSV, and internal XLSX. Bids are formatted and structured for immediate client delivery or import into your production management tools.</div></div>
-</div>
-<div class="faq__item">
-<div class="faq__q" onclick="this.parentElement.classList.toggle('open')">Does BidFrame replace my production management tool?</div>
-<div class="faq__a"><div class="faq__a-inner">No. BidFrame is pre-award intelligence: it gets you from brief to defensible bid faster. Your production management, timesheets, actuals tracking, and invoicing tools stay in place. BidFrame's exports (AICP XLSX, CSV) are designed to feed into whatever system you use downstream. Think of BidFrame as the front door to your production workflow.</div></div>
-</div>
-</div>
-</div>
-</section>
+    <section class="content faq" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <p class="eyebrow">Questions producers ask</p>
+          <h2>What BidFrame does, and where it stops.</h2>
+          <p>Clear answers before you bring a live brief into the workspace.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Does BidFrame replace the producer?</summary>
+            <p>No. It prepares the first pass, calculates totals, and organizes the open decisions. The producer checks the scope, changes the numbers, and approves the bid.</p>
+          </details>
+          <details>
+            <summary>Can I use my company rate card?</summary>
+            <p>Yes. Exact role matches from the active company rate card take priority. BidFrame baselines can fill uncovered roles, and estimates or quote-required costs remain labeled.</p>
+          </details>
+          <details>
+            <summary>Does it support union and non-union bids?</summary>
+            <p>BidFrame supports union, non-union, and mixed productions. Published scales, sourced floors, jurisdiction, and organization settings inform the draft. The producer confirms the agreement and final rates.</p>
+          </details>
+          <details>
+            <summary>What can I send to a client?</summary>
+            <p>Client-facing HTML and PDF bids, AICP-oriented HTML, PDF, and XLSX bid forms, and one-page bid letters in HTML or PDF. Internal CSV and XLSX exports keep working detail separate.</p>
+          </details>
+          <details>
+            <summary>Does it replace production management after award?</summary>
+            <p>No. BidFrame is focused on pre-award bidding. Keep using your existing tools for production management, actuals, timesheets, invoicing, and client approvals.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-<div class="container">
-<div class="footer__grid">
-<div class="footer__brand">BidFrame</div>
-<div class="footer__links">
-<a href="#product">Product</a>
-<a href="#how">How It Works</a>
-<a href="#faq">FAQ</a>
-<a href="#demo">Contact</a>
-<a href="security.html">Security</a>
-<a href="privacy.html">Privacy</a>
-<a href="#">Terms</a>
-<a href="#demo">Book Demo</a>
-</div>
-<div class="footer__copy">&copy; 2026 Vismu LLC. All rights reserved.</div>
-</div>
-</div>
-</footer>
+    <section class="access" id="access">
+      <div class="container access-grid">
+        <div><p class="eyebrow">Private pilot</p><h2>Bring a real brief. See what the first pass gets right and what it asks you to verify.</h2><p>For commercial production teams that want less blank-sheet setup and a clearer record of where each number came from.</p></div>
+        <form class="access-card" id="pilot-request-form" action="/api/pilot-request" method="post">
+          <label for="pilot-email">Work email</label>
+          <input id="pilot-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="producer@company.com" required>
+          <label for="pilot-volume">Approximate annual bid volume</label>
+          <select id="pilot-volume" name="bidVolume" required>
+            <option value="">Select a range</option>
+            <option value="under-15">Under 15 bids</option>
+            <option value="15-50">15 to 50 bids</option>
+            <option value="over-50">More than 50 bids</option>
+          </select>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="pilot-company-url">Leave this field blank</label>
+            <input id="pilot-company-url" name="companyUrl" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="button button-dark" type="submit">Request pilot access</button>
+          <p class="form-note">Michael reviews every request and replies from michael@bidframe.co.</p>
+          <p class="form-status" id="pilot-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<script>
-document.querySelectorAll('.faq__item').forEach(function(item){
-var a=item.querySelector('.faq__a');
-var inner=item.querySelector('.faq__a-inner');
-function update(){
-if(item.classList.contains('open')){a.style.maxHeight=inner.scrollHeight+'px';}
-else{a.style.maxHeight='0';}
-}
-item.querySelector('.faq__q').addEventListener('click',function(){setTimeout(update,0);});
-update();
-});
-</script>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="24" height="24"/><path d="M7 8h14M2 14h24M7 20h14"/></svg>BIDFRAME</a>
+        <div class="footer-links">
+          <a href="#workflow">Workflow</a>
+          <a href="#review">Review Rail</a>
+          <a href="#rates">Rates</a>
+          <a href="#sample-bid">Sample bid</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#access">Contact</a>
+          <a href="/security.html">Security</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="https://app.bidframe.co/login">Log in</a>
+        </div>
+      </div>
+      <div class="footer-note">© 2026 Vismu LLC. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var form = document.getElementById('pilot-request-form');
+      var status = document.getElementById('pilot-form-status');
+      var button = form.querySelector('button[type="submit"]');
+      var defaultButtonText = button.textContent;
+      var submissionId = window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : String(Date.now());
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        button.disabled = true;
+        button.textContent = 'Sending request';
+        status.textContent = '';
+        status.dataset.state = '';
+
+        try {
+          var response = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: form.elements.email.value.trim(),
+              bidVolume: form.elements.bidVolume.value,
+              companyUrl: form.elements.companyUrl.value,
+              submissionId: submissionId
+            })
+          });
+          var result = await response.json().catch(function () { return {}; });
+          if (!response.ok) throw new Error(result.error || 'Request failed');
+
+          form.reset();
+          submissionId = window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : String(Date.now());
+          status.dataset.state = 'success';
+          status.textContent = 'Request received. Michael will follow up by email.';
+        } catch (error) {
+          status.dataset.state = 'error';
+          status.textContent = 'The request did not send. Email michael@bidframe.co and we will take care of it.';
+        } finally {
+          button.disabled = false;
+          button.textContent = defaultButtonText;
+        }
+      });
+    }());
+  </script>
 </body>
 </html>
