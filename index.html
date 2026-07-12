@@ -341,16 +341,32 @@
     .export-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
     .formats { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
     .formats span { padding: 9px 11px; border: 1px solid var(--ink); background: var(--white); font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
-    .document-stack { position: relative; min-height: 530px; }
+    .document-stack { position: relative; min-height: 580px; }
     .doc { position: absolute; width: 72%; min-height: 430px; padding: 26px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 rgba(17,17,15,.12); }
-    .doc:nth-child(1) { left: 3%; top: 72px; transform: rotate(-5deg); background: repeating-linear-gradient(to bottom, var(--white) 0, var(--white) 24px, #e9e5db 25px); }
-    .doc:nth-child(2) { right: 3%; top: 35px; transform: rotate(4deg); background: repeating-linear-gradient(to bottom, var(--white) 0, var(--white) 24px, #e9e5db 25px); }
+    .doc:nth-child(1) { left: 3%; top: 72px; transform: rotate(-5deg); }
+    .doc:nth-child(2) { right: 3%; top: 35px; transform: rotate(4deg); }
     .doc:nth-child(3) { left: 14%; top: 0; transform: rotate(0); }
     .doc-head { display: flex; justify-content: space-between; padding-bottom: 13px; border-bottom: 2px solid var(--ink); font-size: 11px; font-weight: 800; }
     .doc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 8px; }
     .doc-line { display: grid; grid-template-columns: 1fr auto; padding: 9px 0; border-bottom: 1px solid var(--soft); font-size: 10px; }
     .doc-total { display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--ink); font-size: 14px; font-weight: 800; }
     .doc-tag { margin-top: 20px; padding: 9px; background: var(--ink); color: var(--white); font-family: var(--mono); font-size: 8px; text-align: center; text-transform: uppercase; }
+    .doc-contact { margin-top: 6px; color: var(--muted); font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .05em; }
+    .doc-sec { margin-top: 13px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+    .doc-tr { display: grid; grid-template-columns: 1fr 24px 30px 44px 50px; gap: 6px; padding: 6px 0; border-bottom: 1px solid var(--soft); font-size: 9px; align-items: baseline; }
+    .doc-tr span:nth-child(n+2) { text-align: right; font-family: var(--mono); }
+    .doc-tr.head { color: var(--muted); font-family: var(--mono); font-size: 7px; text-transform: uppercase; letter-spacing: .06em; }
+    .doc-tr.more { color: var(--muted); border-bottom: 0; }
+    .doc-subtotal { padding: 6px 0; color: var(--muted); font-family: var(--mono); font-size: 8px; text-transform: uppercase; text-align: right; border-bottom: 1px solid var(--line); }
+    .doc-totals { margin-top: 10px; font-size: 9px; }
+    .doc-totals .t-row { display: flex; justify-content: space-between; padding: 4px 0; }
+    .doc-totals .t-row span:last-child { font-family: var(--mono); }
+    .doc-ghost { color: #a49d8f; }
+    .ghost-title { font-family: var(--mono); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+    .ghost-row { display: flex; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--soft); font-family: var(--mono); font-size: 8px; }
+    .ghost-row i { display: block; height: 5px; background: var(--soft); }
+    .ghost-para { height: 5px; background: var(--soft); margin: 9px 0; }
+    .ghost-sig { margin-top: 24px; width: 44%; border-top: 1px solid var(--line); padding-top: 5px; font-family: var(--mono); font-size: 7px; color: #a49d8f; text-transform: uppercase; }
 
     .boundary { padding: 74px 0; color: var(--white); background: var(--ink); border-bottom: 1px solid #44433e; }
     .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
@@ -738,17 +754,44 @@
           <p>Keep internal working detail internal. Deliver a client-facing bid, an AICP-oriented workbook, or a concise bid letter from the reviewed scenario. Client bids, AICP bid forms, and bid letters can also download as ready-to-send PDFs.</p>
           <div class="formats"><span>Client HTML</span><span>Client PDF</span><span>AICP HTML</span><span>AICP PDF</span><span>AICP XLSX</span><span>Internal XLSX</span><span>Internal CSV</span><span>Bid letter HTML</span><span>Bid letter PDF</span></div>
         </div>
-        <div class="document-stack" aria-label="Example BidFrame export documents">
-          <div class="doc"></div>
-          <div class="doc"></div>
+        <div class="document-stack" aria-label="Example BidFrame export documents: AICP bid form, bid letter, and client-facing bid">
+          <div class="doc doc-ghost" aria-hidden="true">
+            <div class="ghost-title">AICP Bid Form · Summer Launch</div>
+            <div class="ghost-row"><b>A</b><i style="width:58%"></i><b>$63,400</b></div>
+            <div class="ghost-row"><b>B</b><i style="width:52%"></i><b>$118,650</b></div>
+            <div class="ghost-row"><b>D</b><i style="width:64%"></i><b>$31,700</b></div>
+            <div class="ghost-row"><b>I</b><i style="width:48%"></i><b>$18,600</b></div>
+            <div class="ghost-row"><b>L</b><i style="width:56%"></i><b>$22,000</b></div>
+            <div class="ghost-row"><b>M</b><i style="width:44%"></i><b>$42,800</b></div>
+            <div class="ghost-row"><b>T</b><i style="width:60%"></i><b>$81,200</b></div>
+          </div>
+          <div class="doc doc-ghost" aria-hidden="true">
+            <div class="ghost-title">Bid Letter · One Page</div>
+            <div class="ghost-para" style="width:94%"></div>
+            <div class="ghost-para" style="width:88%"></div>
+            <div class="ghost-para" style="width:91%"></div>
+            <div class="ghost-para" style="width:62%"></div>
+            <div class="ghost-para" style="width:86%; margin-top:18px"></div>
+            <div class="ghost-para" style="width:79%"></div>
+            <div class="ghost-sig">Executive Producer</div>
+          </div>
           <div class="doc">
             <div class="doc-head"><span>NORTHSTAR PRODUCTIONS</span><span>JUL 12, 2026</span></div>
-            <div class="doc-meta"><span>PROJECT<br>SUMMER LAUNCH</span><span>PREP / SHOOT<br>4 / 2 DAYS</span></div>
-            <div class="doc-line"><span>Pre-production and wrap</span><b>$63,400</b></div>
-            <div class="doc-line"><span>Shooting crew</span><b>$118,650</b></div>
-            <div class="doc-line"><span>Locations and travel</span><b>$54,800</b></div>
-            <div class="doc-line"><span>Post and finishing</span><b>$81,200</b></div>
-            <div class="doc-line"><span>Markup, fee, contingency</span><b>$100,570</b></div>
+            <div class="doc-contact">Bid contact · A. Reyes, Executive Producer</div>
+            <div class="doc-meta"><span>CLIENT / PROJECT<br>APEX AUTO · SUMMER LAUNCH</span><span>PREP / SHOOT / WRAP<br>4 / 2 / 1 DAYS</span></div>
+            <div class="doc-sec">B · Shooting crew</div>
+            <div class="doc-tr head"><span>Description</span><span>Qty</span><span>Unit</span><span>Unit cost</span><span>Line total</span></div>
+            <div class="doc-tr"><span>Director of Photography</span><span>2</span><span>Day</span><span>1,900</span><span>3,800</span></div>
+            <div class="doc-tr"><span>1st Assistant Director</span><span>2</span><span>Day</span><span>1,280</span><span>2,560</span></div>
+            <div class="doc-tr more"><span>+ 14 more lines</span><span></span><span></span><span></span><span></span></div>
+            <div class="doc-subtotal">Section subtotal · $118,650</div>
+            <div class="doc-totals">
+              <div class="t-row"><span>Raw subtotal</span><span>$318,050</span></div>
+              <div class="t-row"><span>Fringe</span><span>$26,120</span></div>
+              <div class="t-row"><span>Overhead</span><span>$22,260</span></div>
+              <div class="t-row"><span>Producer Fee</span><span>$31,810</span></div>
+              <div class="t-row"><span>Contingency</span><span>$20,380</span></div>
+            </div>
             <div class="doc-total"><span>GRAND TOTAL</span><span>$418,620</span></div>
             <div class="doc-tag">Producer-reviewed scenario · client-facing export</div>
           </div>
