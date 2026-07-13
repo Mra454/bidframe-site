@@ -176,10 +176,21 @@
     .total { text-align: right; }
     .total strong { display: block; font-size: 27px; letter-spacing: -.04em; }
     .total span { color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
-    .rail-tabs { display: grid; grid-template-columns: repeat(4, 1fr); margin: 12px 0; border: 1px solid #3d3c36; }
-    .rail-tab { padding: 10px 7px; border-right: 1px solid #3d3c36; color: #a8a59d; font-family: var(--mono); font-size: 8px; letter-spacing: .06em; text-align: center; text-transform: uppercase; }
-    .rail-tab:last-child { border-right: 0; }
-    .rail-tab.active { background: #f8f6ef; color: var(--ink); }
+    .rail-group { margin-top: 13px; }
+    .rail-group .task-list { margin-top: 0; }
+    .group-head { display: flex; align-items: baseline; gap: 9px; padding-bottom: 7px; }
+    .group-head b { color: #f0ede4; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .group-head em { color: #8f8c83; font-style: normal; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .group-head .rule { flex: 1; height: 1px; align-self: center; background: #3d3c36; }
+    .group-head .count { color: #aaa79e; font-family: var(--mono); font-size: 9px; }
+    .group-head .gap-ok { color: #7da688; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+    .group-head .marker { color: #77746c; font-size: 8px; align-self: center; }
+    .group-collapsed { border: 1px solid #3d3c36; }
+    .group-collapsed .group-head { padding: 10px 12px; }
+    .chip { display: inline-block; margin-bottom: 5px; padding: 2px 5px; font-family: var(--mono); font-size: 7px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .chip.question { color: #8b641f; background: var(--amber-soft); }
+    .chip.missing { color: var(--muted); background: #eceadf; }
+    .app-window .task-copy strong { margin-top: 0; }
     .task-list { display: grid; gap: 8px; }
     .task {
       display: grid;
@@ -452,9 +463,7 @@
       .window-head { padding: 14px; }
       .window-title { font-size: 20px; }
       .total strong { font-size: 21px; }
-      .rail-tabs { grid-template-columns: repeat(2, 1fr); }
-      .rail-tab:nth-child(2) { border-right: 0; }
-      .rail-tab:nth-child(-n+2) { border-bottom: 1px solid #3d3c36; }
+      .group-head em { display: none; }
       .task { grid-template-columns: 6px 1fr; }
       .task-action { grid-column: 2; border: 0; border-top: 1px solid #bdb8ad; display: flex; gap: 10px; align-items: center; justify-content: flex-start; }
       .proof-grid, .steps { grid-template-columns: 1fr; }
@@ -541,54 +550,60 @@
 
         <div class="app-window" aria-label="Example BidFrame review screen">
           <div class="window-bar">
-            <span>Bid review / Summer launch</span>
+            <span>BidFrame / Bid review</span>
             <div class="window-dots"><i></i><i></i><i></i></div>
           </div>
           <div class="window-head">
             <div class="window-head-top">
               <div>
-                <div class="window-kicker">Client-ready review</div>
-                <h3 class="window-title">Apex Auto / Hero + cutdowns</h3>
+                <div class="window-kicker">Scenario A · Version 4 · All changes saved</div>
+                <h3 class="window-title">Kestrel Athletics · Brand Anthem</h3>
               </div>
-              <div class="total"><strong>$418,620</strong><span>Current bid total</span></div>
+              <div class="total"><strong>$418,620</strong><span>All-in total</span></div>
             </div>
           </div>
-          <div class="rail-tabs">
-            <div class="rail-tab">Budget</div>
-            <div class="rail-tab active">Needs action · 3</div>
-            <div class="rail-tab">Watch · 4</div>
-            <div class="rail-tab">Reference · 8</div>
+          <div class="rail-group">
+            <div class="group-head"><b>Budget</b><em>all-in against the stated ceiling</em><span class="rule"></span><span class="gap-ok">$31K under · $450K ceiling</span></div>
           </div>
-          <div class="task-list">
-            <article class="task red">
-              <div class="task-stripe"></div>
-              <div class="task-copy">
-                <span class="task-kind">Needs action · Talent</span>
-                <strong>Usage buyout has no verified rate source</strong>
-                <p>Confirm the negotiated amount before this bid goes out.</p>
-              </div>
-              <div class="task-action"><button>Confirm</button><span>Producer decision</span></div>
-            </article>
-            <article class="task">
-              <div class="task-stripe"></div>
-              <div class="task-copy">
-                <span class="task-kind">Suggested fix · Post</span>
-                <strong>Versioning work is not included</strong>
-                <p>Three aspect ratios and two cutdowns imply additional conform and QC.</p>
-              </div>
-              <div class="task-action"><button>Apply</button><span>Undo available</span></div>
-            </article>
-            <article class="task blue">
-              <div class="task-stripe"></div>
-              <div class="task-copy">
-                <span class="task-kind">Watch · Schedule</span>
-                <strong>Long-day exposure needs producer review</strong>
-                <p>Premium exposure is modeled separately from the bid total.</p>
-              </div>
-              <div class="task-action"><button>Review</button><span>Planning aid</span></div>
-            </article>
+          <div class="rail-group">
+            <div class="group-head"><b>Needs action</b><em>answer or fix before export</em><span class="rule"></span><span class="count">3</span></div>
+            <div class="task-list">
+              <article class="task red">
+                <div class="task-stripe"></div>
+                <div class="task-copy">
+                  <span class="chip question">Question</span>
+                  <strong>Twelve deliverables against three shoot days</strong>
+                  <p>Flagged for producer review before it turns into overtime.</p>
+                </div>
+                <div class="task-action"><button>Resolve with note</button><span>Or cover it</span></div>
+              </article>
+              <article class="task">
+                <div class="task-stripe"></div>
+                <div class="task-copy">
+                  <span class="chip missing">Missing item</span>
+                  <strong>Exterior shoot with no weather-hold line</strong>
+                  <p>Weather hold or rebook coverage is unpriced.</p>
+                </div>
+                <div class="task-action"><button>Add to bid</button><span>Or not needed</span></div>
+              </article>
+              <article class="task">
+                <div class="task-stripe"></div>
+                <div class="task-copy">
+                  <span class="chip missing">Missing item</span>
+                  <strong>Two crew travel days are unpriced</strong>
+                  <p>The shoot is out of town. Travel days are paid days.</p>
+                </div>
+                <div class="task-action"><button>Add to bid ($4,800)</button><span>Or not needed</span></div>
+              </article>
+            </div>
           </div>
-          <div class="app-footer"><span><b>Source labels on</b> · Company card + baselines</span><span>AICP export ready</span></div>
+          <div class="rail-group group-collapsed">
+            <div class="group-head"><span class="marker">&#9656;</span><b>Watch</b><em>worth your attention, not blocking</em><span class="rule"></span><span class="count">4</span></div>
+          </div>
+          <div class="rail-group group-collapsed">
+            <div class="group-head"><span class="marker">&#9656;</span><b>Reference</b><em>what this bid assumes, and what you handled</em><span class="rule"></span><span class="count">8</span></div>
+          </div>
+          <div class="app-footer"><span><b>Rates</b> · Company card + BidFrame baselines</span><span>Exports · AICP · Client · Bid letter</span></div>
         </div>
       </div>
     </section>
@@ -757,7 +772,7 @@
         </div>
         <div class="document-stack" aria-label="Example BidFrame export documents: AICP bid form, bid letter, and client-facing bid">
           <div class="doc doc-ghost" aria-hidden="true">
-            <div class="ghost-title">AICP Bid Form · Summer Launch</div>
+            <div class="ghost-title">AICP Bid Form · Brand Anthem</div>
             <div class="ghost-row"><b>A</b><i style="width:58%"></i><b>$63,400</b></div>
             <div class="ghost-row"><b>B</b><i style="width:52%"></i><b>$118,650</b></div>
             <div class="ghost-row"><b>D</b><i style="width:64%"></i><b>$31,700</b></div>
@@ -779,7 +794,7 @@
           <div class="doc">
             <div class="doc-head"><span>NORTHSTAR PRODUCTIONS</span><span>JUL 12, 2026</span></div>
             <div class="doc-contact">Bid contact · A. Reyes, Executive Producer</div>
-            <div class="doc-meta"><span>CLIENT / PROJECT<br>APEX AUTO · SUMMER LAUNCH</span><span>PREP / SHOOT / WRAP<br>4 / 2 / 1 DAYS</span></div>
+            <div class="doc-meta"><span>CLIENT / PROJECT<br>KESTREL ATHLETICS · BRAND ANTHEM</span><span>PREP / SHOOT / WRAP<br>4 / 2 / 1 DAYS</span></div>
             <div class="doc-sec">B · Shooting crew</div>
             <div class="doc-tr head"><span>Description</span><span>Qty</span><span>Unit</span><span>Unit cost</span><span>Line total</span></div>
             <div class="doc-tr"><span>Director of Photography</span><span>2</span><span>Day</span><span>1,900</span><span>3,800</span></div>
