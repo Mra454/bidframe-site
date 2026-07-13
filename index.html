@@ -352,6 +352,14 @@
     .export-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
     .formats { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
     .formats span { padding: 9px 11px; border: 1px solid var(--ink); background: var(--white); font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+    .formats span i { color: var(--muted); font-style: normal; }
+    .receipt { margin-top: 30px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 var(--soft); }
+    .receipt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 16px; color: var(--paper); background: var(--ink); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .receipt-head span { color: #aaa79e; font-weight: 400; }
+    .receipt-row { display: grid; grid-template-columns: 18px 1fr; gap: 8px; align-items: baseline; padding: 11px 16px; border-bottom: 1px solid var(--soft); font-size: 13px; }
+    .receipt-row:last-of-type { border-bottom: 0; }
+    .receipt-row i { color: var(--green); font-style: normal; font-weight: 800; }
+    .receipt-foot { padding: 10px 16px; border-top: 1px solid var(--ink); color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; }
     .document-stack { position: relative; min-height: 580px; }
     .doc { position: absolute; width: 72%; min-height: 430px; padding: 26px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 rgba(17,17,15,.12); }
     .doc:nth-child(1) { left: 3%; top: 72px; transform: rotate(-5deg); }
@@ -765,10 +773,24 @@
     <section class="content exports-section" id="sample-bid">
       <div class="container exports-grid">
         <div class="export-copy">
-          <p class="eyebrow">Delivery</p>
-          <h2>Send the detail the job calls for.</h2>
-          <p>Keep internal working detail internal. Deliver a client-facing bid, an AICP-oriented workbook, or a concise bid letter from the reviewed scenario. Client bids, AICP bid forms, and bid letters can also download as ready-to-send PDFs.</p>
-          <div class="formats"><span>Client HTML</span><span>Client PDF</span><span>AICP HTML</span><span>AICP PDF</span><span>AICP XLSX</span><span>Internal XLSX</span><span>Internal CSV</span><span>Bid letter HTML</span><span>Bid letter PDF</span></div>
+          <p class="eyebrow">Sample bid</p>
+          <h2>The bid looks normal. That's the point.</h2>
+          <p>A defensible bid reads like any other bid. The difference is the review behind it.</p>
+          <div class="receipt" aria-label="Review receipts for this bid">
+            <div class="receipt-head">Before this bid went out <span>Kestrel · Brand Anthem</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Schedule question resolved with a producer note</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Weather hold added to the bid</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Two crew travel days added · $4,800</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Every rate labeled with its source · card, scale, or baseline</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Scenario locked at export · revisions start from a clone</span></div>
+            <div class="receipt-foot">Review state is saved with the scenario. It survives reloads, clones, and versions.</div>
+          </div>
+          <div class="formats">
+            <span>Client bid <i>· PDF / HTML</i></span>
+            <span>AICP form <i>· PDF / XLSX / HTML</i></span>
+            <span>Bid letter <i>· PDF / HTML</i></span>
+            <span>Internal workbook <i>· XLSX / CSV</i></span>
+          </div>
         </div>
         <div class="document-stack" aria-label="Example BidFrame export documents: AICP bid form, bid letter, and client-facing bid">
           <div class="doc doc-ghost" aria-hidden="true">
