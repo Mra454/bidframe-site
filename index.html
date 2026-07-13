@@ -295,11 +295,7 @@
     .review-copy h2 { font-size: clamp(38px, 3.75vw, 54px); }
     .review-copy > p { color: #c8c3b8; font-size: 18px; }
     .rail-key { margin-top: 36px; border-top: 1px solid #45443f; }
-    .rail-key-row { display: grid; grid-template-columns: 9px 120px 1fr; gap: 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid #45443f; }
-    .rail-key-row i { width: 9px; height: 28px; background: var(--amber); }
-    .rail-key-row.red i { background: var(--red); }
-    .rail-key-row.blue i { background: var(--blue); }
-    .rail-key-row.green i { background: var(--green); }
+    .rail-key-row { display: grid; grid-template-columns: 120px 1fr; gap: 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid #45443f; }
     .rail-key-row b { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
     .rail-key-row span { color: #aaa79e; font-size: 13px; }
     .review-board { padding: 18px; background: #252520; border: 1px solid #55534d; box-shadow: 16px 16px 0 #080807; }
@@ -488,7 +484,7 @@
       .miss-num { font-size: 27px; }
       .miss-copy h3 { font-size: 25px; }
       .rail-label { grid-column: 2; justify-self: start; min-width: 0; margin-top: 4px; }
-      .rail-key-row { grid-template-columns: 9px 90px 1fr; }
+      .rail-key-row { grid-template-columns: 90px 1fr; }
       .review-grid, .boundary-grid { gap: 36px; }
       .review-board { padding: 10px; box-shadow: 8px 8px 0 #080807; }
       .rate-head, .rate-row { grid-template-columns: 1fr .62fr; }
@@ -708,20 +704,20 @@
         <div class="review-copy">
           <p class="eyebrow">Review Rail</p>
           <h2>Every open decision, in one list.</h2>
-          <p>The Review Rail collects budget gaps, missing scope, rights questions, and planning signals in one place. Suggested fixes stay visible and reversible. Structural blockers hold the export until they are fixed; high-risk issues require an explicit producer decision.</p>
+          <p>The Review Rail collects budget gaps, missing scope, rights questions, and planning signals. Suggested fixes stay visible and reversible. Structural blockers hold the export until they are fixed; high-risk issues require an explicit producer decision.</p>
           <div class="rail-key">
-            <div class="rail-key-row red"><i></i><b>Needs action</b><span>Resolve, confirm, or mark not needed before delivery.</span></div>
-            <div class="rail-key-row"><i></i><b>Budget</b><span>Understand the gap and the strongest cost drivers.</span></div>
-            <div class="rail-key-row blue"><i></i><b>Watch</b><span>Planning exposure worth keeping in view.</span></div>
-            <div class="rail-key-row green"><i></i><b>Reference</b><span>Source and scope context, available when needed.</span></div>
+            <div class="rail-key-row"><b>Needs action</b><span>Answer or fix before export.</span></div>
+            <div class="rail-key-row"><b>Budget</b><span>The gap against the client ceiling, and the strongest cost drivers.</span></div>
+            <div class="rail-key-row"><b>Watch</b><span>Worth your attention, not blocking.</span></div>
+            <div class="rail-key-row"><b>Reference</b><span>What this bid assumes, and what you handled.</span></div>
           </div>
         </div>
         <div class="review-board">
-          <div class="review-board-head"><div><span>BidFrame review</span><h3>Three decisions before export</h3></div><span>Handled state saved</span></div>
+          <div class="review-board-head"><div><span>BidFrame review</span><h3>One rail, three kinds of item</h3></div><span>Handled state saved</span></div>
           <div class="task-list">
-            <article class="task red"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Needs action · Rights</span><strong>Music scope names sync rights but not master use</strong><p>Confirm the license path or resolve it with a producer note.</p></div><div class="task-action"><button>Resolve</button><span>Saved to rail</span></div></article>
-            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Suggested fix · Crew</span><strong>Six line items priced below their sourced union rates</strong><p>Flagged and suggested. Never silently repriced.</p></div><div class="task-action"><button>Review</button><span>Source shown</span></div></article>
-            <article class="task blue"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Watch · Cash flow</span><strong>Peak exposure occurs before the second milestone</strong><p>Planning projection only; it does not change the bid total.</p></div><div class="task-action"><button>Open</button><span>Financials</span></div></article>
+            <article class="task red"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Needs action · Rights</span><strong>Music scope names sync rights but not master use</strong><p>The brief licenses sync only. Master use stays unpriced until someone answers for it.</p></div><div class="task-action"><button>Resolve with note</button><span>Saved to rail</span></div></article>
+            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Suggested fix · Crew</span><strong>Six line items priced below their sourced union rates</strong><p>Flagged and suggested. Never silently repriced.</p></div><div class="task-action"><button>Cover it</button><span>Producer decision</span></div></article>
+            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Watch · Cash flow</span><strong>Peak exposure occurs before the second milestone</strong><p>Planning projection only; it does not change the bid total.</p></div><div class="task-action"><button>Open</button><span>Financials</span></div></article>
           </div>
         </div>
       </div>
