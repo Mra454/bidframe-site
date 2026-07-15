@@ -186,6 +186,7 @@
     .group-head .rule { flex: 1; height: 1px; align-self: center; background: #3d3c36; }
     .group-head .count { color: #aaa79e; font-family: var(--mono); font-size: 9px; }
     .group-head .gap-ok { color: #7da688; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+    .group-head .gap-over { color: #cf7264; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
     .group-head .marker { color: #77746c; font-size: 8px; align-self: center; }
     .group-collapsed { border: 1px solid #3d3c36; }
     .group-collapsed .group-head { padding: 10px 12px; }
@@ -207,6 +208,9 @@
     .task-stripe { background: var(--amber); }
     .task.red .task-stripe { background: var(--red); }
     .task.blue .task-stripe { background: var(--blue); }
+    .task.savings .task-stripe { background: #4f9069; }
+    .task.savings .task-action button { background: #3f7d5c; }
+    .chip.savings { color: #2f6b48; background: #dfeee4; }
     .task-copy { padding: 14px 14px 12px; }
     .task-kind { color: var(--muted); font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .task-copy strong { display: block; margin: 6px 0 4px; font-size: 13px; line-height: 1.2; }
@@ -214,6 +218,7 @@
     .task-action { min-width: 98px; padding: 13px 11px; display: grid; place-content: center; border-left: 1px solid #bdb8ad; text-align: center; }
     .task-action button { min-width: 70px; padding: 8px 9px; color: #f8f6ef; background: var(--ink); border: 0; font-size: 8px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
     .task-action span { margin-top: 6px; color: var(--muted); font-family: var(--mono); font-size: 7px; text-transform: uppercase; }
+    .task-action button.ghost { margin-top: 6px; color: var(--muted); background: transparent; border: 1px solid #bdb8ad; }
     .app-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 12px; padding: 13px 15px; border: 1px solid #3d3c36; color: #b8b4aa; font-family: var(--mono); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
     .app-footer b { color: #f7f4ec; }
     .source-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; padding: 10px 12px; border: 1px solid #3d3c36; }
@@ -561,7 +566,18 @@
             <span class="currency-label">USD scenario</span>
           </div>
           <div class="rail-group">
-            <div class="group-head"><b>Budget</b><em>against the stated client ceiling</em><span class="rule"></span><span class="gap-ok">Under client ceiling</span></div>
+            <div class="group-head"><b>Budget</b><em>against the stated client ceiling</em><span class="rule"></span><span class="gap-over">$7,200 over client ceiling</span></div>
+            <div class="task-list">
+              <article class="task savings">
+                <div class="task-stripe"></div>
+                <div class="task-copy">
+                  <span class="chip savings">Savings</span>
+                  <strong>Move the camera package to a weekly rate</strong>
+                  <p>Five daily rentals price cheaper as a weekly. Closes $4,200 of the gap.</p>
+                </div>
+                <div class="task-action"><button>Apply to bid</button><span>Reversible</span></div>
+              </article>
+            </div>
           </div>
           <div class="rail-group">
             <div class="group-head"><b>Needs action</b><em>answer or fix before export</em><span class="rule"></span><span class="count">2</span></div>
@@ -569,20 +585,20 @@
               <article class="task red">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip rate">Rate review</span>
-                  <strong>Talent-rights amount has no verified source</strong>
-                  <p>Confirm the amount or convert the line to quote required.</p>
+                  <span class="chip rate">Labor &amp; Payroll</span>
+                  <strong>14-hour shoot days, no overtime budgeted</strong>
+                  <p>Crew hours past 10 trigger 1.5x and 2x. One of the most common overruns.</p>
                 </div>
-                <div class="task-action"><button>Review line</button><span>Producer decision</span></div>
+                <div class="task-action"><button>Add to bid</button><button class="ghost">Not needed</button></div>
               </article>
               <article class="task">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip missing">Missing scope</span>
-                  <strong>Exterior shoot has no weather-hold line</strong>
-                  <p>Add coverage or record why it is not needed.</p>
+                  <span class="chip question">Post-Production</span>
+                  <strong>Missing finishing lines for the 9:16 and 1:1 versions</strong>
+                  <p>Brief lists all three ratios; only 16:9 is priced.</p>
                 </div>
-                <div class="task-action"><button>Add to bid</button><span>Reversible</span></div>
+                <div class="task-action"><button>Add to bid</button><button class="ghost">Not needed</button></div>
               </article>
             </div>
           </div>
