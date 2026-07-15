@@ -324,10 +324,14 @@
     .compare-card header { display: flex; justify-content: space-between; padding: 16px 18px; color: var(--paper); background: var(--ink); }
     .compare-card header b { font-size: 13px; }
     .compare-card header span { color: #aaa79e; font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
-    .compare-total { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; padding: 28px 20px; border-bottom: 1px solid var(--ink); text-align: center; }
-    .compare-total small { display: block; color: var(--muted); font-family: var(--mono); text-transform: uppercase; }
-    .compare-total strong { display: block; margin-top: 5px; font-size: 27px; }
-    .compare-arrow { font-size: 24px; }
+    .compare-scenarios { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 22px 18px 18px; }
+    .compare-scenario + .compare-scenario { padding-left: 18px; border-left: 1px solid var(--line); }
+    .compare-scenario small { display: block; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+    .compare-scenario strong { display: block; margin-top: 5px; font-size: 15px; }
+    .compare-grand { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--ink); background: var(--white); }
+    .compare-grand span { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .compare-grand strong { font-size: 25px; }
+    .delta-group { padding: 12px 18px 7px; color: var(--muted); background: var(--soft); font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .delta-row { display: grid; grid-template-columns: 1fr auto; padding: 15px 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
     .delta-row:last-child { border-bottom: 0; }
     .delta-row span:last-child { font-family: var(--mono); font-weight: 700; }
@@ -478,6 +482,9 @@
       .rate-head span:last-child { display: none; }
       .rate-row { gap: 8px; }
       .control-row { grid-template-columns: 1fr; gap: 5px; }
+      .compare-scenarios { gap: 12px; padding-inline: 14px; }
+      .compare-scenario + .compare-scenario { padding-left: 12px; }
+      .compare-scenario strong { font-size: 14px; }
       .document-stack { min-height: 470px; }
       .doc { width: 88%; min-height: 390px; padding: 20px; }
       .doc:nth-child(3) { left: 6%; }
@@ -684,23 +691,27 @@
     <section class="content control-section">
       <div class="container control-grid">
         <div class="control-copy">
-          <p class="eyebrow">Producer control</p>
-          <h2>The bid stays yours to change. Every change stays traceable.</h2>
-          <p>Edit the assumptions and line items, save a version, compare scenarios, and keep a delivered baseline intact.</p>
+          <p class="eyebrow">Scenario alternates</p>
+          <h2>See where the money moved before the bid goes out.</h2>
+          <p>Clone the current bid, test another approach, and compare it against the baseline. BidFrame shows the total impact and the section and line-item movement behind it.</p>
           <div class="control-list">
-            <div class="control-row"><b>Edit</b><span>Description, basis, quantity, rate, tax, visibility, section, and notes.</span></div>
-            <div class="control-row"><b>Version</b><span>Save named versions and restore without destroying the history.</span></div>
-            <div class="control-row"><b>Compare</b><span>See total, section, and line-item deltas.</span></div>
-            <div class="control-row"><b>Lock</b><span>Keep delivered scenarios intact before later revisions begin.</span></div>
+            <div class="control-row"><b>Alternate</b><span>Start from the reviewed bid without changing the baseline.</span></div>
+            <div class="control-row"><b>Handoff</b><span>Lock the version you deliver. Later revisions begin from a clone.</span></div>
           </div>
         </div>
-        <div class="compare-card">
-          <header><b>Scenario comparison</b><span>Director approach A / B</span></header>
-          <div class="compare-total"><div><small>Scenario A</small><strong>$418,620</strong></div><div class="compare-arrow">→</div><div><small>Scenario B</small><strong>$386,240</strong></div></div>
+        <div class="compare-card" aria-label="Illustrative scenario comparison in US dollars">
+          <header><b>Scenario comparison</b><span>USD</span></header>
+          <div class="compare-scenarios">
+            <div class="compare-scenario"><small>Baseline</small><strong>Director approach A</strong></div>
+            <div class="compare-scenario"><small>Target</small><strong>Director approach B</strong></div>
+          </div>
+          <div class="compare-grand"><span>Grand total delta</span><strong>−$32,380</strong></div>
+          <div class="delta-group">Scope movement</div>
           <div class="delta-row"><span>Shooting crew</span><span>−$8,900</span></div>
           <div class="delta-row"><span>Locations and travel</span><span>−$14,200</span></div>
           <div class="delta-row"><span>Post and finishing</span><span>+$4,600</span></div>
-          <div class="delta-row"><span>Markup, fee, contingency</span><span>−$13,880</span></div>
+          <div class="delta-group">Calculation impact</div>
+          <div class="delta-row"><span>Markup, fee, and contingency</span><span>−$13,880</span></div>
         </div>
       </div>
     </section>
