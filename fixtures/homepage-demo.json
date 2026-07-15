@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "verifiedAgainstProductCommit": "bf7864b9890322c36da3ca60928367ccf24c1f4a",
+  "productCodeTrace": {
+    "totals": "domain/bids/calculate-totals.ts",
+    "scenarioComparison": "lib/services/scenario-comparison-service.ts",
+    "changeOrders": "domain/exports/change-order-builder.ts",
+    "aicpExport": "domain/exports/aicp-export-builder.ts",
+    "scenarioClone": "lib/repositories/scenarios-repository.ts",
+    "reviewState": "lib/repositories/review-items-repository.ts",
+    "baselineRates": "lib/config/baseline-rates.ts",
+    "perDiem": "lib/config/gsa-per-diem.ts"
+  },
+  "heroReview": {
+    "needsAction": 2,
+    "watch": 4,
+    "reference": 8
+  },
+  "rateExamples": [
+    {
+      "role": "1st Assistant Director",
+      "display": "$1,280 minimum"
+    },
+    {
+      "role": "Art Director",
+      "display": "$1,200"
+    },
+    {
+      "role": "Known-figure talent fee",
+      "display": "$0"
+    },
+    {
+      "role": "Per diem · NYC 10001",
+      "display": "$92"
+    }
+  ],
+  "scenarioComparison": {
+    "currency": "USD",
+    "grandTotalDelta": -32380,
+    "rows": [
+      {
+        "label": "Shooting crew",
+        "delta": -8900
+      },
+      {
+        "label": "Locations and travel",
+        "delta": -14200
+      },
+      {
+        "label": "Post and finishing",
+        "delta": 4600
+      },
+      {
+        "label": "Markup, fee, and contingency",
+        "delta": -13880
+      }
+    ]
+  },
+  "changeOrder": {
+    "number": 1,
+    "baselineTotal": 418620,
+    "delta": 12600,
+    "revisedTotal": 431220,
+    "scopeTerms": [
+      "1 location day",
+      "1 post round"
+    ]
+  },
+  "sampleBid": {
+    "currency": "USD",
+    "schedule": {
+      "prepDays": 4,
+      "shootDays": 2,
+      "wrapDays": 1
+    },
+    "visibleLineItems": [
+      {
+        "description": "Director of Photography",
+        "quantity": 2,
+        "unitCost": 1900,
+        "lineTotal": 3800
+      },
+      {
+        "description": "1st Assistant Director",
+        "quantity": 2,
+        "unitCost": 1280,
+        "lineTotal": 2560
+      }
+    ],
+    "sections": [
+      {
+        "code": "A",
+        "amount": 63400
+      },
+      {
+        "code": "B",
+        "amount": 118650
+      },
+      {
+        "code": "D",
+        "amount": 31700
+      },
+      {
+        "code": "I",
+        "amount": 18600
+      },
+      {
+        "code": "L",
+        "amount": 22000
+      },
+      {
+        "code": "M",
+        "amount": 42800
+      },
+      {
+        "code": "T",
+        "amount": 20900
+      }
+    ],
+    "rawSubtotal": 318050,
+    "fringe": 26120,
+    "overhead": 22260,
+    "producerFee": 31810,
+    "contingency": 20380,
+    "grandTotal": 418620,
+    "crewTravelDays": {
+      "quantity": 2,
+      "amount": 4800
+    }
+  },
+  "reviewReceipt": [
+    {
+      "text": "Schedule question resolved with a producer note",
+      "status": "Resolved"
+    },
+    {
+      "text": "Weather hold added to the bid",
+      "status": "Added"
+    },
+    {
+      "text": "Two crew travel days added · $4,800",
+      "status": "Added"
+    },
+    {
+      "text": "Applied rate sources reviewed before delivery",
+      "status": "Reviewed"
+    },
+    {
+      "text": "Delivered scenario locked · later changes compare against this baseline",
+      "status": "Locked"
+    }
+  ]
+}

@@ -335,6 +335,12 @@
     .delta-row { display: grid; grid-template-columns: 1fr auto; padding: 15px 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
     .delta-row:last-child { border-bottom: 0; }
     .delta-row span:last-child { font-family: var(--mono); font-weight: 700; }
+    .change-order-proof { display: grid; grid-template-columns: 1fr auto; gap: 7px 18px; margin: 16px 18px 18px; padding: 14px; border: 1px solid var(--blue); background: var(--blue-soft); }
+    .change-order-proof small { display: block; color: var(--muted); font-family: var(--mono); font-size: 8px; letter-spacing: .07em; text-transform: uppercase; }
+    .change-order-proof strong { display: block; margin-top: 3px; font-size: 14px; }
+    .change-order-delta { text-align: right; }
+    .change-order-delta strong { color: var(--blue); font-family: var(--mono); }
+    .change-order-proof p { grid-column: 1 / -1; margin: 2px 0 0; color: var(--muted); font-size: 11px; }
 
     .exports-section { background: var(--paper); }
     .exports-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 74px; align-items: center; }
@@ -345,9 +351,10 @@
     .receipt { margin-top: 30px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 var(--soft); }
     .receipt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 16px; color: var(--paper); background: var(--ink); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .receipt-head span { color: #aaa79e; font-weight: 400; }
-    .receipt-row { display: grid; grid-template-columns: 18px 1fr; gap: 8px; align-items: baseline; padding: 11px 16px; border-bottom: 1px solid var(--soft); font-size: 13px; }
+    .receipt-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 16px; border-bottom: 1px solid var(--soft); font-size: 13px; }
     .receipt-row:last-of-type { border-bottom: 0; }
     .receipt-row i { color: var(--green); font-style: normal; font-weight: 800; }
+    .receipt-row em { color: var(--muted); font-family: var(--mono); font-size: 8px; font-style: normal; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
     .receipt-foot { padding: 10px 16px; border-top: 1px solid var(--ink); color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; }
     .export-note { margin-top: 18px; padding: 14px 16px; border-left: 3px solid var(--blue); background: var(--blue-soft); color: var(--muted); font-size: 13px; line-height: 1.5; }
     .export-note strong { display: block; margin-bottom: 4px; color: var(--ink); font-family: var(--mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
@@ -478,6 +485,8 @@
       .compare-scenarios { gap: 12px; padding-inline: 14px; }
       .compare-scenario + .compare-scenario { padding-left: 12px; }
       .compare-scenario strong { font-size: 14px; }
+      .change-order-proof { margin-inline: 14px; }
+      .receipt-row em { display: none; }
       .document-stack { min-height: 470px; }
       .doc { width: 88%; min-height: 390px; padding: 20px; }
       .doc:nth-child(3) { left: 6%; }
@@ -667,7 +676,7 @@
           <p class="eyebrow">Rate provenance</p>
           <h2>The source stays attached to the rate.</h2>
           <p>Amounts stated in the brief stay as stated. For drafted roles with a match, a selected company rate card takes priority. Uncovered roles fall back to BidFrame rates, and estimates remain labeled for producer review.</p>
-          <div class="source-note"><strong>Company rate cards</strong>Create a company rate card from reviewed CSV or XLSX rows, or enter rates manually. Choose the card future bids should use.</div>
+          <div class="source-note"><strong>Shop setup</strong>Import or enter company rates, save fringe and markup defaults for future bids, and start from a production template when the job calls for it. Each new scenario keeps the rate and markup setup it was built with.</div>
         </div>
         <div class="rate-table" aria-label="Example rate provenance table">
           <div class="rate-head"><span>Role</span><span>Applied value</span><span>Source status</span></div>
@@ -692,7 +701,7 @@
             <div class="control-row"><b>Handoff</b><span>Lock the version you deliver. If scope changes later, BidFrame compares the revision against that baseline and prepares a change order showing what moved.</span></div>
           </div>
         </div>
-        <div class="compare-card" aria-label="Illustrative scenario comparison in US dollars">
+        <div class="compare-card" aria-label="Illustrative scenario comparison and change order in US dollars">
           <header><b>Scenario comparison</b><span>USD</span></header>
           <div class="compare-scenarios">
             <div class="compare-scenario"><small>Baseline</small><strong>Director approach A</strong></div>
@@ -705,6 +714,11 @@
           <div class="delta-row"><span>Post and finishing</span><span>+$4,600</span></div>
           <div class="delta-group">Calculation impact</div>
           <div class="delta-row"><span>Markup, fee, and contingency</span><span>−$13,880</span></div>
+          <div class="change-order-proof">
+            <div><small>After delivery</small><strong>Change order 01</strong></div>
+            <div class="change-order-delta"><small>Against locked baseline</small><strong>+$12,600</strong></div>
+            <p>1 location day · 1 post round · revised project total $431,220</p>
+          </div>
         </div>
       </div>
     </section>
@@ -717,11 +731,11 @@
           <p>A defensible bid reads like any other bid. The difference is the review behind it.</p>
           <div class="receipt" aria-label="Review receipts for this bid">
             <div class="receipt-head">Before this bid went out <span>Bondo · Brand Anthem</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Schedule question resolved with a producer note</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Weather hold added to the bid</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Two crew travel days added · $4,800</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Applied rate sources reviewed before delivery</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Delivered scenario locked · later changes compare against this baseline</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Schedule question resolved with a producer note</span><em>Resolved</em></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Weather hold added to the bid</span><em>Added</em></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Two crew travel days added · $4,800</span><em>Added</em></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Applied rate sources reviewed before delivery</span><em>Reviewed</em></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Delivered scenario locked · later changes compare against this baseline</span><em>Locked</em></div>
             <div class="receipt-foot">Review state is saved with the scenario. It survives reloads and carries into clones.</div>
           </div>
           <div class="export-note"><strong>AICP-structured export</strong>Project details, line items, fringes, and totals are mapped into AICP section categories. Available as PDF, HTML, or static XLSX.</div>
@@ -741,7 +755,7 @@
             <div class="ghost-row"><b>I</b><i style="width:48%"></i><b>$18,600</b></div>
             <div class="ghost-row"><b>L</b><i style="width:56%"></i><b>$22,000</b></div>
             <div class="ghost-row"><b>M</b><i style="width:44%"></i><b>$42,800</b></div>
-            <div class="ghost-row"><b>T</b><i style="width:60%"></i><b>$81,200</b></div>
+            <div class="ghost-row"><b>T</b><i style="width:60%"></i><b>$20,900</b></div>
           </div>
           <div class="doc doc-ghost" aria-hidden="true">
             <div class="ghost-title">Bid Letter · One Page</div>
