@@ -349,6 +349,8 @@
     .receipt-row:last-of-type { border-bottom: 0; }
     .receipt-row i { color: var(--green); font-style: normal; font-weight: 800; }
     .receipt-foot { padding: 10px 16px; border-top: 1px solid var(--ink); color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; }
+    .export-note { margin-top: 18px; padding: 14px 16px; border-left: 3px solid var(--blue); background: var(--blue-soft); color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .export-note strong { display: block; margin-bottom: 4px; color: var(--ink); font-family: var(--mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
     .document-stack { position: relative; min-height: 580px; }
     .doc { position: absolute; width: 72%; min-height: 430px; padding: 26px; border: 1px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 rgba(17,17,15,.12); }
     .doc:nth-child(1) { left: 3%; top: 72px; transform: rotate(-5deg); }
@@ -375,14 +377,6 @@
     .ghost-row i { display: block; height: 5px; background: var(--soft); }
     .ghost-para { height: 5px; background: var(--soft); margin: 9px 0; }
     .ghost-sig { margin-top: 24px; width: 44%; border-top: 1px solid var(--line); padding-top: 5px; font-family: var(--mono); font-size: 7px; color: #a49d8f; text-transform: uppercase; }
-
-    .boundary { padding: 74px 0; color: var(--white); background: var(--ink); border-bottom: 1px solid #44433e; }
-    .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-    .boundary h2 { max-width: 560px; font-size: clamp(36px, 3.75vw, 54px); }
-    .boundary p { color: #b9b5aa; font-size: 17px; }
-    .boundary-list { border-top: 1px solid #4d4b45; }
-    .boundary-list div { padding: 16px 0; border-bottom: 1px solid #4d4b45; color: #d5d1c7; font-size: 14px; }
-    .boundary-list b { display: inline-block; min-width: 116px; color: #fffdf5; font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
 
     .access { padding: 116px 0; color: var(--white); background: var(--blue); border-bottom: 1px solid var(--ink); }
     .access .eyebrow { color: #d3dde4; }
@@ -429,8 +423,8 @@
     @media (max-width: 980px) {
       .nav-links a:not(.button) { display: none; }
       .mobile-menu { display: block; }
-      .hero-grid, .misses-head, .source-layout, .control-grid, .exports-grid, .boundary-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-grid > *, .misses-head > *, .source-layout > *, .control-grid > *, .exports-grid > *, .boundary-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
+      .hero-grid, .misses-head, .source-layout, .control-grid, .exports-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid > *, .misses-head > *, .source-layout > *, .control-grid > *, .exports-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
       .hero-copy { padding-bottom: 20px; }
       .app-window { min-height: auto; margin-bottom: -1px; }
       .proof-grid, .steps { grid-template-columns: repeat(2, 1fr); }
@@ -476,7 +470,6 @@
       .miss-num { font-size: 27px; }
       .miss-copy h3 { font-size: 25px; }
       .rail-label { grid-column: 2; justify-self: start; min-width: 0; margin-top: 4px; }
-      .boundary-grid { gap: 36px; }
       .rate-head, .rate-row { grid-template-columns: 1fr .62fr; }
       .rate-head span:last-child, .rate-source { grid-column: 1 / -1; }
       .rate-head span:last-child { display: none; }
@@ -494,7 +487,7 @@
   </style>
 </head>
 <body>
-  <div class="announcement">Private pilot now open <span>for commercial production teams</span></div>
+  <div class="announcement">Private pilot now open <span>for independent producers and production teams</span></div>
 
   <nav aria-label="Primary">
     <div class="container nav-inner">
@@ -727,20 +720,21 @@
             <div class="receipt-row"><i>&#10003;</i><span>Schedule question resolved with a producer note</span></div>
             <div class="receipt-row"><i>&#10003;</i><span>Weather hold added to the bid</span></div>
             <div class="receipt-row"><i>&#10003;</i><span>Two crew travel days added · $4,800</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Every rate labeled with its source · card, scale, or baseline</span></div>
-            <div class="receipt-row"><i>&#10003;</i><span>Scenario locked at export · revisions start from a clone</span></div>
-            <div class="receipt-foot">Review state is saved with the scenario. It survives reloads, clones, and versions.</div>
+            <div class="receipt-row"><i>&#10003;</i><span>Applied rate sources reviewed before delivery</span></div>
+            <div class="receipt-row"><i>&#10003;</i><span>Delivered scenario locked · later changes compare against this baseline</span></div>
+            <div class="receipt-foot">Review state is saved with the scenario. It survives reloads and carries into clones.</div>
           </div>
+          <div class="export-note"><strong>AICP-structured export</strong>Project details, line items, fringes, and totals are mapped into AICP section categories. Available as PDF, HTML, or static XLSX.</div>
           <div class="formats">
             <span>Client bid <i>· PDF / HTML</i></span>
-            <span>AICP form <i>· PDF / XLSX / HTML</i></span>
+            <span>AICP-structured export <i>· PDF / XLSX / HTML</i></span>
             <span>Bid letter <i>· PDF / HTML</i></span>
             <span>Internal workbook <i>· XLSX / CSV</i></span>
           </div>
         </div>
-        <div class="document-stack" aria-label="Example BidFrame export documents: AICP bid form, bid letter, and client-facing bid">
+        <div class="document-stack" aria-label="Example BidFrame export documents: AICP-structured export, bid letter, and client-facing bid">
           <div class="doc doc-ghost" aria-hidden="true">
-            <div class="ghost-title">AICP Bid Form · Brand Anthem</div>
+            <div class="ghost-title">AICP-structured export · Brand Anthem</div>
             <div class="ghost-row"><b>A</b><i style="width:58%"></i><b>$63,400</b></div>
             <div class="ghost-row"><b>B</b><i style="width:52%"></i><b>$118,650</b></div>
             <div class="ghost-row"><b>D</b><i style="width:64%"></i><b>$31,700</b></div>
@@ -783,17 +777,6 @@
       </div>
     </section>
 
-    <section class="boundary">
-      <div class="container boundary-grid">
-        <div><p class="eyebrow">Clear boundaries</p><h2>BidFrame drafts. You decide.</h2><p>BidFrame gets the bid to a state you can check.</p></div>
-        <div class="boundary-list">
-          <div><b>BidFrame</b> Structures the first pass, calculates totals, organizes the review, and creates exports.</div>
-          <div><b>The producer</b> Confirms rates, negotiates costs, and approves the bid.</div>
-          <div><b>After award</b> Keep using your production management, actuals, and invoicing tools.</div>
-        </div>
-      </div>
-    </section>
-
     <section class="content faq" id="faq">
       <div class="container faq-grid">
         <div class="faq-intro">
@@ -820,11 +803,11 @@
           </details>
           <details>
             <summary>What can I send to a client?</summary>
-            <p>Client-facing HTML and PDF bids, AICP-oriented HTML, PDF, and XLSX bid forms, and one-page bid letters in HTML or PDF. Internal CSV and XLSX exports keep working detail separate.</p>
+            <p>Client-facing bids and one-page bid letters are available in HTML or PDF. AICP-structured exports map project details, line items, fringes, and totals into AICP section categories and are available in HTML, PDF, or static XLSX. Internal CSV and XLSX exports keep working detail separate.</p>
           </details>
           <details>
             <summary>Does it replace production management after award?</summary>
-            <p>No. BidFrame is pre-award intelligence. Your existing tools take over after award for production management, actuals, timesheets, invoicing, and client approvals.</p>
+            <p>No. BidFrame stays focused on bidding and bid revisions, including change orders against a locked delivered baseline. Keep production management, actuals, timesheets, invoicing, and client approvals in your existing tools.</p>
           </details>
         </div>
       </div>
@@ -832,7 +815,7 @@
 
     <section class="access" id="access">
       <div class="container access-grid">
-        <div><p class="eyebrow">Private pilot</p><h2>Bring a real brief. See what the first pass gets right and what it asks you to verify.</h2><p>For commercial production teams that want less blank-sheet setup and a clearer record of where each number came from.</p></div>
+        <div><p class="eyebrow">Private pilot</p><h2>Bring a real brief. See what the first pass gets right and what it asks you to verify.</h2><p>For independent producers and commercial production teams who want less blank-sheet setup and a clearer record of where each number came from.</p></div>
         <form class="access-card" id="pilot-request-form" action="/api/pilot-request" method="post">
           <label for="pilot-email">Work email</label>
           <input id="pilot-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="producer@company.com" required>
