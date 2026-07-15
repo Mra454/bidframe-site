@@ -292,21 +292,6 @@
     .rail-label.budget { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
     .rail-label.suggested { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
     .rail-label.watch { color: var(--blue); background: var(--blue-soft); border-color: var(--blue); }
-    .review-section { color: #f6f3ea; background: var(--ink); }
-    .review-section .eyebrow, .review-section .section-intro p:not(.eyebrow) { color: #aaa79e; }
-    .review-grid { display: grid; grid-template-columns: .84fr 1.16fr; gap: 54px; align-items: center; }
-    .review-copy h2 { font-size: clamp(38px, 3.75vw, 54px); }
-    .review-copy > p { color: #c8c3b8; font-size: 18px; }
-    .rail-key { margin-top: 36px; border-top: 1px solid #45443f; }
-    .rail-key-row { display: grid; grid-template-columns: 120px 1fr; gap: 15px; align-items: center; padding: 15px 0; border-bottom: 1px solid #45443f; }
-    .rail-key-row b { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
-    .rail-key-row span { color: #aaa79e; font-size: 13px; }
-    .review-board { padding: 18px; background: #252520; border: 1px solid #55534d; box-shadow: 16px 16px 0 #080807; }
-    .review-board-head { padding: 18px; display: flex; justify-content: space-between; align-items: end; border: 1px solid #55534d; background: #f6f3ea; color: var(--ink); }
-    .review-board-head h3 { margin: 0; }
-    .review-board-head span { color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
-    .review-board .task-list { margin-top: 10px; }
-
     .source-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
     .source-copy { position: sticky; top: 108px; }
     .source-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
@@ -439,8 +424,8 @@
     @media (max-width: 980px) {
       .nav-links a:not(.button) { display: none; }
       .mobile-menu { display: block; }
-      .hero-grid, .misses-head, .review-grid, .source-layout, .control-grid, .exports-grid, .boundary-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-grid > *, .misses-head > *, .review-grid > *, .source-layout > *, .control-grid > *, .exports-grid > *, .boundary-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
+      .hero-grid, .misses-head, .source-layout, .control-grid, .exports-grid, .boundary-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid > *, .misses-head > *, .source-layout > *, .control-grid > *, .exports-grid > *, .boundary-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
       .hero-copy { padding-bottom: 20px; }
       .app-window { min-height: auto; margin-bottom: -1px; }
       .proof-grid, .steps { grid-template-columns: repeat(2, 1fr); }
@@ -486,9 +471,7 @@
       .miss-num { font-size: 27px; }
       .miss-copy h3 { font-size: 25px; }
       .rail-label { grid-column: 2; justify-self: start; min-width: 0; margin-top: 4px; }
-      .rail-key-row { grid-template-columns: 90px 1fr; }
-      .review-grid, .boundary-grid { gap: 36px; }
-      .review-board { padding: 10px; box-shadow: 8px 8px 0 #080807; }
+      .boundary-grid { gap: 36px; }
       .rate-head, .rate-row { grid-template-columns: 1fr .62fr; }
       .rate-head span:last-child, .rate-source { grid-column: 1 / -1; }
       .rate-head span:last-child { display: none; }
@@ -527,7 +510,6 @@
         <summary>Menu</summary>
         <div class="mobile-menu-panel">
           <a href="#workflow">Workflow</a>
-          <a href="#misses">What it catches</a>
           <a href="#review">Review Rail</a>
           <a href="#rates">Rate sources</a>
           <a href="#sample-bid">Sample bid</a>
@@ -637,7 +619,7 @@
       </div>
     </section>
 
-    <section class="content misses-section" id="misses">
+    <section class="content misses-section" id="review">
       <div class="container">
         <div class="misses-head">
           <div>
@@ -674,30 +656,6 @@
             </div>
             <div class="rail-label action">Missing scope</div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content review-section" id="review">
-      <div class="container review-grid">
-        <div class="review-copy">
-          <p class="eyebrow">Review Rail</p>
-          <h2>Every open decision, in one list.</h2>
-          <p>The Review Rail collects budget gaps, missing scope, rights questions, and planning signals. Suggested fixes stay visible and reversible. Structural blockers hold the export until they are fixed; high-risk issues require an explicit producer decision.</p>
-          <div class="rail-key">
-            <div class="rail-key-row"><b>Needs action</b><span>Answer or fix before export.</span></div>
-            <div class="rail-key-row"><b>Budget</b><span>The gap against the client ceiling, and the strongest cost drivers.</span></div>
-            <div class="rail-key-row"><b>Watch</b><span>Worth your attention, not blocking.</span></div>
-            <div class="rail-key-row"><b>Reference</b><span>What this bid assumes, and what you handled.</span></div>
-          </div>
-        </div>
-        <div class="review-board">
-          <div class="review-board-head"><div><span>BidFrame review</span><h3>One rail, three kinds of item</h3></div><span>Handled state saved</span></div>
-          <div class="task-list">
-            <article class="task red"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Needs action · Rights</span><strong>Music scope names sync rights but not master use</strong><p>The brief licenses sync only. Master use stays unpriced until someone answers for it.</p></div><div class="task-action"><button>Resolve with note</button><span>Saved to rail</span></div></article>
-            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Suggested fix · Crew</span><strong>Six line items priced below their sourced union rates</strong><p>Flagged and suggested. Never silently repriced.</p></div><div class="task-action"><button>Cover it</button><span>Producer decision</span></div></article>
-            <article class="task"><div class="task-stripe"></div><div class="task-copy"><span class="task-kind">Watch · Usage</span><strong>The buyout term ends before the campaign will</strong><p>Twelve-month term on work the client calls evergreen. Renewal stays visible, priced on your timing.</p></div><div class="task-action"><button>Open</button><span>Usage terms</span></div></article>
-          </div>
         </div>
       </div>
     </section>
