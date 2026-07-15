@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BidFrame | Commercial production bids, drafted in minutes</title>
-  <meta name="description" content="BidFrame turns commercial production briefs into producer-reviewed bids with visible rate sources, structured review, and AICP-oriented exports.">
+  <title>BidFrame | The bid that shows its work</title>
+  <meta name="description" content="BidFrame drafts commercial production bids with reviewed scope, source-labeled rates, open-decision tracking, and AICP-structured exports.">
   <link rel="canonical" href="https://bidframe.co/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="BidFrame">
   <meta property="og:url" content="https://bidframe.co/">
-  <meta property="og:title" content="BidFrame | Commercial production bids, drafted in minutes">
-  <meta property="og:description" content="Producer-reviewed commercial production bids with visible rate sources, structured review, and AICP-oriented exports.">
+  <meta property="og:title" content="BidFrame | The bid that shows its work">
+  <meta property="og:description" content="Review the scope, see how drafted rates are sourced, and work through open decisions before export.">
   <meta property="og:image" content="https://bidframe.co/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="BidFrame: commercial production bids, drafted in minutes, defensible line by line">
+  <meta property="og:image:alt" content="BidFrame: the bid that shows its work">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BidFrame | Commercial production bids, drafted in minutes">
-  <meta name="twitter:description" content="Producer-reviewed commercial production bids with visible rate sources and structured review.">
+  <meta name="twitter:title" content="BidFrame | The bid that shows its work">
+  <meta name="twitter:description" content="Review the scope, see how drafted rates are sourced, and work through open decisions before export.">
   <meta name="twitter:image" content="https://bidframe.co/og-card.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -158,7 +158,7 @@
     .app-window {
       position: relative;
       align-self: end;
-      min-height: 625px;
+      min-height: 565px;
       margin-top: 10px;
       padding: 16px;
       color: #f8f5ed;
@@ -173,6 +173,7 @@
     .window-head-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
     .window-kicker { color: var(--muted); font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
     .window-title { margin: 8px 0 0; font-size: 25px; letter-spacing: -.04em; }
+    .currency-label { display: inline-block; margin-top: 12px; padding: 3px 7px; color: #4c4a43; background: #e5e1d7; font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .total { text-align: right; }
     .total strong { display: block; font-size: 27px; letter-spacing: -.04em; }
     .total span { color: var(--muted); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
@@ -190,6 +191,7 @@
     .chip { display: inline-block; margin-bottom: 5px; padding: 2px 5px; font-family: var(--mono); font-size: 7px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
     .chip.question { color: #8b641f; background: var(--amber-soft); }
     .chip.missing { color: var(--muted); background: #eceadf; }
+    .chip.rate { color: #8c342a; background: var(--red-soft); }
     .app-window .task-copy strong { margin-top: 0; }
     .task-list { display: grid; gap: 8px; }
     .task {
@@ -213,6 +215,14 @@
     .task-action span { margin-top: 6px; color: var(--muted); font-family: var(--mono); font-size: 7px; text-transform: uppercase; }
     .app-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 12px; padding: 13px 15px; border: 1px solid #3d3c36; color: #b8b4aa; font-family: var(--mono); font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
     .app-footer b { color: #f7f4ec; }
+    .source-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; padding: 10px 12px; border: 1px solid #3d3c36; }
+    .source-legend > b { margin-right: 2px; color: #aaa79e; font-family: var(--mono); font-size: 7px; letter-spacing: .07em; text-transform: uppercase; }
+    .source-tag { display: inline-block; padding: 3px 5px; border: 1px solid currentColor; font-family: var(--mono); font-size: 7px; font-weight: 700; }
+    .source-tag.card { color: #b99bd9; background: #2a2034; }
+    .source-tag.industry { color: #90bd9e; background: #1c2c21; }
+    .source-tag.bidframe { color: #93b9d5; background: #1d2b35; }
+    .source-tag.brief { color: #9fc5a9; background: #203027; }
+    .source-tag.estimate { color: #e1b56f; background: #342918; }
 
     .proof-strip { border-bottom: 1px solid var(--ink); background: var(--white); }
     .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -537,71 +547,66 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Pre-award production intelligence</p>
-          <h1>Commercial production bids, drafted in minutes.</h1>
-          <p class="lede">BidFrame turns the brief into a defensible bid: it drafts the first pass, shows the source behind each rate, and raises risk flags on budget, scope, and rights before export. <strong>You approve every number.</strong></p>
+          <h1>The bid that shows its work.</h1>
+          <p class="lede">Start from a brief or structured intake. Review the scope before generation, see how drafted rates are sourced, and work through budget, missing-scope, rights, and talent-rate flags before export.</p>
           <div class="hero-actions">
             <a class="button button-dark" href="#access">Request private pilot</a>
-            <a class="button button-light" href="#sample-bid">See a sample bid</a>
+            <a class="button button-light" href="#review">See the review</a>
           </div>
           <p class="hero-note">For line producers · executive producers · production managers</p>
         </div>
 
         <div class="app-window" aria-label="Example BidFrame review screen">
           <div class="window-bar">
-            <span>BidFrame / Bid review</span>
+            <span>BidFrame / Review</span>
             <div class="window-dots"><i></i><i></i><i></i></div>
           </div>
           <div class="window-head">
-            <div class="window-head-top">
-              <div>
-                <div class="window-kicker">Scenario A · Version 4 · All changes saved</div>
-                <h3 class="window-title">Bondo Athletics · Brand Anthem</h3>
-              </div>
-              <div class="total"><strong>$418,620</strong><span>All-in total</span></div>
-            </div>
+            <div class="window-kicker">Base scenario · Producer review · All changes saved</div>
+            <h3 class="window-title">Brand campaign bid</h3>
+            <span class="currency-label">USD scenario</span>
           </div>
           <div class="rail-group">
-            <div class="group-head"><b>Budget</b><em>all-in against the stated ceiling</em><span class="rule"></span><span class="gap-ok">$31K under · $450K ceiling</span></div>
+            <div class="group-head"><b>Budget</b><em>against the stated client ceiling</em><span class="rule"></span><span class="gap-ok">Under client ceiling</span></div>
           </div>
           <div class="rail-group">
-            <div class="group-head"><b>Needs action</b><em>answer or fix before export</em><span class="rule"></span><span class="count">3</span></div>
+            <div class="group-head"><b>Needs action</b><em>answer or fix before export</em><span class="rule"></span><span class="count">2</span></div>
             <div class="task-list">
               <article class="task red">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip question">Question</span>
-                  <strong>Twelve deliverables against three shoot days</strong>
-                  <p>Flagged for producer review before it turns into overtime.</p>
+                  <span class="chip rate">Rate review</span>
+                  <strong>Talent-rights amount has no verified source</strong>
+                  <p>Confirm the amount or convert the line to quote required.</p>
                 </div>
-                <div class="task-action"><button>Resolve with note</button><span>Or cover it</span></div>
+                <div class="task-action"><button>Review line</button><span>Producer decision</span></div>
               </article>
               <article class="task">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip missing">Missing item</span>
-                  <strong>Exterior shoot with no weather-hold line</strong>
-                  <p>Weather hold or rebook coverage is unpriced.</p>
+                  <span class="chip missing">Missing scope</span>
+                  <strong>Exterior shoot has no weather-hold line</strong>
+                  <p>Add coverage or record why it is not needed.</p>
                 </div>
-                <div class="task-action"><button>Add to bid</button><span>Or not needed</span></div>
-              </article>
-              <article class="task">
-                <div class="task-stripe"></div>
-                <div class="task-copy">
-                  <span class="chip missing">Missing item</span>
-                  <strong>Two crew travel days are unpriced</strong>
-                  <p>The shoot is out of town. Travel days are paid days.</p>
-                </div>
-                <div class="task-action"><button>Add to bid ($4,800)</button><span>Or not needed</span></div>
+                <div class="task-action"><button>Add to bid</button><span>Reversible</span></div>
               </article>
             </div>
           </div>
           <div class="rail-group group-collapsed">
-            <div class="group-head"><span class="marker">&#9656;</span><b>Watch</b><em>worth your attention, not blocking</em><span class="rule"></span><span class="count">4</span></div>
+            <div class="group-head"><span class="marker">&#9656;</span><b>Watch</b><em>includes critical flags when present</em><span class="rule"></span><span class="count">4</span></div>
           </div>
           <div class="rail-group group-collapsed">
-            <div class="group-head"><span class="marker">&#9656;</span><b>Reference</b><em>what this bid assumes, and what you handled</em><span class="rule"></span><span class="count">8</span></div>
+            <div class="group-head"><span class="marker">&#9656;</span><b>Reference</b><em>assumptions and handled decisions</em><span class="rule"></span><span class="count">8</span></div>
           </div>
-          <div class="app-footer"><span><b>Rates</b> · Company card + BidFrame baselines</span><span>Exports · AICP · Client · Bid letter</span></div>
+          <div class="source-legend" aria-label="Rate source tags">
+            <b>Rate source tags</b>
+            <span class="source-tag card">Your rate card</span>
+            <span class="source-tag industry">Industry rate</span>
+            <span class="source-tag bidframe">BidFrame rate · High</span>
+            <span class="source-tag brief">From brief</span>
+            <span class="source-tag estimate">Estimated</span>
+          </div>
+          <div class="app-footer"><span><b>Reviewed</b> · Scope + rate sources</span><span>Exports · Client · AICP-structured · Bid letter</span></div>
         </div>
       </div>
     </section>

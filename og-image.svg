@@ -1,28 +1,104 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#FFFFFF"/>
-  <g transform="translate(105, 205)" stroke="#000000" stroke-width="9" fill="none">
-    <rect x="10" y="10" width="120" height="120"/>
-    <line x1="35" y1="40" x2="105" y2="40"/>
-    <line x1="10" y1="70" x2="130" y2="70"/>
-    <line x1="35" y1="100" x2="105" y2="100"/>
+  <rect width="1200" height="630" fill="#f6f3ec"/>
+  <rect y="612" width="1200" height="18" fill="#11110f"/>
+
+  <g transform="translate(70, 54)" stroke="#11110f" stroke-width="4" fill="none">
+    <rect x="0" y="0" width="52" height="52"/>
+    <line x1="13" y1="15" x2="39" y2="15"/>
+    <line x1="0" y1="26" x2="52" y2="26"/>
+    <line x1="13" y1="39" x2="39" y2="39"/>
   </g>
-  <text x="285" y="325"
+  <text x="145" y="93"
         font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
         font-weight="800"
-        font-size="140"
-        letter-spacing="14"
-        fill="#000000">BIDFRAME</text>
-  <text x="600" y="445"
-        text-anchor="middle"
+        font-size="36"
+        letter-spacing="5"
+        fill="#11110f">BIDFRAME</text>
+
+  <text x="70" y="191"
+        font-family="SFMono-Regular, Menlo, Consolas, monospace"
+        font-weight="700"
+        font-size="17"
+        letter-spacing="2"
+        fill="#67645c">PRE-AWARD PRODUCTION INTELLIGENCE</text>
+  <text x="70" y="292"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-weight="800"
+        font-size="76"
+        letter-spacing="-3"
+        fill="#11110f">The bid that</text>
+  <text x="70" y="378"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-weight="800"
+        font-size="76"
+        letter-spacing="-3"
+        fill="#11110f">shows its work.</text>
+  <text x="70" y="451"
         font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
         font-weight="400"
-        font-size="52"
-        fill="#555555">Brief to bid in minutes.</text>
-  <text x="600" y="565"
-        text-anchor="middle"
-        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="24"
+        fill="#56534c">Review scope, rate sources, and open decisions before export.</text>
+  <text x="70" y="559"
+        font-family="SFMono-Regular, Menlo, Consolas, monospace"
         font-weight="700"
-        font-size="22"
-        letter-spacing="3"
-        fill="#888888">BIDFRAME.CO</text>
+        font-size="17"
+        letter-spacing="2"
+        fill="#67645c">BIDFRAME.CO</text>
+
+  <g transform="translate(815, 143)">
+    <rect width="315" height="347" fill="#191916" stroke="#11110f" stroke-width="2"/>
+    <text x="22" y="34"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="11"
+          letter-spacing="1"
+          fill="#aaa79e">BIDFRAME / REVIEW</text>
+    <line x1="22" y1="52" x2="293" y2="52" stroke="#46443e"/>
+
+    <text x="22" y="88"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="10"
+          letter-spacing="1"
+          fill="#aaa79e">NEEDS ACTION</text>
+    <rect x="22" y="105" width="271" height="74" fill="#f6f3ec"/>
+    <rect x="22" y="105" width="7" height="74" fill="#b14538"/>
+    <text x="43" y="131"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="9"
+          letter-spacing="1"
+          fill="#8c342a">RATE REVIEW</text>
+    <text x="43" y="156"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-weight="700"
+          font-size="14"
+          fill="#11110f">Source needs confirmation</text>
+
+    <rect x="22" y="191" width="271" height="74" fill="#f6f3ec"/>
+    <rect x="22" y="191" width="7" height="74" fill="#d6a63e"/>
+    <text x="43" y="217"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="9"
+          letter-spacing="1"
+          fill="#7a5b1d">MISSING SCOPE</text>
+    <text x="43" y="242"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-weight="700"
+          font-size="14"
+          fill="#11110f">Producer decision required</text>
+
+    <text x="22" y="307"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="9"
+          letter-spacing="1"
+          fill="#aaa79e">EXPORTS</text>
+    <text x="22" y="329"
+          font-family="SFMono-Regular, Menlo, Consolas, monospace"
+          font-weight="700"
+          font-size="10"
+          fill="#f6f3ec">CLIENT · AICP-STRUCTURED · BID LETTER</text>
+  </g>
 </svg>
