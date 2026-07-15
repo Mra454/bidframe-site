@@ -306,10 +306,11 @@
     .rate-role span { color: var(--muted); font-size: 11px; }
     .rate-value { font-family: var(--mono); font-weight: 700; }
     .badge { display: inline-flex; width: fit-content; padding: 5px 7px; border: 1px solid; font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-    .badge.card { color: var(--green); background: var(--green-soft); }
-    .badge.scale { color: var(--blue); background: var(--blue-soft); }
-    .badge.baseline { color: #8b641f; background: var(--amber-soft); }
-    .badge.quote { color: var(--red); background: var(--red-soft); }
+    .badge.card { color: #6b21a8; background: #f3e8ff; border-color: #c084fc; }
+    .badge.industry { color: var(--green); background: var(--green-soft); }
+    .badge.bidframe { color: var(--blue); background: var(--blue-soft); }
+    .badge.brief { color: #166534; background: #dcfce7; border-color: #86efac; }
+    .badge.estimate { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
     .rate-source small { display: block; margin-top: 5px; color: var(--muted); line-height: 1.25; }
 
     .control-section { background: var(--white); }
@@ -663,18 +664,19 @@
     <section class="content" id="rates">
       <div class="container source-layout">
         <div class="source-copy">
-          <p class="eyebrow">Rate sources</p>
-          <h2>Your rates first. Gaps filled visibly.</h2>
-          <p>When a company rate card has a role match, it wins.</p>
-          <div class="source-note"><strong>Every number carries context.</strong> BidFrame shows whether a rate came from your card, a published scale, a BidFrame baseline, the brief, or an estimate that still needs a quote.</div>
+          <p class="eyebrow">Rate provenance</p>
+          <h2>The source stays attached to the rate.</h2>
+          <p>Amounts stated in the brief stay as stated. For drafted roles with a match, a selected company rate card takes priority. Uncovered roles fall back to BidFrame rates, and estimates remain labeled for producer review.</p>
+          <div class="source-note"><strong>Company rate cards</strong>Create a company rate card from reviewed CSV or XLSX rows, or enter rates manually. Choose the card future bids should use.</div>
         </div>
-        <div class="rate-table" aria-label="Example rate source table">
-          <div class="rate-head"><span>Role</span><span>Rate</span><span>Source status</span></div>
-          <div class="rate-row"><div class="rate-role"><strong>Executive Producer</strong><span>Prep / daily</span></div><div class="rate-value">$1,650</div><div class="rate-source"><span class="badge card">Company card</span><small>Northstar Rate Card · active snapshot</small></div></div>
-          <div class="rate-row"><div class="rate-role"><strong>1st Assistant Director</strong><span>Shoot / daily</span></div><div class="rate-value">$1,280</div><div class="rate-source"><span class="badge scale">Published scale</span><small>DGA Commercials · effective date shown</small></div></div>
-          <div class="rate-row"><div class="rate-role"><strong>Production Designer</strong><span>Prep / daily</span></div><div class="rate-value">$1,200</div><div class="rate-source"><span class="badge baseline">BF baseline</span><small>BidFrame rate · provenance note shown</small></div></div>
-          <div class="rate-row"><div class="rate-role"><strong>Principal Usage Buyout</strong><span>Negotiated / flat</span></div><div class="rate-value">Pending</div><div class="rate-source"><span class="badge quote">Needs quote</span><small>No verified amount silently inserted</small></div></div>
-          <div class="rate-row"><div class="rate-role"><strong>Per diem · New York</strong><span>M&amp;IE / daily</span></div><div class="rate-value">$92</div><div class="rate-source"><span class="badge scale">Government</span><small>GSA FY2026 · locality and date shown</small></div></div>
+        <div class="rate-table" aria-label="Example rate provenance table">
+          <div class="rate-head"><span>Role</span><span>Applied value</span><span>Source status</span></div>
+          <div class="rate-row"><div class="rate-role"><strong>Executive Producer</strong><span>Company / daily</span></div><div class="rate-value">Saved company rate</div><div class="rate-source"><span class="badge card">Your rate card</span><small>Northstar Commercial</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>1st Assistant Director</strong><span>DGA minimum / daily</span></div><div class="rate-value">$1,280 minimum</div><div class="rate-source"><span class="badge industry">Industry rate</span><small>DGA Commercial Agreement · effective Dec. 1, 2025</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Art Director</strong><span>LA union / daily</span></div><div class="rate-value">$1,200</div><div class="rate-source"><span class="badge bidframe">BidFrame rate · High</span><small>Modeled benchmark with source context</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Location fee</strong><span>Client stated / flat</span></div><div class="rate-value">Brief amount</div><div class="rate-source"><span class="badge brief">From brief</span><small>Client-stated amount preserved</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Known-figure talent fee</strong><span>Negotiated / flat</span></div><div class="rate-value">$0</div><div class="rate-source"><span class="badge estimate">Estimated</span><small>Quote required · no sourced amount inserted</small></div></div>
+          <div class="rate-row"><div class="rate-role"><strong>Per diem · NYC 10001</strong><span>M&amp;IE / daily · May 2026</span></div><div class="rate-value">$92</div><div class="rate-source"><span class="badge industry">Industry rate</span><small>GSA FY2026 · locality and date resolved</small></div></div>
         </div>
       </div>
     </section>
