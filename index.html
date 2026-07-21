@@ -173,10 +173,6 @@
     .hero-line { max-width: 12.5ch; margin: 0; font-size: clamp(40px, 4vw, 60px); }
     .hero-support { max-width: 500px; margin: 24px 0 0; color: #3d3c37; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.4; letter-spacing: -.012em; }
     .hero-support strong { color: var(--ink); font-weight: 700; }
-    .hero-proof { margin-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--ink); background: var(--white); }
-    .hero-proof-cell { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 12px 13px; border-right: 1px solid var(--line); font-family: var(--mono); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
-    .hero-proof-cell:last-child { border-right: 0; }
-    .hero-proof-cell::before { content: ""; width: 6px; height: 6px; flex: 0 0 6px; background: var(--ink); }
     @media (prefers-reduced-motion: reduce) { .rot-word { animation: none !important; } }
 
     .app-window {
@@ -491,10 +487,6 @@
       .setup-line { font-size: 17px; }
       .hero-line { font-size: clamp(38px, 11vw, 46px); max-width: none; }
       .hero-support { font-size: 17px; }
-      .hero-proof { grid-template-columns: repeat(2, 1fr); }
-      .hero-proof-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-      .hero-proof-cell:nth-child(2n) { border-right: 0; }
-      .hero-proof-cell:nth-last-child(-n+2) { border-bottom: 0; }
       h1 { font-size: clamp(38px, 10vw, 42px); }
       h2 { font-size: 36px; }
       .lede { font-size: 18px; }
@@ -599,12 +591,6 @@
           </p>
           <h1 class="hero-line">Turn the brief into a bid you can defend.</h1>
           <p class="hero-support">Drafts from the brief, then <strong>shows its work</strong>. Every rate traced to its source, every gap surfaced before pricing, every call left to you.</p>
-          <div class="hero-proof" aria-label="What BidFrame does">
-            <span class="hero-proof-cell">Brief to draft</span>
-            <span class="hero-proof-cell">Rates sourced</span>
-            <span class="hero-proof-cell">Gaps flagged</span>
-            <span class="hero-proof-cell">Change orders</span>
-          </div>
           <div class="hero-actions">
             <a class="button button-dark" href="#access">Request private pilot</a>
             <a class="button button-light" href="#review">See the review</a>
