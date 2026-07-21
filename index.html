@@ -156,6 +156,29 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
     .hero-note { margin-top: 18px; color: var(--muted); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; }
 
+    /* Hero left-column redesign */
+    .hero-brand { display: inline-flex; align-items: center; gap: 13px; margin: 0 0 30px; }
+    .hero-brand svg { width: 33px; height: 33px; }
+    .hero-brand-text { display: flex; flex-direction: column; gap: 3px; }
+    .hero-brand-text b { font-size: 24px; font-weight: 850; letter-spacing: .12em; line-height: 1; text-transform: uppercase; }
+    .hero-brand-text small { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .setup-line { margin: 0 0 20px; color: var(--muted); font-size: clamp(17px, 1.55vw, 21px); line-height: 1.25; letter-spacing: -.01em; }
+    .word-slot { display: inline-block; position: relative; vertical-align: baseline; white-space: nowrap; transition: width .22s cubic-bezier(.4, 0, .2, 1); }
+    .rot-word { display: inline-block; color: var(--ink); font-weight: 600; white-space: nowrap; will-change: transform, opacity; }
+    .rot-word.out { animation: wOut 170ms ease forwards; }
+    .rot-word.in { animation: wIn 260ms cubic-bezier(.2, .7, .2, 1) forwards; }
+    .rot-sizer { position: absolute; left: -9999px; top: 0; visibility: hidden; white-space: nowrap; }
+    @keyframes wOut { to { opacity: 0; transform: translateY(-.4em); } }
+    @keyframes wIn { from { opacity: 0; transform: translateY(.4em); } to { opacity: 1; transform: translateY(0); } }
+    .hero-line { max-width: 12.5ch; margin: 0; font-size: clamp(40px, 4vw, 60px); }
+    .hero-support { max-width: 500px; margin: 24px 0 0; color: #3d3c37; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.4; letter-spacing: -.012em; }
+    .hero-support strong { color: var(--ink); font-weight: 700; }
+    .hero-proof { margin-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--ink); background: var(--white); }
+    .hero-proof-cell { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 12px 13px; border-right: 1px solid var(--line); font-family: var(--mono); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+    .hero-proof-cell:last-child { border-right: 0; }
+    .hero-proof-cell::before { content: ""; width: 6px; height: 6px; flex: 0 0 6px; background: var(--ink); }
+    @media (prefers-reduced-motion: reduce) { .rot-word { animation: none !important; } }
+
     .app-window {
       position: relative;
       align-self: end;
@@ -462,6 +485,16 @@
       .nav-links { display: none; }
       .button { min-height: 39px; padding: 0 12px; font-size: 10px; }
       .hero { padding-top: 58px; }
+      .hero-brand { margin-bottom: 24px; }
+      .hero-brand svg { width: 28px; height: 28px; }
+      .hero-brand-text b { font-size: 20px; }
+      .setup-line { font-size: 17px; }
+      .hero-line { font-size: clamp(38px, 11vw, 46px); max-width: none; }
+      .hero-support { font-size: 17px; }
+      .hero-proof { grid-template-columns: repeat(2, 1fr); }
+      .hero-proof-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .hero-proof-cell:nth-child(2n) { border-right: 0; }
+      .hero-proof-cell:nth-last-child(-n+2) { border-bottom: 0; }
       h1 { font-size: clamp(38px, 10vw, 42px); }
       h2 { font-size: 36px; }
       .lede { font-size: 18px; }
@@ -547,15 +580,36 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Pre-award production intelligence</p>
-          <h1>Build a bid you can defend.</h1>
-          <p class="hero-sub">Start with the brief, not a blank template.<br>Turn it into a full production bid in one afternoon.</p>
-          <p class="lede">Every rate points back to its source.<br>Scope gaps, rights questions, and talent-rate issues are resolved before client review, not discovered later as overages.</p>
+          <div class="hero-brand">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="2" y="2" width="24" height="24"/>
+              <path d="M7 8h14M2 14h24M7 20h14"/>
+            </svg>
+            <span class="hero-brand-text">
+              <b>BidFrame</b>
+              <small>Pre-award bid intelligence</small>
+            </span>
+          </div>
+          <p class="setup-line" aria-label="Bidding is easy to get wrong.">
+            <span class="word-slot" data-word-slot aria-hidden="true">
+              <span class="rot-word" data-rot-word>Scoping</span>
+              <span class="rot-word rot-sizer" data-rot-sizer>Estimating</span>
+            </span>
+            is easy to get wrong.
+          </p>
+          <h1 class="hero-line">Turn the brief into a bid you can defend.</h1>
+          <p class="hero-support">Drafts from the brief, then <strong>shows its work</strong>. Every rate traced to its source, every gap surfaced before pricing, every call left to you.</p>
+          <div class="hero-proof" aria-label="What BidFrame does">
+            <span class="hero-proof-cell">Brief to draft</span>
+            <span class="hero-proof-cell">Rates sourced</span>
+            <span class="hero-proof-cell">Gaps flagged</span>
+            <span class="hero-proof-cell">Change orders</span>
+          </div>
           <div class="hero-actions">
             <a class="button button-dark" href="#access">Request private pilot</a>
             <a class="button button-light" href="#review">See the review</a>
           </div>
-          <p class="hero-note">For line producers · executive producers · production managers</p>
+          <p class="hero-note">For line producers, executive producers, and production managers</p>
         </div>
 
         <div class="app-window" aria-label="Example BidFrame review screen">
@@ -572,7 +626,7 @@
             <span class="currency-label">USD scenario</span>
           </div>
           <div class="rail-group">
-            <div class="group-head"><b>Budget</b><em>against the stated client ceiling</em><span class="rule"></span><span class="gap-over">$7,200 over client ceiling</span></div>
+            <div class="group-head"><b>Budget</b><em>against the stated client ceiling</em><span class="rule"></span><span class="gap-over">$7,200 over</span></div>
             <div class="task-list">
               <article class="task savings">
                 <div class="task-stripe"></div>
@@ -581,7 +635,7 @@
                   <strong>Move the camera package to a weekly rate</strong>
                   <p>Five daily rentals price cheaper as a weekly. Closes $4,200 of the gap.</p>
                 </div>
-                <div class="task-action"><button>Apply to bid</button><span>Reversible</span></div>
+                <div class="task-action"><button>Apply</button><span>Reversible</span></div>
               </article>
             </div>
           </div>
@@ -591,38 +645,31 @@
               <article class="task red">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip rate">Labor &amp; Payroll</span>
+                  <span class="chip rate">Labor</span>
                   <strong>14-hour shoot days, no overtime budgeted</strong>
                   <p>Crew hours past 10 trigger 1.5x and 2x. One of the most common overruns.</p>
                 </div>
-                <div class="task-action"><button>Add to bid</button><button class="ghost">Not needed</button></div>
+                <div class="task-action"><button>Add</button><span>Before export</span></div>
               </article>
               <article class="task">
                 <div class="task-stripe"></div>
                 <div class="task-copy">
-                  <span class="chip question">Post-Production</span>
-                  <strong>Missing finishing lines for the 9:16 and 1:1 versions</strong>
-                  <p>Brief lists all three ratios; only 16:9 is priced.</p>
+                  <span class="chip question">Post</span>
+                  <strong>Missing finishing lines for 9:16 and 1:1</strong>
+                  <p>The brief lists all three ratios. Only 16:9 is priced in the draft.</p>
                 </div>
-                <div class="task-action"><button>Add to bid</button><button class="ghost">Not needed</button></div>
+                <div class="task-action"><button>Add</button><span>Scope gap</span></div>
               </article>
             </div>
-          </div>
-          <div class="rail-group group-collapsed">
-            <div class="group-head"><span class="marker">&#9656;</span><b>Watch</b><em>includes critical flags when present</em><span class="rule"></span><span class="count">4</span></div>
-          </div>
-          <div class="rail-group group-collapsed">
-            <div class="group-head"><span class="marker">&#9656;</span><b>Reference</b><em>assumptions and handled decisions</em><span class="rule"></span><span class="count">8</span></div>
           </div>
           <div class="source-legend" aria-label="Rate source tags">
             <b>Rate source tags</b>
             <span class="source-tag card">Your rate card</span>
             <span class="source-tag industry">Industry rate</span>
-            <span class="source-tag bidframe">BidFrame rate · High</span>
+            <span class="source-tag bidframe">BidFrame rate</span>
             <span class="source-tag brief">From brief</span>
-            <span class="source-tag estimate">Estimated</span>
           </div>
-          <div class="app-footer"><span><b>Reviewed</b> · Scope + rate sources</span><span>Exports · Client · AICP-structured · Bid letter</span></div>
+          <div class="app-footer"><span><b>Reviewed</b> · Scope + rate sources</span><span>Client · AICP-structured · Bid letter</span></div>
         </div>
       </div>
     </section>
@@ -941,6 +988,54 @@
           button.textContent = defaultButtonText;
         }
       });
+    }());
+  </script>
+  <script>
+    (function () {
+      var slot = document.querySelector('[data-word-slot]');
+      var word = slot && slot.querySelector('[data-rot-word]');
+      var sizer = slot && slot.querySelector('[data-rot-sizer]');
+      if (!slot || !word || !sizer) return;
+
+      var words = ['Scoping', 'Quoting', 'Estimating', 'Bidding'];
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function widthOf(w) {
+        sizer.textContent = w;
+        return Math.ceil(sizer.getBoundingClientRect().width);
+      }
+
+      slot.style.width = widthOf(words[0]) + 'px';
+
+      if (reduce) {
+        word.textContent = 'Bidding';
+        slot.style.width = '';
+        return;
+      }
+
+      var i = 0;
+      var timer = window.setInterval(function () {
+        i += 1;
+        var next = words[i];
+        var isFinal = i === words.length - 1;
+
+        word.classList.remove('in');
+        word.classList.add('out');
+        slot.style.width = widthOf(next) + 'px';
+
+        window.setTimeout(function () {
+          word.textContent = next;
+          word.classList.remove('out');
+          word.classList.add('in');
+          if (isFinal) {
+            window.setTimeout(function () {
+              slot.style.width = '';
+            }, 300);
+          }
+        }, 170);
+
+        if (isFinal) window.clearInterval(timer);
+      }, 900);
     }());
   </script>
 </body>
