@@ -272,42 +272,24 @@
     .step p { margin: 0; color: var(--muted); font-size: 14px; }
 
     .misses-section { background: var(--white); }
-    .misses-head {
-      display: grid;
-      grid-template-columns: 1.05fr .75fr;
-      gap: 80px;
-      align-items: end;
-      margin-bottom: 64px;
-    }
-    .misses-head h2 { max-width: 760px; margin-bottom: 0; }
-    .misses-head-copy { padding-bottom: 7px; }
-    .misses-head-copy p { margin: 0; color: var(--muted); font-size: 18px; }
-    .misses-head-copy strong { color: var(--ink); }
-    .misses-list { border-top: 1px solid var(--ink); }
-    .miss-row {
-      display: grid;
-      grid-template-columns: 70px 1fr 156px;
-      gap: 24px;
-      align-items: center;
-      min-height: 166px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--ink);
-    }
-    .miss-num {
-      align-self: start;
-      color: transparent;
-      font-family: var(--mono);
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1;
-      -webkit-text-stroke: 1px var(--ink);
-    }
-    .miss-copy h3 { max-width: 760px; margin: 0 0 9px; font-size: clamp(25px, 3vw, 38px); }
-    .miss-copy p { max-width: 760px; margin: 0; color: var(--muted); font-size: 14px; }
+    .misses-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: start; }
+    .scope-doc { margin: 0; padding: 30px 32px 24px; border: 1px solid var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--soft); }
+    .scope-doc figcaption { margin-bottom: 18px; color: var(--muted); font-family: var(--mono); font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .scope-doc p { margin: 0; font-size: 20px; line-height: 1.75; }
+    .scope-doc mark { padding: 2px 4px; color: inherit; border-bottom: 2px solid; }
+    .scope-doc mark.m-crew { background: var(--amber-soft); border-color: var(--amber); }
+    .scope-doc mark.m-post { background: var(--blue-soft); border-color: var(--blue); }
+    .scope-doc mark.m-talent { background: var(--red-soft); border-color: var(--red); }
+    .scope-doc mark.m-credit { background: var(--green-soft); border-color: var(--green); }
+    .scope-doc sup { margin-left: 2px; font-family: var(--mono); font-size: 10px; font-weight: 700; }
+    .scope-doc footer { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+    .miss-notes { border-top: 1px solid var(--ink); }
+    .miss-note { display: grid; grid-template-columns: 34px 1fr auto; gap: 16px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .miss-note-num { padding-top: 3px; font-family: var(--mono); font-size: 12px; font-weight: 700; }
+    .miss-note > div { color: var(--muted); font-size: 14px; }
+    .miss-note b { display: block; margin-bottom: 3px; color: var(--ink); font-size: 15px; }
     .rail-label {
-      justify-self: end;
-      min-width: 138px;
-      padding: 10px 12px;
+      padding: 8px 12px;
       border: 1px solid var(--ink);
       font-family: var(--mono);
       font-size: 9px;
@@ -320,6 +302,7 @@
     .rail-label.budget { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
     .rail-label.suggested { color: #8b641f; background: var(--amber-soft); border-color: #8b641f; }
     .rail-label.watch { color: var(--blue); background: var(--blue-soft); border-color: var(--blue); }
+    .rail-label.credit { color: var(--green); background: var(--green-soft); border-color: var(--green); }
     .source-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 76px; align-items: start; }
     .source-copy { position: sticky; top: 108px; }
     .source-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
@@ -458,8 +441,9 @@
     @media (max-width: 980px) {
       .nav-links a:not(.button) { display: none; }
       .mobile-menu { display: block; }
-      .hero-grid, .misses-head, .source-layout, .control-grid, .exports-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-grid > *, .misses-head > *, .source-layout > *, .control-grid > *, .exports-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
+      .hero-grid, .source-layout, .control-grid, .exports-grid, .access-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid > *, .source-layout > *, .control-grid > *, .exports-grid > *, .access-grid > *, .faq-grid > * { min-width: 0; }
+      .misses-layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
       .hero-copy { padding-bottom: 20px; }
       .app-window { min-height: auto; margin-bottom: -1px; }
       .proof-grid, .steps { grid-template-columns: repeat(2, 1fr); }
@@ -505,12 +489,10 @@
       .step h3 { margin: 20px 0 10px; }
       section.content { padding: 82px 0; }
       .section-intro { margin-bottom: 42px; }
-      .misses-head { gap: 24px; margin-bottom: 40px; }
-      .misses-head-copy { padding-bottom: 0; }
-      .miss-row { grid-template-columns: 44px 1fr; gap: 14px; min-height: 0; padding: 25px 0; }
-      .miss-num { font-size: 27px; }
-      .miss-copy h3 { font-size: 25px; }
-      .rail-label { grid-column: 2; justify-self: start; min-width: 0; margin-top: 4px; }
+      .scope-doc { padding: 22px 20px 18px; box-shadow: 5px 5px 0 var(--soft); }
+      .scope-doc p { font-size: 17px; }
+      .miss-note { grid-template-columns: 26px 1fr; }
+      .miss-note .rail-label { grid-column: 2; justify-self: start; margin-top: 2px; }
       .rate-head, .rate-row { grid-template-columns: 1fr .62fr; }
       .rate-head span:last-child, .rate-source { grid-column: 1 / -1; }
       .rate-head span:last-child { display: none; }
@@ -688,41 +670,39 @@
 
     <section class="content misses-section" id="review">
       <div class="container">
-        <div class="misses-head">
-          <div>
-            <p class="eyebrow">What the review catches</p>
-            <h2>The omissions that become real overages.</h2>
-          </div>
-          <div class="misses-head-copy">
-            <p>BidFrame checks the priced bid for work the scope implies but the line items do not cover.</p>
-          </div>
+        <div class="section-intro">
+          <p class="eyebrow">What the review catches</p>
+          <h2>The omissions that become real overages.</h2>
+          <p>BidFrame checks the priced bid for work the scope implies but the line items do not cover. Three sentences of scope, read the way the review reads them.</p>
         </div>
-
-        <div class="misses-list">
-          <article class="miss-row">
-            <div class="miss-num">01</div>
-            <div class="miss-copy">
-              <h3>Rental gear without pickup or prep labor</h3>
-              <p>On a one-day shoot, paid equipment rentals with no delivery, pickup, or prep coverage are flagged for review.</p>
+        <div class="misses-layout">
+          <figure class="scope-doc" aria-label="Example scope excerpt marked up by the review">
+            <figcaption>Scope excerpt · one-day brand shoot</figcaption>
+            <p><mark class="m-crew">One shoot day<sup>01</sup></mark> on a stage in <mark class="m-credit">Senoia, Georgia<sup>04</sup></mark>. A <mark class="m-crew">basic rented lighting package<sup>01</sup></mark> and <mark class="m-talent">two union principals<sup>03</sup></mark> on camera. Deliverables: <mark class="m-post">a :60 anthem, three :30 cutdowns, and nine social versions<sup>02</sup></mark> across 9:16 and 1:1.</p>
+            <footer>The priced bid: no prep labor · two post lines · session fees only · no incentive line</footer>
+          </figure>
+          <div class="miss-notes" aria-label="What the review flags on this excerpt">
+            <div class="miss-note">
+              <span class="miss-note-num">01</span>
+              <div><b>One day on set, two days of gear.</b> Pickup and prep land the day before the shoot. The package is priced, that labor day is not.</div>
+              <span class="rail-label budget">Crew coverage</span>
             </div>
-            <div class="rail-label">Crew coverage</div>
-          </article>
-          <article class="miss-row">
-            <div class="miss-num">02</div>
-            <div class="miss-copy">
-              <h3>Deliverables without enough post</h3>
-              <p>A large deliverable list with only a few post lines is flagged for editorial, conform, and QC coverage.</p>
+            <div class="miss-note">
+              <span class="miss-note-num">02</span>
+              <div><b>Thirteen finished pieces on two post lines.</b> Reframes, conform, QC, and captions for nine social versions, none of it priced.</div>
+              <span class="rail-label watch">Post coverage</span>
             </div>
-            <div class="rail-label watch">Post coverage</div>
-          </article>
-          <article class="miss-row">
-            <div class="miss-num">03</div>
-            <div class="miss-copy">
-              <h3>A practical location without permits</h3>
-              <p>When the bid includes a practical location but no permit line, the missing cost is flagged before handoff.</p>
+            <div class="miss-note">
+              <span class="miss-note-num">03</span>
+              <div><b>Session fees do not buy the usage.</b> The scope never says where these spots run. Until it does, usage fees, 13-week holding cycles, and pension and health on all of it stay unpriced.</div>
+              <span class="rail-label action">Talent usage</span>
             </div>
-            <div class="rail-label action">Missing scope</div>
-          </article>
+            <div class="miss-note">
+              <span class="miss-note-num">04</span>
+              <div><b>Georgia is an incentive state and the bid never says so.</b> The flag attaches the program terms, 20 to 30 percent transferable, and the caution producers skip: audit-contingent, slow to pay, never cash flow.</div>
+              <span class="rail-label credit">Tax incentive</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
